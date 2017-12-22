@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1751DF36B9995837226F2D8D /* Pods_CardiotachMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887175E55E5A0CC8CFA108C8 /* Pods_CardiotachMate.framework */; };
 		CDA527A21FECD20E009C39EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA527A11FECD20E009C39EC /* AppDelegate.m */; };
 		CDA527A51FECD20E009C39EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA527A41FECD20E009C39EC /* ViewController.m */; };
 		CDA527A81FECD20E009C39EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA527A61FECD20E009C39EC /* Main.storyboard */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		887175E55E5A0CC8CFA108C8 /* Pods_CardiotachMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardiotachMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		983B29790E3937E207C8E55A /* Pods-CardiotachMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardiotachMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate.release.xcconfig"; sourceTree = "<group>"; };
+		9D514ABAF5D6810B2D9C6A99 /* Pods-CardiotachMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardiotachMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate.debug.xcconfig"; sourceTree = "<group>"; };
 		CDA5279D1FECD20E009C39EC /* CardiotachMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardiotachMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA527A01FECD20E009C39EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CDA527A11FECD20E009C39EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +30,7 @@
 		CDA527AC1FECD20E009C39EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDA527AE1FECD20E009C39EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA527AF1FECD20E009C39EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +38,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1751DF36B9995837226F2D8D /* Pods_CardiotachMate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2169E84908DA855E4732369E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D514ABAF5D6810B2D9C6A99 /* Pods-CardiotachMate.debug.xcconfig */,
+				983B29790E3937E207C8E55A /* Pods-CardiotachMate.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CDA527941FECD20E009C39EC = {
 			isa = PBXGroup;
 			children = (
 				CDA5279F1FECD20E009C39EC /* CardiotachMate */,
 				CDA5279E1FECD20E009C39EC /* Products */,
+				2169E84908DA855E4732369E /* Pods */,
+				DBD427090297487EFCBEEEF6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +79,7 @@
 				CDA527A11FECD20E009C39EC /* AppDelegate.m */,
 				CDA527A31FECD20E009C39EC /* ViewController.h */,
 				CDA527A41FECD20E009C39EC /* ViewController.m */,
+				CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */,
 				CDA527A61FECD20E009C39EC /* Main.storyboard */,
 				CDA527A91FECD20E009C39EC /* Assets.xcassets */,
 				CDA527AB1FECD20E009C39EC /* LaunchScreen.storyboard */,
@@ -71,6 +89,14 @@
 			path = CardiotachMate;
 			sourceTree = "<group>";
 		};
+		DBD427090297487EFCBEEEF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				887175E55E5A0CC8CFA108C8 /* Pods_CardiotachMate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDA527B31FECD20E009C39EC /* Build configuration list for PBXNativeTarget "CardiotachMate" */;
 			buildPhases = (
+				493769C85A860DA768A88748 /* [CP] Check Pods Manifest.lock */,
 				CDA527991FECD20E009C39EC /* Sources */,
 				CDA5279A1FECD20E009C39EC /* Frameworks */,
 				CDA5279B1FECD20E009C39EC /* Resources */,
+				775E0DBE096EB0985F05C644 /* [CP] Embed Pods Frameworks */,
+				CC32EA107C5D2A0A9E607866 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,6 +165,68 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		493769C85A860DA768A88748 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CardiotachMate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		775E0DBE096EB0985F05C644 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AXKit/AXKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AXKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC32EA107C5D2A0A9E607866 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CDA527991FECD20E009C39EC /* Sources */ = {
@@ -218,7 +309,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -267,7 +358,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -276,34 +367,38 @@
 		};
 		CDA527B41FECD20E009C39EC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D514ABAF5D6810B2D9C6A99 /* Pods-CardiotachMate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D6M452FYRP;
+				GCC_PREFIX_HEADER = CardiotachMate/PrefixHeader.pch;
 				INFOPLIST_FILE = CardiotachMate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hinteen.CardiotachMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b9f70955-ff2b-4c81-88f7-cee73fa0d63c";
 				PROVISIONING_PROFILE_SPECIFIER = CardiotachMate_Dev;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		CDA527B51FECD20E009C39EC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 983B29790E3937E207C8E55A /* Pods-CardiotachMate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D6M452FYRP;
+				GCC_PREFIX_HEADER = CardiotachMate/PrefixHeader.pch;
 				INFOPLIST_FILE = CardiotachMate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hinteen.CardiotachMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "63b7349d-406f-45ba-9745-083a84173fd9";
 				PROVISIONING_PROFILE_SPECIFIER = CardiotachMate_Dis;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
