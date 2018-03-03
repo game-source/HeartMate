@@ -9,11 +9,10 @@
 #import "AXStatusBar.h"
 #import "NSOperation+AXExtension.h"
 #import "CALayer+AXWrapper.h"
-#import "UIDevice+AXExtension.h"
 #import "UIColor+AXExtension.h"
 #import "CALayer+AXWrapper.h"
 #import "UIColor+MDColorPack.h"
-
+#import "CoreGraphics+AXExtension.h"
 
 // 是否正在展示状态栏消息
 static BOOL isStatusMessageShowing;
@@ -70,31 +69,17 @@ static inline UIView *getStatusBarProgressMessageContentView(){
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         const CGFloat height = 20;
-        const CGFloat quarter = height/4;
         view = [[UIView alloc] init];
         CGSize statusBarSize = getSystemStatusBar().bounds.size;
-        
         if (([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)) {
             const CGFloat width = 64;
             CGRect frame = CGRectMake((statusBarSize.width - width)/2, 0, width, 20);
             frame.origin = CGPointMake(14, (statusBarSize.height - frame.size.height)/2);
             view.frame = frame;
-            view.layer.cornerRadius = 0.5*frame.size.height;
-            
-            CAShapeLayer *layer = [CAShapeLayer layer];
-            UIBezierPath *path = [UIBezierPath bezierPath];
-            [path moveToPoint:CGPointMake(2*quarter, 0)];
-            [path addQuadCurveToPoint:CGPointMake(0, 2*quarter) controlPoint:CGPointMake(0, 0)];
-            [path addQuadCurveToPoint:CGPointMake(2*quarter, 4*quarter) controlPoint:CGPointMake(0, 4*quarter)];
-            [path addLineToPoint:CGPointMake(width - 2*quarter, 4*quarter)];
-            [path addQuadCurveToPoint:CGPointMake(width, 2*quarter) controlPoint:CGPointMake(width, 4*quarter)];
-            [path addQuadCurveToPoint:CGPointMake(width - 2*quarter, 0) controlPoint:CGPointMake(width, 0)];
-            [path closePath];
-            layer.path = path.CGPath;
-            view.layer.mask = layer;
-            
+            view.layer.mask = CAMaskLayerWithSizeAndCorner(view.bounds.size, 0.5*height);
         } else {
             const CGFloat width = 72;
+            const CGFloat quarter = height/4;
             CGRect frame = CGRectMake((statusBarSize.width - width)/2, 0, width, height);
             view.frame = frame;
             
@@ -148,7 +133,7 @@ static inline void hideStatusBarMessage(){
 static inline void hideStatusBarProgressMessage(){
     
     [UIView animateWithDuration:0.58f delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationCurveEaseOut animations:^{
-        if ([UIDevice currentDevice].isIphoneX) {
+        if (CGConstGetScreenSizeEnum() == kCGScreenSizeEnum_5_8) {
             getStatusBarProgressMessageContentView().alpha = 0;
             getStatusBarProgressMessageContentView().transform = CGAffineTransformMakeScale(1.2, 1.2);
         } else {
@@ -189,7 +174,7 @@ static inline void showStatusBarProgressMessageView(NSTimeInterval duration){
     if (!isStatusProgressMessageShowing) {
         isStatusProgressMessageShowing = YES;
         [getSystemStatusBar() addSubview:getStatusBarProgressMessageContentView()];
-        if ([UIDevice currentDevice].isIphoneX) {
+        if (CGConstGetScreenSizeEnum() == kCGScreenSizeEnum_5_8) {
             getStatusBarProgressMessageContentView().alpha = 0;
             getStatusBarProgressMessageContentView().transform = CGAffineTransformMakeScale(1.2, 1.2);
             [UIView animateWithDuration:0.58f delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationCurveEaseOut animations:^{

@@ -1,0 +1,26 @@
+[
+    {
+        "vc":"TimelineVC",
+        "title":"Timeline",
+        "icon":"tabbar_timeline",
+        "icon_sel":""
+    },
+    {
+        "vc":"CalendarVC",
+        "title":"Calendar",
+        "icon":"tabbar_calendar",
+        "icon_sel":""
+    },
+    {
+        "vc":"MessageVC",
+        "title":"Message",
+        "icon":"tabbar_message",
+        "icon_sel":""
+     },
+     {
+         "vc":"MineVC",
+         "title":"Mine",
+         "icon":"tabbar_mine",
+         "icon_sel":""
+     }
+]

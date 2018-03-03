@@ -17,16 +17,16 @@ FOUNDATION_EXTERN NSString *ThemeKitBundleIdentify;
 /**
  主题色更新通知
  */
-FOUNDATION_EXTERN NSString *ThemeKitNotificationColorChanged;
+FOUNDATION_EXTERN NSNotificationName ThemeKitNotificationColorChanged;
 
 /**
  主题字体更新通知
  */
-FOUNDATION_EXTERN NSString *ThemeKitNotificationFontChanged;
+FOUNDATION_EXTERN NSNotificationName ThemeKitNotificationFontChanged;
 
 /**
  主题图标更新通知
  */
-FOUNDATION_EXTERN NSString *ThemeKitNotificationIconPackChanged;
+FOUNDATION_EXTERN NSNotificationName ThemeKitNotificationIconPackChanged;
 
 

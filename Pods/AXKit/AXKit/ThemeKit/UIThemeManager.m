@@ -15,9 +15,9 @@
 #import "UIResponder+AXExtension.h"
 
 
-NSString *ThemeKitNotificationColorChanged = @"com.xaoxuu.AXKit.theme.notification.ColorChanged";
-NSString *ThemeKitNotificationFontChanged = @"com.xaoxuu.AXKit.theme.notification.FontChanged";
-NSString *ThemeKitNotificationIconPackChanged = @"com.xaoxuu.AXKit.theme.notification.IconPackChanged";
+NSNotificationName ThemeKitNotificationColorChanged = @"com.xaoxuu.AXKit.theme.notification.ColorChanged";
+NSNotificationName ThemeKitNotificationFontChanged = @"com.xaoxuu.AXKit.theme.notification.FontChanged";
+NSNotificationName ThemeKitNotificationIconPackChanged = @"com.xaoxuu.AXKit.theme.notification.IconPackChanged";
 
 
 UIThemeManager *axThemeManager = nil;
@@ -44,7 +44,7 @@ UIThemeManager *axThemeManager = nil;
                 }
                 if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
                     [NSUserDefaults ax_removeObjectForKey:ThemeKitBundleIdentify];
-                    path = [[_AXKitBundle axkitBundle] pathForResource:@"DefaultTheme" ofType:@"json"];
+                    path = [[NSBundle axkitBundle] pathForResource:@"DefaultTheme" ofType:@"json"];
                 }
                 axThemeManager = [self modelWithPath:path];
                 // init settings

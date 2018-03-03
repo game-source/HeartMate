@@ -28,7 +28,7 @@ SOFTWARE.
 
 ## Bugly
 
-Copyright 2017 Bugly Tencent. All rights reserved.
+Copyright (C) 2017 Tencent Bugly, Inc. All rights reserved.
 
 
 ## FMDB

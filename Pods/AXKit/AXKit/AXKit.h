@@ -5,13 +5,12 @@
 //  Created by xaoxuu on 05/03/2017.
 //  Copyright © 2017 Titan Studio. All rights reserved.
 //
-//  Homepage   http://xaoxuu.com (主页)
+//  ---------------------------------------------------------------
+//  Homepage   https://xaoxuu.com                (主页)
+//  docs       https://xaoxuu.com/docs/axkit     (文档)
+//  GitHub     https://github.com/xaoxuu/AXKit   (喜欢请Star或Fork)
+//  ---------------------------------------------------------------
 //
-//  GitHub     https://github.com/xaoxuu/AXKit (喜欢请Star或Fork)
-//
-//  issues     https://github.com/xaoxuu/AXKit/issues/new (反馈BUG或意见)
-//
-// 
 
 #import <UIKit/UIKit.h>
 
@@ -26,4 +25,10 @@ FOUNDATION_EXPORT const unsigned char AXKitVersionString[];
 
 #import <AXKit/AXKitFoundationHeader.h>
 #import <AXKit/AXKitUIHeader.h>
+
+//#import <AXKit/FeedbackKit.h>
+//#import <AXKit/StatusKit.h>
+//#import <AXKit/TabKit.h>
+#import <AXKit/TableKit.h>
+//#import <AXKit/ThemeKit.h>
 

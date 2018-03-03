@@ -106,19 +106,32 @@
 #endif // ==================== [ __OBJC__ Macro ] ==================== //
 
 
-#define AXLogToCachePath(NSObject) [AXLog writeLogWithFunc:[NSString stringWithFormat:@"%s", __FUNCTION__] input:NSObject]
-
-
-NS_ASSUME_NONNULL_BEGIN
-@interface AXLog : NSObject
+/**
+ 保存日志文件【2018-01-12-传入参数1.log】
+ */
+#define AXCachedLogWithType(LogTypeString, NSObject) [AXCachedLog writeLogWithType:LogTypeString func:__FUNCTION__ input:NSObject]
+/**
+ 保存普通日志文件【2018-01-12-app.log】
+ */
+#define AXCachedLogOBJ(NSObject) [AXCachedLog writeAppLogWithFunc:__FUNCTION__ input:NSObject]
+/**
+ 保存数据类日志文件【2018-01-12-data.log】
+ */
+#define AXCachedLogData(NSObject) [AXCachedLog writeDataLogWithFunc:__FUNCTION__ input:NSObject]
+/**
+ 保存Error类日志文件【2018-01-12-error.log】
+ */
+#define AXCachedLogError(NSObject) [AXCachedLog writeErrorLogWithFunc:__FUNCTION__ input:NSObject]
 
 
 /**
- 配置log文件版本
-
- @param version log文件版本
+ 这个类型就是log文件的名字，例如：【2018-01-11-type.log】
  */
-+ (void)configLogVersion:(CGFloat)version;
+typedef NSString LogTypeString;
+
+NS_ASSUME_NONNULL_BEGIN
+@interface AXCachedLog : NSObject
+
 
 /**
  获取所有的日志路径
@@ -137,12 +150,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 获取最近几条日志路径
-
- @param count 日志数量
+ 获取最近几天的日志路径
+ 
+ @param count 天数
  @return 日志路径
  */
-+ (nullable NSArray<NSString *> *)getLatestCachedLogPathWithCount:(NSUInteger)count;
++ (nullable NSArray<NSString *> *)getLatestCachedLogPathWithDateCount:(NSUInteger)count;
 
 /**
  根据路径读取某个日志内容
@@ -159,7 +172,35 @@ NS_ASSUME_NONNULL_BEGIN
  @param func __FUNCTION__
  @param input 输入obj
  */
-+ (void)writeLogWithFunc:(NSString *)func input:(NSObject *)input;
++ (void)writeAppLogWithFunc:(const char *)func input:(nullable NSObject *)input;
+
+/**
+ 写日志（每次启动保存一份日志文件，文件名为启动时间）
+ 要在日志中记录更详细的内容，需要重写输入对象的-description方法。
+ 
+ @param func __FUNCTION__
+ @param input 输入obj
+ */
++ (void)writeDataLogWithFunc:(const char *)func input:(nullable NSObject *)input;
+
+/**
+ 写日志（每次启动保存一份日志文件，文件名为启动时间）
+ 要在日志中记录更详细的内容，需要重写输入对象的-description方法。
+ 
+ @param func __FUNCTION__
+ @param input 输入obj
+ */
++ (void)writeErrorLogWithFunc:(const char *)func input:(nullable NSObject *)input;
+
+/**
+ 写日志（每次启动保存一份日志文件，文件名为启动时间）
+ 要在日志中记录更详细的内容，需要重写输入对象的-description方法。
+ 
+ @param type 日志类型（2018-01-12-日志类型.log）
+ @param func __FUNCTION__
+ @param input 输入obj
+ */
++ (void)writeLogWithType:(LogTypeString *)type func:(const char *)func input:(nullable NSObject *)input;
 
 @end
 NS_ASSUME_NONNULL_END

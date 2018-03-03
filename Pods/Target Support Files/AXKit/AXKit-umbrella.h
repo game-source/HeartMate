@@ -31,7 +31,6 @@
 #import "NSURL+AXExtension.h"
 #import "NSUserDefaults+AXWrapper.h"
 #import "UIApplication+AXExtension.h"
-#import "UIDevice+AXExtension.h"
 #import "_AXEventTarget.h"
 #import "_AXKitBundle.h"
 #import "_AXKitHelpServices.h"

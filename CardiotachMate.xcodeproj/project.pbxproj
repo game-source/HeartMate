@@ -8,18 +8,50 @@
 
 /* Begin PBXBuildFile section */
 		1751DF36B9995837226F2D8D /* Pods_CardiotachMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887175E55E5A0CC8CFA108C8 /* Pods_CardiotachMate.framework */; };
+		CD964CAC204AD88900A9ECBC /* HKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CAB204AD88900A9ECBC /* HKRecord.m */; };
+		CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */ = {isa = PBXBuildFile; fileRef = CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */; };
+		CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CB3204AFC2F00A9ECBC /* BaseTabBarController.m */; };
+		CD964CBD204AFD4100A9ECBC /* BaseNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CB7204AFD4000A9ECBC /* BaseNavController.m */; };
+		CD964CBF204AFD4100A9ECBC /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CBB204AFD4100A9ECBC /* RootViewController.m */; };
+		CD964CC6204AFDB800A9ECBC /* TimelineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CC5204AFDB800A9ECBC /* TimelineVC.m */; };
+		CD964CC9204AFDC200A9ECBC /* CalendarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CC8204AFDC200A9ECBC /* CalendarVC.m */; };
+		CD964CCC204AFDCF00A9ECBC /* MessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CCB204AFDCF00A9ECBC /* MessageVC.m */; };
+		CD964CCF204AFDDF00A9ECBC /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CCE204AFDDF00A9ECBC /* MineVC.m */; };
+		CD964CD2204AFE5F00A9ECBC /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CD0204AFE5E00A9ECBC /* BaseViewController.m */; };
 		CDA527A21FECD20E009C39EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA527A11FECD20E009C39EC /* AppDelegate.m */; };
 		CDA527A51FECD20E009C39EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA527A41FECD20E009C39EC /* ViewController.m */; };
 		CDA527A81FECD20E009C39EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA527A61FECD20E009C39EC /* Main.storyboard */; };
 		CDA527AA1FECD20E009C39EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA527A91FECD20E009C39EC /* Assets.xcassets */; };
 		CDA527AD1FECD20E009C39EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA527AB1FECD20E009C39EC /* LaunchScreen.storyboard */; };
 		CDA527B01FECD20E009C39EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA527AF1FECD20E009C39EC /* main.m */; };
+		CDD5BBE3204AB8DC005D2FC5 /* HeartLive.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5BBE1204AB8DC005D2FC5 /* HeartLive.m */; };
+		CDD5BBEC204AD257005D2FC5 /* HKCaptureSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5BBEB204AD257005D2FC5 /* HKCaptureSession.m */; };
+		CDD5BBF2204AD287005D2FC5 /* HKCaptureOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5BBF1204AD287005D2FC5 /* HKCaptureOutput.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		887175E55E5A0CC8CFA108C8 /* Pods_CardiotachMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardiotachMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		983B29790E3937E207C8E55A /* Pods-CardiotachMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardiotachMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate.release.xcconfig"; sourceTree = "<group>"; };
 		9D514ABAF5D6810B2D9C6A99 /* Pods-CardiotachMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardiotachMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate.debug.xcconfig"; sourceTree = "<group>"; };
+		CD964CAA204AD88900A9ECBC /* HKRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKRecord.h; sourceTree = "<group>"; };
+		CD964CAB204AD88900A9ECBC /* HKRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKRecord.m; sourceTree = "<group>"; };
+		CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BaseTabBarController.json; sourceTree = "<group>"; };
+		CD964CB2204AFC2F00A9ECBC /* BaseTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
+		CD964CB3204AFC2F00A9ECBC /* BaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
+		CD964CB7204AFD4000A9ECBC /* BaseNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavController.m; sourceTree = "<group>"; };
+		CD964CB8204AFD4000A9ECBC /* BaseNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavController.h; sourceTree = "<group>"; };
+		CD964CBA204AFD4100A9ECBC /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		CD964CBB204AFD4100A9ECBC /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		CD964CC4204AFDB800A9ECBC /* TimelineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineVC.h; sourceTree = "<group>"; };
+		CD964CC5204AFDB800A9ECBC /* TimelineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineVC.m; sourceTree = "<group>"; };
+		CD964CC7204AFDC200A9ECBC /* CalendarVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarVC.h; sourceTree = "<group>"; };
+		CD964CC8204AFDC200A9ECBC /* CalendarVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarVC.m; sourceTree = "<group>"; };
+		CD964CCA204AFDCF00A9ECBC /* MessageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageVC.h; sourceTree = "<group>"; };
+		CD964CCB204AFDCF00A9ECBC /* MessageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageVC.m; sourceTree = "<group>"; };
+		CD964CCD204AFDDF00A9ECBC /* MineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineVC.h; sourceTree = "<group>"; };
+		CD964CCE204AFDDF00A9ECBC /* MineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineVC.m; sourceTree = "<group>"; };
+		CD964CD0204AFE5E00A9ECBC /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		CD964CD1204AFE5F00A9ECBC /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		CDA5279D1FECD20E009C39EC /* CardiotachMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardiotachMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA527A01FECD20E009C39EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CDA527A11FECD20E009C39EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -31,6 +63,13 @@
 		CDA527AE1FECD20E009C39EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA527AF1FECD20E009C39EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CDD5BBE0204AB8DC005D2FC5 /* HeartLive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartLive.h; sourceTree = "<group>"; };
+		CDD5BBE1204AB8DC005D2FC5 /* HeartLive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartLive.m; sourceTree = "<group>"; };
+		CDD5BBEA204AD257005D2FC5 /* HKCaptureSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKCaptureSession.h; sourceTree = "<group>"; };
+		CDD5BBEB204AD257005D2FC5 /* HKCaptureSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKCaptureSession.m; sourceTree = "<group>"; };
+		CDD5BBF0204AD287005D2FC5 /* HKCaptureOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKCaptureOutput.h; sourceTree = "<group>"; };
+		CDD5BBF1204AD287005D2FC5 /* HKCaptureOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKCaptureOutput.m; sourceTree = "<group>"; };
+		CDD5BBF4204AD2B7005D2FC5 /* HeartKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +91,69 @@
 				983B29790E3937E207C8E55A /* Pods-CardiotachMate.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CD964CB5204AFD0400A9ECBC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CD964CB8204AFD4000A9ECBC /* BaseNavController.h */,
+				CD964CB7204AFD4000A9ECBC /* BaseNavController.m */,
+				CD964CBA204AFD4100A9ECBC /* RootViewController.h */,
+				CD964CBB204AFD4100A9ECBC /* RootViewController.m */,
+				CD964CB2204AFC2F00A9ECBC /* BaseTabBarController.h */,
+				CD964CB3204AFC2F00A9ECBC /* BaseTabBarController.m */,
+				CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */,
+				CD964CD1204AFE5F00A9ECBC /* BaseViewController.h */,
+				CD964CD0204AFE5E00A9ECBC /* BaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		CD964CB6204AFD1D00A9ECBC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CD964CC0204AFD6400A9ECBC /* Timeline */,
+				CD964CC1204AFD7000A9ECBC /* Calendar */,
+				CD964CC2204AFD7600A9ECBC /* Message */,
+				CD964CC3204AFD7B00A9ECBC /* Mine */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CD964CC0204AFD6400A9ECBC /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				CD964CC4204AFDB800A9ECBC /* TimelineVC.h */,
+				CD964CC5204AFDB800A9ECBC /* TimelineVC.m */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		CD964CC1204AFD7000A9ECBC /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				CD964CC7204AFDC200A9ECBC /* CalendarVC.h */,
+				CD964CC8204AFDC200A9ECBC /* CalendarVC.m */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		CD964CC2204AFD7600A9ECBC /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				CD964CCA204AFDCF00A9ECBC /* MessageVC.h */,
+				CD964CCB204AFDCF00A9ECBC /* MessageVC.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		CD964CC3204AFD7B00A9ECBC /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				CD964CCD204AFDDF00A9ECBC /* MineVC.h */,
+				CD964CCE204AFDDF00A9ECBC /* MineVC.m */,
+			);
+			path = Mine;
 			sourceTree = "<group>";
 		};
 		CDA527941FECD20E009C39EC = {
@@ -77,8 +179,11 @@
 			children = (
 				CDA527A01FECD20E009C39EC /* AppDelegate.h */,
 				CDA527A11FECD20E009C39EC /* AppDelegate.m */,
+				CD964CB5204AFD0400A9ECBC /* Base */,
+				CD964CB6204AFD1D00A9ECBC /* Controllers */,
 				CDA527A31FECD20E009C39EC /* ViewController.h */,
 				CDA527A41FECD20E009C39EC /* ViewController.m */,
+				CDD5BBF3204AD292005D2FC5 /* HeartKit */,
 				CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */,
 				CDA527A61FECD20E009C39EC /* Main.storyboard */,
 				CDA527A91FECD20E009C39EC /* Assets.xcassets */,
@@ -87,6 +192,22 @@
 				CDA527AF1FECD20E009C39EC /* main.m */,
 			);
 			path = CardiotachMate;
+			sourceTree = "<group>";
+		};
+		CDD5BBF3204AD292005D2FC5 /* HeartKit */ = {
+			isa = PBXGroup;
+			children = (
+				CDD5BBF4204AD2B7005D2FC5 /* HeartKit.h */,
+				CDD5BBEA204AD257005D2FC5 /* HKCaptureSession.h */,
+				CDD5BBEB204AD257005D2FC5 /* HKCaptureSession.m */,
+				CDD5BBF0204AD287005D2FC5 /* HKCaptureOutput.h */,
+				CDD5BBF1204AD287005D2FC5 /* HKCaptureOutput.m */,
+				CD964CAA204AD88900A9ECBC /* HKRecord.h */,
+				CD964CAB204AD88900A9ECBC /* HKRecord.m */,
+				CDD5BBE0204AB8DC005D2FC5 /* HeartLive.h */,
+				CDD5BBE1204AB8DC005D2FC5 /* HeartLive.m */,
+			);
+			path = HeartKit;
 			sourceTree = "<group>";
 		};
 		DBD427090297487EFCBEEEF6 /* Frameworks */ = {
@@ -158,6 +279,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */,
 				CDA527AD1FECD20E009C39EC /* LaunchScreen.storyboard in Resources */,
 				CDA527AA1FECD20E009C39EC /* Assets.xcassets in Resources */,
 				CDA527A81FECD20E009C39EC /* Main.storyboard in Resources */,
@@ -233,9 +355,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD964CC6204AFDB800A9ECBC /* TimelineVC.m in Sources */,
+				CDD5BBE3204AB8DC005D2FC5 /* HeartLive.m in Sources */,
+				CD964CCC204AFDCF00A9ECBC /* MessageVC.m in Sources */,
+				CD964CC9204AFDC200A9ECBC /* CalendarVC.m in Sources */,
+				CD964CCF204AFDDF00A9ECBC /* MineVC.m in Sources */,
+				CD964CBF204AFD4100A9ECBC /* RootViewController.m in Sources */,
 				CDA527A51FECD20E009C39EC /* ViewController.m in Sources */,
+				CDD5BBF2204AD287005D2FC5 /* HKCaptureOutput.m in Sources */,
+				CD964CD2204AFE5F00A9ECBC /* BaseViewController.m in Sources */,
+				CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */,
 				CDA527B01FECD20E009C39EC /* main.m in Sources */,
+				CD964CBD204AFD4100A9ECBC /* BaseNavController.m in Sources */,
+				CDD5BBEC204AD257005D2FC5 /* HKCaptureSession.m in Sources */,
 				CDA527A21FECD20E009C39EC /* AppDelegate.m in Sources */,
+				CD964CAC204AD88900A9ECBC /* HKRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

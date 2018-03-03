@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "RootViewController.h"
 
 @interface AppDelegate ()
+
+// @xaoxuu: root vc
+@property (strong, nonatomic) RootViewController *rootVC;
+
 
 @end
 
@@ -17,6 +22,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    // 配置主题
+    [[UIThemeManager sharedInstance] configDefaultTheme:^(UIThemeManager *theme) {
+        theme.color.theme = [UIColor ax_blue];
+        theme.color.accent = [UIColor md_lime];
+    }];
+    
+    // 创建窗口
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    // 设置窗口根控制器
+    self.rootVC = [[RootViewController alloc] init];
+    self.window.rootViewController = self.rootVC;
+    // 显示窗口
+    [self.window makeKeyAndVisible];
+    
+    
+    
     return YES;
 }
 
