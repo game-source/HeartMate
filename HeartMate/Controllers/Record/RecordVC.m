@@ -15,10 +15,11 @@
 static BOOL run = NO;
 
 static UILabel *defaultLabelWithFontSize(CGFloat fontSize){
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0.5*kScreenH, kScreenW, 40)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, kScreenW - 16, 40)];
+    label.adjustsFontSizeToFitWidth = YES;
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
-    label.font = [UIFont systemFontOfSize:fontSize];
+    label.font = [UIFont fontWithName:axThemeManager.font.name size:fontSize];
     return label;
 }
 
@@ -28,15 +29,15 @@ static NSString *defaultTags(){
     NSString *tag2;
     NSInteger hour = date.stringValue(@"HH").integerValue;
     if (hour > 5 && hour < 9) {
-        tag2 = @"早上";
+        tag2 = NSLocalizedString(@"Morning", @"早上");
     } else if (hour < 11) {
-        tag2 = @"上午";
+        tag2 = NSLocalizedString(@"Forenoon", @"上午");
     } else if (hour < 14) {
-        tag2 = @"中午";
+        tag2 = NSLocalizedString(@"Nooning", @"中午");
     } else if (hour < 19) {
-        tag2 = @"下午";
+        tag2 = NSLocalizedString(@"Afternoon", @"下午");
     } else {
-        tag2 = @"晚上";
+        tag2 = NSLocalizedString(@"Evening", @"晚上");
     }
     return [NSString stringWithFormat:@"%@,%@", tag1, tag2];
 }
@@ -142,7 +143,7 @@ static BOOL prepared = NO;
 
 - (void)hkCaptureSession:(HKCaptureSession *)session progress:(CGFloat)progress instantHeartRate:(NSInteger)instantHeartRate {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.statusTips.text = [NSString stringWithFormat:@"%d次/分", (int)instantHeartRate];
+        self.statusTips.text = [NSString stringWithFormat:@"%d bpm", (int)instantHeartRate];
         [self.progressView setProgress:progress animated:YES];
     });
 }
@@ -150,20 +151,23 @@ static BOOL prepared = NO;
 - (void)hkCaptureSession:(HKCaptureSession *)session didCompletedWithHeartRate:(NSInteger)heartRate detail:(NSArray<NSNumber *> *)detail{
     if (run) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.statusTips.text = [NSString stringWithFormat:@"%d次/分", (int)heartRate];
+            self.statusTips.text = [NSString stringWithFormat:@"%d bpm", (int)heartRate];
             
-            NSString *msg = [NSString stringWithFormat:@"\n本次测量的样本为：\n%@", detail.firstObject];
+            NSString *msg = [NSString stringWithFormat:@"\n%@\n%@", NSLocalizedString(@"The data samples for this measurement are:", @"本次测量的数据样本为："), detail.firstObject];
             for (int i = 1; i < detail.count; i++) {
                 msg = [msg stringByAppendingFormat:@",%@", detail[i]];
             }
             [UIAlertController ax_showAlertWithTitle:self.statusTips.text message:msg actions:^(UIAlertController * _Nonnull alert) {
-                [alert ax_addDefaultActionWithTitle:@"保存" handler:^(UIAlertAction * _Nonnull sender) {
-                    [UIAlertController ax_showAlertWithTitle:@"设置标签" message:@"请输入简单的词汇作为标签，用英文逗号分隔。以后你可以通过这些标签进行数据分析。" actions:^(UIAlertController * _Nonnull alert) {
+                [alert ax_addDestructiveActionWithTitle:NSLocalizedString(@"Discard", @"丢弃") handler:^(UIAlertAction * _Nonnull sender) {
+                    [self stopCapture];
+                }];
+                [alert ax_addDefaultActionWithTitle:NSLocalizedString(@"Save", @"保存") handler:^(UIAlertAction * _Nonnull sender) {
+                    [UIAlertController ax_showAlertWithTitle:NSLocalizedString(@"Set Tags", @"设置标签") message:NSLocalizedString(@"Please enter a simple vocabulary as a comma separated by commas. You can use these tags for data analysis later.", @"请输入简单的词汇作为标签，用英文逗号分隔。以后你可以通过这些标签进行数据分析。") actions:^(UIAlertController * _Nonnull alert) {
                         HMHeartRate *avgHR = [[HMHeartRate alloc] init];
                         avgHR.time = [NSDate date];
                         [avgHR.detail addObjects:detail];
                         avgHR.heartRate = heartRate;
-                        avgHR.note = @"这是测试的备注信息";
+                        
                         __block UITextField *tf;
                         [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
                             tf = textField;
@@ -181,7 +185,7 @@ static BOOL prepared = NO;
                                 [self stopCapture];
                             }];
                         }];
-                        [alert ax_addDefaultActionWithTitle:@"保存" handler:^(UIAlertAction * _Nonnull sender) {
+                        [alert ax_addDefaultActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
                             NSArray<NSString *> *tags = [tf.text componentsSeparatedByString:@","];
                             if (tags.count) {
                                 [avgHR.tags addObjects:tags];
@@ -192,7 +196,7 @@ static BOOL prepared = NO;
                             }];
                             [self stopCapture];
                         }];
-                        [alert ax_addCancelActionWithTitle:@"不设置标签" handler:^(UIAlertAction * _Nonnull sender) {
+                        [alert ax_addCancelActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
                             RLMRealm *realm = [RLMRealm defaultRealm];
                             [realm transactionWithBlock:^{
                                 [realm addObject:avgHR];
@@ -201,9 +205,7 @@ static BOOL prepared = NO;
                         }];
                     }];
                 }];
-                [alert ax_addCancelActionWithTitle:@"丢弃" handler:^(UIAlertAction * _Nonnull sender) {
-                    [self stopCapture];
-                }];
+                
             }];
         });
         
@@ -215,16 +217,16 @@ static BOOL prepared = NO;
     dispatch_async(dispatch_get_main_queue(), ^{
         if (state == HKCaptureStateError) {
             self.progressView.hidden = YES;
-            self.largeTitle.text = @"请用指尖轻轻按住摄像头";
+            self.largeTitle.text = NSLocalizedString(@"Press the camera with your fingertip.", @"请用指尖轻轻按住摄像头");
         } else if (state == HKCaptureStatePreparing) {
             self.progressView.hidden = YES;
-            self.largeTitle.text = @"正在检测脉搏...";
+            self.largeTitle.text = NSLocalizedString(@"Detecting pulse ...", @"正在检测脉搏...");
         } else if (state == HKCaptureStateCapturing) {
             self.progressView.hidden = NO;
-            self.largeTitle.text = @"正在测量...";
+            self.largeTitle.text = NSLocalizedString(@"Measuring ...", @"正在测量...");
         } else if (state == HKCaptureStateCompleted) {
             self.progressView.hidden = NO;
-            self.largeTitle.text = @"测量完成";
+            self.largeTitle.text = NSLocalizedString(@"Measurement is completed!", @"测量完成");
         }
     });
 }
@@ -248,6 +250,7 @@ static BOOL prepared = NO;
     
     CGFloat centerX = 0.5 * self.view.width;
     CGFloat height = self.view.bounds.size.height;
+    
     self.largeTitle = defaultLabelWithFontSize(24);
     [self.view addSubview:self.largeTitle];
     self.largeTitle.top = 40;
@@ -263,12 +266,14 @@ static BOOL prepared = NO;
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
     [self.view addSubview:button];
     self.button = button;
+    button.titleLabel.font = [UIFont fontWithName:axThemeManager.font.name size:17];
+    button.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
     [button.layer ax_whiteBorder:1];
     [button.layer ax_cornerRadius:0.5*button.height shadow:LayerShadowNone];
     button.bottom = height - 20;
     button.centerX = centerX;
-    [button setTitle:@"开始测量" forState:UIControlStateNormal];
-    [button setTitle:@"结束测量" forState:UIControlStateSelected];
+    [button setTitle:NSLocalizedString(@"Start", @"结束测量") forState:UIControlStateNormal];
+    [button setTitle:NSLocalizedString(@"Stop", @"结束测量") forState:UIControlStateSelected];
     __weak typeof(self) weakSelf = self;
     [button ax_addTouchUpInsideHandler:^(__kindof UIButton * _Nonnull sender) {
         if (sender.selected) {
@@ -285,7 +290,7 @@ static BOOL prepared = NO;
     progressView.centerX = centerX;
     progressView.bottom = button.top - 40;
     progressView.tintColor = [UIColor whiteColor];
-    progressView.trackTintColor = [UIColor colorWithWhite:1 alpha:0.5];
+    progressView.trackTintColor = [UIColor colorWithWhite:1 alpha:0.3];
     self.progressView = progressView;
     
     self.statusTips = defaultLabelWithFontSize(32);

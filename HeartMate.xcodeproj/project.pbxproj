@@ -29,6 +29,7 @@
 		CDA527AA1FECD20E009C39EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA527A91FECD20E009C39EC /* Assets.xcassets */; };
 		CDA527AD1FECD20E009C39EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA527AB1FECD20E009C39EC /* LaunchScreen.storyboard */; };
 		CDA527B01FECD20E009C39EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA527AF1FECD20E009C39EC /* main.m */; };
+		CDCC7275204C31D800553F25 /* HMDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC7274204C31D800553F25 /* HMDefines.m */; };
 		CDD5BBEC204AD257005D2FC5 /* HKCaptureSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5BBEB204AD257005D2FC5 /* HKCaptureSession.m */; };
 		CDD5BBF2204AD287005D2FC5 /* HKOutputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5BBF1204AD287005D2FC5 /* HKOutputView.m */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,8 @@
 		CDA527AE1FECD20E009C39EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA527AF1FECD20E009C39EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CDCC7273204C31D800553F25 /* HMDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMDefines.h; sourceTree = "<group>"; };
+		CDCC7274204C31D800553F25 /* HMDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMDefines.m; sourceTree = "<group>"; };
 		CDD5BBEA204AD257005D2FC5 /* HKCaptureSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKCaptureSession.h; sourceTree = "<group>"; };
 		CDD5BBEB204AD257005D2FC5 /* HKCaptureSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKCaptureSession.m; sourceTree = "<group>"; };
 		CDD5BBF0204AD287005D2FC5 /* HKOutputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKOutputView.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				CDA527A01FECD20E009C39EC /* AppDelegate.h */,
 				CDA527A11FECD20E009C39EC /* AppDelegate.m */,
 				CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */,
+				CDCC7273204C31D800553F25 /* HMDefines.h */,
+				CDCC7274204C31D800553F25 /* HMDefines.m */,
 				CD964CB5204AFD0400A9ECBC /* Base */,
 				CD964CB6204AFD1D00A9ECBC /* Controllers */,
 				CDD5BBF3204AD292005D2FC5 /* HeartKit */,
@@ -399,6 +404,7 @@
 				CD517D57204BD034001A6992 /* RecordVC.m in Sources */,
 				CD964CD2204AFE5F00A9ECBC /* BaseViewController.m in Sources */,
 				CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */,
+				CDCC7275204C31D800553F25 /* HMDefines.m in Sources */,
 				CDA527B01FECD20E009C39EC /* main.m in Sources */,
 				CD517D4D204BC387001A6992 /* HMHeartRate.m in Sources */,
 				CD964CBD204AFD4100A9ECBC /* BaseNavController.m in Sources */,

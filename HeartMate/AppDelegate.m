@@ -28,6 +28,7 @@
     [[UIThemeManager sharedInstance] configDefaultTheme:^(UIThemeManager *theme) {
         theme.color.theme = [UIColor ax_lightRed];
         theme.color.accent = [UIColor md_lime];
+        theme.font.name = @"Chalkboard SE";
     }];
     
     // 创建窗口
@@ -46,8 +47,14 @@
     [UINavigationBar appearance].opaque = YES;
     [UINavigationBar appearance].barTintColor = axThemeManager.color.theme;
     [UINavigationBar appearance].tintColor = UIColor.whiteColor;
-    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:UIColor.whiteColor};
-    
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:UIColor.whiteColor, NSFontAttributeName:[UIFont fontWithName:axThemeManager.font.name size:20]};
+    if (@available(iOS 11.0, *)) {
+        // on newer versions
+        [UINavigationBar appearance].largeTitleTextAttributes = @{NSForegroundColorAttributeName:UIColor.whiteColor, NSFontAttributeName:[UIFont fontWithName:axThemeManager.font.name size:32]};
+    } else {
+        // Fallback on earlier versions
+        
+    }
     
     [UITabBar appearance].barStyle = UIBarStyleDefault;
     [UITabBar appearance].translucent = NO;
