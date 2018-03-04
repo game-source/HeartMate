@@ -16,6 +16,9 @@ static float lastH = 0;
 // 用于判断是否是第一个福点值
 static int   count = 0;
 
+// 测量精度 1，2，3... 数值越小精度越高
+static float accuracy = 2;
+
 #pragma mark - 根据h返回 浮点
 
 static float HeartRate (float h) {
@@ -111,12 +114,12 @@ static void RGBtoHSV( float r, float g, float b, float *h, float *s, float *v ) 
     // 返回处理后的浮点值
     float hue = HeartRate(h);
     
-    BOOL available = (hue > -1.0f && hue < 1.0f);
+    BOOL available = (hue > -accuracy && hue < accuracy);
     
     if (available) {
         // 获取当前时间戳（精确到毫秒）
         NSTimeInterval t = [[NSDate date] timeIntervalSince1970]*1000;
-        HKRecord *record = [HKRecord recordWithTimestamp:t hue:hue];
+        HKRecord *record = [HKRecord recordWithTimestamp:t hue:hue/accuracy];
         completion(record);
     } else {
         if (error) {

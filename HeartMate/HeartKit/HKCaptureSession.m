@@ -24,6 +24,9 @@ static bool is_recording = NO;
 static float T = 10;
 
 
+static BOOL isCameraAvailable = NO;
+static BOOL isFlashlightAvailable = NO;
+
 
 #pragma mark - 分析瞬时心率
 
@@ -193,6 +196,11 @@ static void analysisInstantHeartRate(NSMutableArray<HKRecord *> *records, void (
 @property (strong, nonatomic) NSMutableArray<HKRecord *> *records;
 // 所有瞬时心率
 @property (strong, nonatomic) NSMutableArray<NSNumber *> *instantHeartRate;
+/**
+ 图像预览层，实时显示捕获的图像
+ */
+@property (strong, nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+
 
 
 @end
@@ -219,9 +227,7 @@ static void analysisInstantHeartRate(NSMutableArray<HKRecord *> *records, void (
         self.output = [[AVCaptureVideoDataOutput alloc] init];
         self.records = [[NSMutableArray alloc] init];
         self.instantHeartRate = [[NSMutableArray alloc] init];
-        if ([self isCaptureSessionAvailable]) {
-            [self setupCapture];
-        }
+        
     }
     return self;
 }
@@ -230,35 +236,52 @@ static void analysisInstantHeartRate(NSMutableArray<HKRecord *> *records, void (
     _expectedDuration = MAX(5, expectedDuration);
 }
 
+- (void)prepare{
+    if ([self isCaptureSessionAvailable]) {
+        [self setupCapture];
+        if ([self.delegate respondsToSelector:@selector(hkCaptureSession:didLoadFinished:error:)]) {
+            NSError *error;
+            if (!isFlashlightAvailable) {
+                error = [NSError ax_errorWithMaker:^(NSErrorMaker * _Nonnull error) {
+                    error.localizedDescription = @"闪光灯不可用";
+                    error.localizedRecoverySuggestion = @"请尽量对准光线强烈的地方进行测试";
+                }];
+            }
+            [self.delegate hkCaptureSession:self didLoadFinished:YES error:nil];
+        }
+    } else {
+        NSError *error = [NSError ax_errorWithMaker:^(NSErrorMaker * _Nonnull error) {
+            error.localizedDescription = @"相机不可用或者没有使用权限";
+        }];
+        if ([self.delegate respondsToSelector:@selector(hkCaptureSession:didLoadFinished:error:)]) {
+            [self.delegate hkCaptureSession:self didLoadFinished:NO error:error];
+        }
+    }
+}
+
 
 - (BOOL)isCaptureSessionAvailable{
+    
     // 判断相机是否可用
     NSString *mediaType = AVMediaTypeVideo;
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
-    if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
-        NSError *err = [NSError errorWithDomain:@"com.xaoxuu.HeartKit" code:100 userInfo:@{NSLocalizedDescriptionKey: @"相机不可用,或没有使用相机权限。"}];
-        if ([self.delegate respondsToSelector:@selector(hkCaptureSession:didInterruptedWithError:)]) {
-            [self.delegate hkCaptureSession:self didInterruptedWithError:err];
-        }
-        return NO;
+    if(authStatus == AVAuthorizationStatusAuthorized || authStatus == AVAuthorizationStatusNotDetermined){
+        isCameraAvailable = YES;
     }
     
     // 检查闪光灯是否可用
-    if (![self.device isTorchModeSupported:AVCaptureTorchModeOn]) {
-        NSError *err = [NSError errorWithDomain:@"com.xaoxuu.HeartKit" code:100 userInfo:@{NSLocalizedDescriptionKey: @"闪光灯不可用。"}];
-        if ([self.delegate respondsToSelector:@selector(hkCaptureSession:didInterruptedWithError:)]) {
-            [self.delegate hkCaptureSession:self didInterruptedWithError:err];
-        }
-        return NO;
+    if ([self.device isTorchModeSupported:AVCaptureTorchModeOn]) {
+        isFlashlightAvailable = YES;
     }
     
-    return YES;
+    return isCameraAvailable;
 }
 
 #pragma mark - 开始
 
 - (void)startRunning {
     is_recording = YES;
+    self.state = HKCaptureStateUnknown;
     [self.session startRunning];
     [self TorchModeOn:YES];
 }
@@ -308,6 +331,13 @@ static void analysisInstantHeartRate(NSMutableArray<HKRecord *> *records, void (
     // 设置最小的视频帧输出间隔
     self.device.activeVideoMinFrameDuration = CMTimeMake(1, 10);
     
+    
+    //使用self.captureSession，初始化预览层，self.captureSession负责驱动input进行信息的采集，layer负责把图像渲染显示
+    self.videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.session];
+    self.videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    self.previewLayer = self.videoPreviewLayer;
+    
+    
     // 用当前的output 初始化connection
     AVCaptureConnection *connection =[self.output connectionWithMediaType:AVMediaTypeVideo];
     [connection setVideoOrientation:AVCaptureVideoOrientationPortrait];
@@ -324,22 +354,27 @@ static void analysisInstantHeartRate(NSMutableArray<HKRecord *> *records, void (
     
     [HKRecord recordWithSampleBuffer:sampleBuffer completion:^(HKRecord *record) {
         if (is_recording) {
-            
-            if ([self.delegate respondsToSelector:@selector(hkCaptureSession:didGetRecord:)]) {
-                [self.delegate hkCaptureSession:self didGetRecord:record];
+            if (!self.instantHeartRate.count) {
+                [self updateState:HKCaptureStatePreparing error:nil];
+            }
+            if ([self.delegate respondsToSelector:@selector(hkCaptureSession:timestamp:point:)]) {
+                [self.delegate hkCaptureSession:self timestamp:record.timestamp/1000.0f point:record.hue];
             }
             [self.records addObject:record];
             if (self.records.count == 40) {
                 // 分析波峰波谷
                 analysisInstantHeartRate(self.records, ^(NSInteger hr) {
+                    [self updateState:HKCaptureStateCapturing error:nil];
                     CGFloat pro = ((CGFloat)self.instantHeartRate.count) / self.expectedDuration;
                     pro = MIN(pro, 1);
-                    if ([self.delegate respondsToSelector:@selector(hkCaptureSession:didUpdateCapturedProgress:instantHeartRate:)]) {
-                        [self.delegate hkCaptureSession:self didUpdateCapturedProgress:pro instantHeartRate:hr];
+                    
+                    if ([self.delegate respondsToSelector:@selector(hkCaptureSession:progress:instantHeartRate:)]) {
+                        [self.delegate hkCaptureSession:self progress:pro instantHeartRate:hr];
                     }
                     
                     [self.instantHeartRate addObject:@(hr)];
                     if (pro >= 1) {
+                        NSArray *detail = [NSArray arrayWithArray:self.instantHeartRate];
                         // 去掉第一个、最大值、最小值，然后求平均值
                         [self.instantHeartRate removeObjectAtIndex:0];
                         [self.instantHeartRate sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
@@ -349,8 +384,10 @@ static void analysisInstantHeartRate(NSMutableArray<HKRecord *> *records, void (
                         [self.instantHeartRate removeLastObject];
                         NSInteger sum = [[self.instantHeartRate valueForKeyPath:@"@sum.doubleValue"] integerValue];
                         NSInteger avg = sum / self.instantHeartRate.count;
-                        if ([self.delegate respondsToSelector:@selector(hkCaptureSession:didCompletedWithAverageHeartRate:)]) {
-                            [self.delegate hkCaptureSession:self didCompletedWithAverageHeartRate:avg];
+                        
+                        [self updateState:HKCaptureStateCompleted error:nil];
+                        if ([self.delegate respondsToSelector:@selector(hkCaptureSession:didCompletedWithHeartRate:detail:)]) {
+                            [self.delegate hkCaptureSession:self didCompletedWithHeartRate:avg detail:detail];
                             [self stopRunning];
                         }
                     }
@@ -360,9 +397,7 @@ static void analysisInstantHeartRate(NSMutableArray<HKRecord *> *records, void (
         }
     } error:^(NSError *error) {
         if (is_recording) {
-            if ([self.delegate respondsToSelector:@selector(hkCaptureSession:didInterruptedWithError:)]) {
-                [self.delegate hkCaptureSession:self didInterruptedWithError:error];
-            }
+            [self updateState:HKCaptureStateError error:error];
             // 清除数据
             [HKRecord reset];
             [self.records removeAllObjects];
@@ -377,18 +412,28 @@ static void analysisInstantHeartRate(NSMutableArray<HKRecord *> *records, void (
 }
 
 
+- (void)updateState:(HKCaptureState)state error:(NSError *)error{
+    if (self.state != state) {
+        self.state = state;
+        if ([self.delegate respondsToSelector:@selector(hkCaptureSession:state:error:)]) {
+            [self.delegate hkCaptureSession:self state:self.state error:error];
+        }
+    }
+}
 
 
 #pragma mark - priv
 
 - (void)TorchModeOn:(BOOL)on{
-    [self.device lockForConfiguration:nil];
-    if (on) {
-        [self.device setTorchModeOnWithLevel:0.01 error:nil];
-    } else {
-        self.device.torchMode = AVCaptureTorchModeOff;
+    if ([self.device isTorchModeSupported:AVCaptureTorchModeOn]) {
+        [self.device lockForConfiguration:nil];
+        if (on) {
+            [self.device setTorchModeOnWithLevel:0.01 error:nil];
+        } else {
+            self.device.torchMode = AVCaptureTorchModeOff;
+        }
+        [self.device unlockForConfiguration];
     }
-    [self.device unlockForConfiguration];
 }
 
 

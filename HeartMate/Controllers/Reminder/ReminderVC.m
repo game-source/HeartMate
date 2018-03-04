@@ -1,18 +1,18 @@
 //
-//  MineVC.m
+//  ReminderVC.m
 //  CardiotachMate
 //
 //  Created by xaoxuu on 03/03/2018.
 //  Copyright © 2018 xaoxuu. All rights reserved.
 //
 
-#import "MineVC.h"
+#import "ReminderVC.h"
 
-@interface MineVC ()
+@interface ReminderVC ()
 
 @end
 
-@implementation MineVC
+@implementation ReminderVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

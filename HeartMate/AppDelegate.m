@@ -26,7 +26,7 @@
     
     // 配置主题
     [[UIThemeManager sharedInstance] configDefaultTheme:^(UIThemeManager *theme) {
-        theme.color.theme = [UIColor ax_blue];
+        theme.color.theme = [UIColor ax_lightRed];
         theme.color.accent = [UIColor md_lime];
     }];
     
@@ -37,6 +37,23 @@
     self.window.rootViewController = self.rootVC;
     // 显示窗口
     [self.window makeKeyAndVisible];
+    
+    
+    
+    
+    [UINavigationBar appearance].barStyle = UIBarStyleDefault;
+    [UINavigationBar appearance].translucent = NO;
+    [UINavigationBar appearance].opaque = YES;
+    [UINavigationBar appearance].barTintColor = axThemeManager.color.theme;
+    [UINavigationBar appearance].tintColor = UIColor.whiteColor;
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:UIColor.whiteColor};
+    
+    
+    [UITabBar appearance].barStyle = UIBarStyleDefault;
+    [UITabBar appearance].translucent = NO;
+    [UITabBar appearance].opaque = YES;
+    [UITabBar appearance].barTintColor = UIColor.whiteColor;
+    [UITabBar appearance].tintColor = axThemeManager.color.theme;
     
     
     

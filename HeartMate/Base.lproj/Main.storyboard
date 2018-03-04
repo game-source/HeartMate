@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,24 +20,8 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="5" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="aZG-FQ-gcu">
-                                <rect key="frame" x="34" y="617" width="307" height="31"/>
-                                <connections>
-                                    <action selector="slide:" destination="BYZ-38-t0r" eventType="valueChanged" id="ynI-TR-oVS"/>
-                                </connections>
-                            </slider>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="aZG-FQ-gcu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="LV8-2z-ewg"/>
-                            <constraint firstItem="WxU-u7-mk5" firstAttribute="top" secondItem="aZG-FQ-gcu" secondAttribute="bottom" constant="20" id="M1W-8r-5vw"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aZG-FQ-gcu" secondAttribute="trailing" constant="20" id="xuD-g6-CUA"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="sli" destination="aZG-FQ-gcu" id="R2c-NA-yBa"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

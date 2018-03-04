@@ -76,9 +76,10 @@
     // @xaoxuu: color
     self.view.backgroundColor = axThemeManager.color.background;
     // @xaoxuu: frame
-    self.view.frame = kScreenBounds;
+    
     if ([self respondsToSelector:@selector(initContentFrame:)]) {
-        self.view.frame = [self initContentFrame:self.view.frame];
+        CGRect frame = [self initContentFrame:kScreenBounds];
+        self.view.frame = frame;
     }
     
     if ([self respondsToSelector:@selector(initContentView:)]) {

@@ -1,5 +1,5 @@
 //
-//  MessageVC.h
+//  ReminderVC.h
 //  CardiotachMate
 //
 //  Created by xaoxuu on 03/03/2018.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface MessageVC : BaseViewController
+@interface ReminderVC : BaseViewController
 
 @end

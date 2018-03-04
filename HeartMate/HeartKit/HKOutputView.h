@@ -1,13 +1,15 @@
 //
-//  HKCaptureOutput.m
+//  HKOutputView.h
 //  CardiotachMate
 //
 //  Created by xaoxuu on 03/03/2018.
 //  Copyright © 2018 xaoxuu. All rights reserved.
 //
 
-#import "HKCaptureOutput.h"
+#import <UIKit/UIKit.h>
 
-@implementation HKCaptureOutput
+@interface HKOutputView : UIView
+
+- (void)drawRateWithPoint:(NSNumber *)point;
 
 @end

@@ -1,20 +1,22 @@
 //
-//  HeartLive.m
-//  HeartBeatsPlugin
+//  HKOutputView.m
+//  CardiotachMate
 //
-//  Created by A053 on 16/9/9.
-//  Copyright © 2016年 Yvan. All rights reserved.
+//  Created by xaoxuu on 03/03/2018.
+//  Copyright © 2018 xaoxuu. All rights reserved.
 //
 
-#import "HeartLive.h"
-
-@interface HeartLive ()
-@property (strong, nonatomic) NSMutableArray *points;
-@end
+#import "HKOutputView.h"
 
 static CGFloat grid_w = 30.0f;
 
-@implementation HeartLive
+@interface HKOutputView ()
+
+@property (strong, nonatomic) NSMutableArray *points;
+
+@end
+
+@implementation HKOutputView
 
 
 - (void)drawRateWithPoint:(NSNumber *)point {
@@ -43,9 +45,9 @@ static CGFloat grid_w = 30.0f;
     // 折线宽度
     CGContextSetLineWidth(context, 2.0);
     //消除锯齿
-//    CGContextSetAllowsAntialiasing(context,false);
+    //    CGContextSetAllowsAntialiasing(context,false);
     // 折线颜色
-    CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
+    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
     CGContextMoveToPoint(context, pos_x, pos_y);
     for (int i = 0; i < self.points.count; i++) {
         float h = [self.points[i] floatValue];
@@ -63,7 +65,7 @@ static CGFloat grid_w = 30.0f;
     
     CGFloat wight  = self.frame.size.width;
     CGFloat height = self.frame.size.height;
-
+    
     // 获取当前画布
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -116,7 +118,7 @@ static CGFloat grid_w = 30.0f;
         pos_y +=grid_w/5;
         CGContextStrokePath(context);
     }
-
+    
 }
 
 
@@ -131,7 +133,7 @@ static CGFloat grid_w = 30.0f;
 
 - (void)drawRect:(CGRect)rect {
     
-//    [self buildGrid];
+    //    [self buildGrid];
     [self drawRate];
     
 }

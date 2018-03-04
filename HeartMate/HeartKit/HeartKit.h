@@ -9,7 +9,8 @@
 #ifndef HeartKit_h
 #define HeartKit_h
 
+
 #import "HKCaptureSession.h"
-#import "HKCaptureOutput.h"
+#import "HKOutputView.h"
 
 #endif /* HeartKit_h */

@@ -2,25 +2,31 @@
     {
         "vc":"TimelineVC",
         "title":"Timeline",
-        "icon":"tabbar_timeline",
+        "icon":"tabbar_clock",
         "icon_sel":""
     },
     {
         "vc":"CalendarVC",
         "title":"Calendar",
-        "icon":"tabbar_calendar",
+        "icon":"tabbar_date",
         "icon_sel":""
     },
     {
-        "vc":"MessageVC",
-        "title":"Message",
-        "icon":"tabbar_message",
+        "vc":"RecordVC",
+        "title":"Record",
+        "icon":"tabbar_add",
         "icon_sel":""
+     },
+     {
+         "vc":"ReminderVC",
+         "title":"Reminder",
+         "icon":"tabbar_ring",
+         "icon_sel":""
      },
      {
          "vc":"MineVC",
          "title":"Mine",
-         "icon":"tabbar_mine",
+         "icon":"tabbar_me",
          "icon_sel":""
      }
 ]
