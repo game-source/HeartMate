@@ -10,6 +10,7 @@ target 'CardiotachMate' do
   pod 'MJRefresh'
   pod 'FMDB'
   pod 'SDWebImage'
+  pod 'Realm'
   
   
 
