@@ -8,9 +8,17 @@
 
 #import "TimelineTV.h"
 #import "HMHeartRate.h"
+#import "TimelineTVC.h"
 
+
+@interface TimelineTV ()
+
+@property (strong, nonatomic) RLMResults<HMHeartRate *> *puppies;
+
+@end
 
 @implementation TimelineTV
+
 
 - (void)ax_tableView:(AXTableViewType *)tableView dataSource:(void (^)(AXTableModelType * _Nonnull))dataSource{
     
@@ -51,5 +59,7 @@
     dataSource(model);
     
 }
+
+
 
 @end

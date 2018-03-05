@@ -14,7 +14,7 @@
 
 static BOOL run = NO;
 
-static UILabel *defaultLabelWithFontSize(CGFloat fontSize){
+static inline UILabel *defaultLabelWithFontSize(CGFloat fontSize){
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, kScreenW - 16, 40)];
     label.adjustsFontSizeToFitWidth = YES;
     label.textAlignment = NSTextAlignmentCenter;
