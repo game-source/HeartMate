@@ -39,6 +39,11 @@
     calendar.titleColors[@(MDCalendarCellStateWeekend)] = [UIColor md_green];
     
     
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_position" action:^(UIBarButtonItem * _Nonnull sender) {
+        calendar.selectedDate = [NSDate date];
+        [calendar reloadData];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,7 +63,6 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self.calendar scrollToDate:[NSDate date]];
 }
 
 - (void)calendar:(MDCalendar *)calendar didSelectDate:(nullable NSDate *)date{
