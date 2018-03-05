@@ -14,8 +14,6 @@
 
 @property (strong, nonatomic) UITableView *tableView;
 
-@property (strong, nonatomic) RLMResults<HMHeartRate *> *puppies;
-
 @property (strong, nonatomic) NSMutableArray<NSMutableArray<HMHeartRate *> *> *results;
 
 @end
@@ -27,15 +25,16 @@
     // Do any additional setup after loading the view.
     
     
-    
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(TimelineTVC.class) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:NSStringFromClass(TimelineTVC.class)];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.estimatedRowHeight = 104;
-    
+    self.tableView.estimatedRowHeight = 107;
+    self.tableView.backgroundColor = axThemeManager.color.background;
     self.tableView.separatorColor = self.tableView.backgroundColor;
     [self.view addSubview:self.tableView];
+    
+    
     
 }
 
@@ -52,29 +51,27 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [self.results removeAllObjects];
+    [self.tableView reloadData];
     
 }
 
-- (RLMResults<HMHeartRate *> *)puppies{
-    if (!_puppies.count) {
-        _puppies = [HMHeartRate allObjects];
-        if (_puppies.count) {
-            _puppies = [_puppies sortedResultsUsingKeyPath:@"time" ascending:NO];
-        }
-    }
-    return _puppies;
-}
+
 
 - (NSMutableArray<NSMutableArray<HMHeartRate *> *> *)results{
-    if (!_results) {
+    if (!_results.count) {
         _results = [NSMutableArray array];
-        if (self.puppies.count) {
-            for (int i = 0; i < self.puppies.count; i++) {
+        RLMResults<HMHeartRate *> *puppies = [HMHeartRate allObjects];
+        if (puppies.count) {
+            puppies = [puppies sortedResultsUsingKeyPath:@"time" ascending:NO];
+        }
+        if (puppies.count) {
+            for (int i = 0; i < puppies.count; i++) {
                 NSMutableArray<HMHeartRate *> *group = [NSMutableArray array];
-                [group addObject:self.puppies[i++]];
+                [group addObject:puppies[i++]];
                 HMHeartRate *hr0 = group[0];
-                while (i < self.puppies.count) {
-                    HMHeartRate *hr = self.puppies[i];
+                while (i < puppies.count) {
+                    HMHeartRate *hr = puppies[i];
                     if (hr.year == hr0.year && hr.month == hr0.month && hr.day == hr0.day) {
                         [group addObject:hr];
                     } else {
@@ -109,17 +106,18 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     HMHeartRate *hr = self.results[section][0];
-    return hr.time.stringValue(@"yyyy-MM-dd");
+    return hr.time.stringValue(@"yyyy-MM-dd EEEE");
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 104;
+    return 107;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
 
 @end

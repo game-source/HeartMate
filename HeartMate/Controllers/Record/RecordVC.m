@@ -176,14 +176,6 @@ static BOOL prepared = NO;
                             textField.text = defaultTags();
                             textField.returnKeyType = UIReturnKeyDone;
                             [textField ax_addEditingEndOnExitHandler:^(__kindof UITextField * _Nonnull sender) {
-                                NSArray<NSString *> *tags = [tf.text componentsSeparatedByString:@","];
-                                if (tags.count) {
-                                    [avgHR.tags addObjects:tags];
-                                }
-                                RLMRealm *realm = [RLMRealm defaultRealm];
-                                [realm transactionWithBlock:^{
-                                    [realm addObject:avgHR];
-                                }];
                                 [self stopCapture];
                             }];
                         }];

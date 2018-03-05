@@ -62,6 +62,7 @@
         for (int i = 0; i < model.tags.count; i++) {
             NSString *tag = model.tags[i];
             HMTagButton *btn = [HMTagButton buttonWithTag:tag delegate:self];
+            [btn setTintColor:axThemeManager.color.accent];
             btn.left = lastX;
             lastX += btn.width;
             self.contentWidth.constant = lastX;
@@ -76,6 +77,14 @@
 - (void)tagButtonDidTouchUpInside:(HMTagButton *)sender{
     NSString *log = [NSString stringWithFormat:@"点击了Tag<%@>", sender.titleLabel.text];
     AXCachedLogOBJ(log);
+}
+
+- (void)prepareForReuse{
+    [super prepareForReuse];
+    self.alpha = 0;
+    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseOut animations:^{
+        self.alpha = 1;
+    } completion:nil];
 }
 
 @end

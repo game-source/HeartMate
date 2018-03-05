@@ -26,8 +26,9 @@
     
     // 配置主题
     [[UIThemeManager sharedInstance] configDefaultTheme:^(UIThemeManager *theme) {
+        theme.color.background = [UIColor colorWithHexString:@"#EEEEEE"];
         theme.color.theme = [UIColor ax_lightRed];
-        theme.color.accent = [UIColor md_lime];
+        theme.color.accent = [UIColor md_lightGreen];
         theme.font.name = @"Chalkboard SE";
     }];
     
@@ -45,12 +46,12 @@
     [UINavigationBar appearance].barStyle = UIBarStyleDefault;
     [UINavigationBar appearance].translucent = NO;
     [UINavigationBar appearance].opaque = YES;
-    [UINavigationBar appearance].barTintColor = axThemeManager.color.theme;
-    [UINavigationBar appearance].tintColor = UIColor.whiteColor;
-    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:UIColor.whiteColor, NSFontAttributeName:[UIFont fontWithName:axThemeManager.font.name size:20]};
+    [UINavigationBar appearance].barTintColor = axThemeManager.color.background;
+    [UINavigationBar appearance].tintColor = axThemeManager.color.theme;
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:axThemeManager.color.theme, NSFontAttributeName:[UIFont fontWithName:axThemeManager.font.name size:20]};
     if (@available(iOS 11.0, *)) {
         // on newer versions
-        [UINavigationBar appearance].largeTitleTextAttributes = @{NSForegroundColorAttributeName:UIColor.whiteColor, NSFontAttributeName:[UIFont fontWithName:axThemeManager.font.name size:32]};
+        [UINavigationBar appearance].largeTitleTextAttributes = @{NSForegroundColorAttributeName:axThemeManager.color.theme, NSFontAttributeName:[UIFont fontWithName:axThemeManager.font.name size:32]};
     } else {
         // Fallback on earlier versions
         

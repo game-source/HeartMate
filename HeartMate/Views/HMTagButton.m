@@ -12,10 +12,10 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.tintColor = axThemeManager.color.theme.lightRatio(0.2);
-        self.imageEdgeInsets = UIEdgeInsetsMake(0, -8, 0, 0);
+        self.tintColor = [UIColor grayColor];
+        self.imageEdgeInsets = UIEdgeInsetsMake(3, -10, 0, 0);
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [self setImage:UIImageNamed(@"icon_tag") forState:UIControlStateNormal];
+        [self setImage:UIImageNamed(@"footnote_tag") forState:UIControlStateNormal];
         [self setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         self.titleLabel.font = axThemeManager.font.customNormal;
     }
