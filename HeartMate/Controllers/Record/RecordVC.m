@@ -58,6 +58,7 @@ static BOOL prepared = NO;
 
 @property (strong, nonatomic) UIButton *button;
 
+@property (strong, nonatomic) UIVisualEffectView *visualEffectView;
 
 @end
 
@@ -106,7 +107,7 @@ static BOOL prepared = NO;
 
 - (void)stopCapture{
     run = NO;
-    self.button.selected = NO;
+    [self updateUI];
     [[HKCaptureSession sharedInstance] stopRunning];
     [[HKCaptureSession sharedInstance].previewLayer removeFromSuperlayer];
 }
@@ -114,8 +115,7 @@ static BOOL prepared = NO;
 - (void)startCapture{
     if (prepared) {
         run = YES;
-        [self.progressView setProgress:0 animated:NO];
-        self.button.selected = YES;
+        [self updateUI];
         [[HKCaptureSession sharedInstance] startRunning];
         [HKCaptureSession sharedInstance].previewLayer.frame = CGRectMake(0, 0, kScreenW, kScreenH);
         [self.view.layer insertSublayer:[HKCaptureSession sharedInstance].previewLayer atIndex:0];
@@ -236,6 +236,8 @@ static BOOL prepared = NO;
     view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2];
     [vev.contentView addSubview:view];
     [self.view addSubview:vev];
+    vev.hidden = YES;
+    self.visualEffectView = vev;
 }
 
 
@@ -291,8 +293,29 @@ static BOOL prepared = NO;
     [self.view addSubview:self.statusTips];
     self.statusTips.bottom = self.progressView.top - 20;
     
+    [self updateUI];
+    
 }
 
+
+- (void)updateUI{
+    UIColor *color;
+    if (run) {
+        color = [UIColor whiteColor];
+        [self.progressView setProgress:0 animated:NO];
+        self.visualEffectView.hidden = NO;
+        self.button.selected = YES;
+        
+    } else {
+        color = axThemeManager.color.theme;
+        self.visualEffectView.hidden = YES;
+        self.button.selected = NO;
+        
+    }
+    self.largeTitle.textColor = color;
+    [self.button setTitleColor:color forState:UIControlStateNormal];
+    [self.button.layer ax_borderWidth:1 color:color];
+}
 
 
 @end
