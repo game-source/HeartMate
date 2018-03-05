@@ -25,7 +25,7 @@ static inline UILabel *defaultLabelWithFontSize(CGFloat fontSize){
 
 static NSString *defaultTags(){
     NSDate *date = [NSDate date];
-    NSString *tag1 = date.stringValue(@"EE");
+    NSString *tag1 = date.stringValue(@"EEEE");
     NSString *tag2;
     NSInteger hour = date.stringValue(@"HH").integerValue;
     if (hour < 5) {
@@ -60,6 +60,9 @@ static BOOL prepared = NO;
 
 @property (strong, nonatomic) UIVisualEffectView *visualEffectView;
 
+@property (strong, nonatomic) UIView *mask;
+@property (strong, nonatomic) UIView *overlay;
+
 @end
 
 @implementation RecordVC
@@ -67,6 +70,8 @@ static BOOL prepared = NO;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationController.view.backgroundColor = axThemeManager.color.theme;
+    self.view.backgroundColor = axThemeManager.color.theme;
     self.view.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBarHidden = YES;
     [self setupVisualLayer];
@@ -86,7 +91,7 @@ static BOOL prepared = NO;
 }
 
 - (CGRect)initContentFrame:(CGRect)frame{
-    frame.size.height -= kTabBarHeight;
+//    frame.size.height -= kTabBarHeight;
     return frame;
 }
 
@@ -98,27 +103,36 @@ static BOOL prepared = NO;
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self startCapture];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self startCapture];
+    });
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     [self stopCapture];
 }
 
+
 - (void)stopCapture{
     run = NO;
-    [self updateUI];
-    [[HKCaptureSession sharedInstance] stopRunning];
-    [[HKCaptureSession sharedInstance].previewLayer removeFromSuperlayer];
+    [self updateUI:^{
+        [[HKCaptureSession sharedInstance] stopRunning];
+        [[HKCaptureSession sharedInstance].previewLayer removeFromSuperlayer];
+    }];
+    
 }
 
 - (void)startCapture{
     if (prepared) {
         run = YES;
-        [self updateUI];
-        [[HKCaptureSession sharedInstance] startRunning];
-        [HKCaptureSession sharedInstance].previewLayer.frame = CGRectMake(0, 0, kScreenW, kScreenH);
-        [self.view.layer insertSublayer:[HKCaptureSession sharedInstance].previewLayer atIndex:0];
+        [HKCaptureSession sharedInstance].previewLayer.frame = self.overlay.bounds;
+        [self.overlay.layer insertSublayer:[HKCaptureSession sharedInstance].previewLayer atIndex:0];
+        [self updateUI:^{
+            [[HKCaptureSession sharedInstance] startRunning];
+            
+            
+        }];
+        
     } else {
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             [[HKCaptureSession sharedInstance] prepare];
@@ -229,20 +243,25 @@ static BOOL prepared = NO;
 
 
 - (void)setupVisualLayer{
+    UIView *overlay = UIViewWithHeight(kScreenH);
+    [self.view addSubview:overlay];
+    self.overlay = overlay;
+    
     UIVisualEffectView *vev = [[UIVisualEffectView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
     UIVisualEffect *ve = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     vev.effect = ve;
     UIView *view = [[UIView alloc] initWithFrame:vev.bounds];
     view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2];
     [vev.contentView addSubview:view];
-    [self.view addSubview:vev];
-    vev.hidden = YES;
+    [overlay addSubview:vev];
     self.visualEffectView = vev;
+    
 }
 
 
 
 - (void)setupSubviews{
+    
     
     CGFloat centerX = 0.5 * self.view.width;
     CGFloat height = self.view.bounds.size.height;
@@ -250,7 +269,7 @@ static BOOL prepared = NO;
     self.largeTitle = defaultLabelWithFontSize(24);
     [self.view addSubview:self.largeTitle];
     self.largeTitle.top = 40;
-    
+    self.largeTitle.text = NSLocalizedString(@"Press the camera with your fingertip.", @"请用指尖轻轻按住摄像头");
     
     //创建一个心电图的View
     self.live = [[HKOutputView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 150)];
@@ -259,22 +278,24 @@ static BOOL prepared = NO;
     self.live.backgroundColor = [UIColor clearColor];
     
     
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
     [self.view addSubview:button];
     self.button = button;
     button.titleLabel.font = [UIFont fontWithName:axThemeManager.font.name size:17];
     button.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
     [button.layer ax_whiteBorder:1];
     [button.layer ax_cornerRadius:0.5*button.height shadow:LayerShadowNone];
-    button.bottom = height - 20;
+    button.bottom = height - 20 - kTabBarHeight;
     button.centerX = centerX;
     [button setTitle:NSLocalizedString(@"Start", @"结束测量") forState:UIControlStateNormal];
     [button setTitle:NSLocalizedString(@"Stop", @"结束测量") forState:UIControlStateSelected];
     __weak typeof(self) weakSelf = self;
     [button ax_addTouchUpInsideHandler:^(__kindof UIButton * _Nonnull sender) {
         if (sender.selected) {
+            [sender ax_animatedScale:0.5 duration:1.8 completion:nil];
             [weakSelf stopCapture];
         } else {
+            [sender ax_animatedScale:1.15 duration:1.5 completion:nil];
             [weakSelf startCapture];
         }
     }];
@@ -293,29 +314,45 @@ static BOOL prepared = NO;
     [self.view addSubview:self.statusTips];
     self.statusTips.bottom = self.progressView.top - 20;
     
-    [self updateUI];
+    UIView *mask = UIMaskViewWithSizeAndCornerRadius(self.button.bounds.size, 0.5*self.button.height);
+    mask.frame = self.button.frame;
+    self.mask = mask;
+    self.overlay.maskView = self.mask;
+    
+    [self updateUI:^{
+        
+    }];
     
 }
 
 
-- (void)updateUI{
-    UIColor *color;
+- (void)updateUI:(void (^)(void))completion{
     if (run) {
-        color = [UIColor whiteColor];
         [self.progressView setProgress:0 animated:NO];
-        self.visualEffectView.hidden = NO;
         self.button.selected = YES;
-        
+        [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseIn animations:^{
+            CGFloat offset = self.button.top + 0.5 * self.button.height;
+            self.mask.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0, -offset), 15, 15);
+            self.tabBarController.tabBar.transform = CGAffineTransformMakeTranslation(0, 12);
+        } completion:^(BOOL finished) {
+            if (completion) {
+                completion();
+            }
+        }];
     } else {
-        color = axThemeManager.color.theme;
-        self.visualEffectView.hidden = YES;
-        self.button.selected = NO;
         
+        self.button.selected = NO;
+        [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseIn animations:^{
+            self.mask.transform = CGAffineTransformIdentity;
+            self.tabBarController.tabBar.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            if (completion) {
+                completion();
+            }
+        }];
     }
-    self.largeTitle.textColor = color;
-    [self.button setTitleColor:color forState:UIControlStateNormal];
-    [self.button.layer ax_borderWidth:1 color:color];
 }
+
 
 
 @end
