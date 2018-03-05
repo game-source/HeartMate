@@ -28,13 +28,15 @@ static NSString *defaultTags(){
     NSString *tag1 = date.stringValue(@"EE");
     NSString *tag2;
     NSInteger hour = date.stringValue(@"HH").integerValue;
-    if (hour > 5 && hour < 9) {
+    if (hour < 5) {
+        tag2 = NSLocalizedString(@"Before Dawn", @"凌晨");
+    } if (hour >= 5 && hour < 9) {
         tag2 = NSLocalizedString(@"Morning", @"早上");
-    } else if (hour < 11) {
+    } else if (hour >= 9 && hour < 11) {
         tag2 = NSLocalizedString(@"Forenoon", @"上午");
-    } else if (hour < 14) {
+    } else if (hour >= 11 && hour < 14) {
         tag2 = NSLocalizedString(@"Nooning", @"中午");
-    } else if (hour < 19) {
+    } else if (hour >= 14 && hour < 19) {
         tag2 = NSLocalizedString(@"Afternoon", @"下午");
     } else {
         tag2 = NSLocalizedString(@"Evening", @"晚上");
