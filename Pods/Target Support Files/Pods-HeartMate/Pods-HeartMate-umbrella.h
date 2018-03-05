@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_CardiotachMateVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_CardiotachMateVersionString[];
+FOUNDATION_EXPORT double Pods_HeartMateVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_HeartMateVersionString[];
 

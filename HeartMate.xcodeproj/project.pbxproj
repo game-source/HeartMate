@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1751DF36B9995837226F2D8D /* Pods_CardiotachMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887175E55E5A0CC8CFA108C8 /* Pods_CardiotachMate.framework */; };
+		CD43DA15204D5D210005C077 /* UIFontHelper+HMFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CD43DA14204D5D210005C077 /* UIFontHelper+HMFont.m */; };
 		CD517D41204BAC28001A6992 /* HMData.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517D40204BAC28001A6992 /* HMData.m */; };
 		CD517D4D204BC387001A6992 /* HMHeartRate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517D4C204BC387001A6992 /* HMHeartRate.m */; };
 		CD517D53204BCF7B001A6992 /* HMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517D52204BCF7B001A6992 /* HMUser.m */; };
@@ -35,12 +36,18 @@
 		CDCC7294204D0C4500553F25 /* HMTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC7293204D0C4500553F25 /* HMTagButton.m */; };
 		CDD5BBEC204AD257005D2FC5 /* HKCaptureSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5BBEB204AD257005D2FC5 /* HKCaptureSession.m */; };
 		CDD5BBF2204AD287005D2FC5 /* HKOutputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5BBF1204AD287005D2FC5 /* HKOutputView.m */; };
+		EBE69086FBB6D4CFE2EA5881 /* Pods_HeartMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AC075923DC9F7FBC6678A6 /* Pods_HeartMate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1689D13B55BEC752C2AE663B /* Pods-HeartMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeartMate/Pods-HeartMate.release.xcconfig"; sourceTree = "<group>"; };
+		50DCEA47E464341C75301902 /* Pods-HeartMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeartMate/Pods-HeartMate.debug.xcconfig"; sourceTree = "<group>"; };
 		887175E55E5A0CC8CFA108C8 /* Pods_CardiotachMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardiotachMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88AC075923DC9F7FBC6678A6 /* Pods_HeartMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeartMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		983B29790E3937E207C8E55A /* Pods-CardiotachMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardiotachMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate.release.xcconfig"; sourceTree = "<group>"; };
 		9D514ABAF5D6810B2D9C6A99 /* Pods-CardiotachMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardiotachMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate.debug.xcconfig"; sourceTree = "<group>"; };
+		CD43DA13204D5D210005C077 /* UIFontHelper+HMFont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFontHelper+HMFont.h"; sourceTree = "<group>"; };
+		CD43DA14204D5D210005C077 /* UIFontHelper+HMFont.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFontHelper+HMFont.m"; sourceTree = "<group>"; };
 		CD517D3F204BAC28001A6992 /* HMData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMData.h; sourceTree = "<group>"; };
 		CD517D40204BAC28001A6992 /* HMData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMData.m; sourceTree = "<group>"; };
 		CD517D4B204BC387001A6992 /* HMHeartRate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMHeartRate.h; sourceTree = "<group>"; };
@@ -101,6 +108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1751DF36B9995837226F2D8D /* Pods_CardiotachMate.framework in Frameworks */,
+				EBE69086FBB6D4CFE2EA5881 /* Pods_HeartMate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +120,8 @@
 			children = (
 				9D514ABAF5D6810B2D9C6A99 /* Pods-CardiotachMate.debug.xcconfig */,
 				983B29790E3937E207C8E55A /* Pods-CardiotachMate.release.xcconfig */,
+				50DCEA47E464341C75301902 /* Pods-HeartMate.debug.xcconfig */,
+				1689D13B55BEC752C2AE663B /* Pods-HeartMate.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -215,13 +225,15 @@
 		CDA5279F1FECD20E009C39EC /* HeartMate */ = {
 			isa = PBXGroup;
 			children = (
+				CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */,
 				CDA527A31FECD20E009C39EC /* ViewController.h */,
 				CDA527A41FECD20E009C39EC /* ViewController.m */,
 				CDA527A01FECD20E009C39EC /* AppDelegate.h */,
 				CDA527A11FECD20E009C39EC /* AppDelegate.m */,
-				CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */,
 				CDCC7273204C31D800553F25 /* HMDefines.h */,
 				CDCC7274204C31D800553F25 /* HMDefines.m */,
+				CD43DA13204D5D210005C077 /* UIFontHelper+HMFont.h */,
+				CD43DA14204D5D210005C077 /* UIFontHelper+HMFont.m */,
 				CD964CB5204AFD0400A9ECBC /* Base */,
 				CD964CB6204AFD1D00A9ECBC /* Controllers */,
 				CDD5BBF3204AD292005D2FC5 /* HeartKit */,
@@ -276,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				887175E55E5A0CC8CFA108C8 /* Pods_CardiotachMate.framework */,
+				88AC075923DC9F7FBC6678A6 /* Pods_HeartMate.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -364,7 +377,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CardiotachMate-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-HeartMate-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -377,10 +390,11 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-HeartMate/Pods-HeartMate-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AXKit/AXKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialControls/MaterialControls.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
@@ -390,13 +404,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AXKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeartMate/Pods-HeartMate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CC32EA107C5D2A0A9E607866 /* [CP] Copy Pods Resources */ = {
@@ -411,7 +426,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeartMate/Pods-HeartMate-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -433,6 +448,7 @@
 				CD517D53204BCF7B001A6992 /* HMUser.m in Sources */,
 				CDA527A51FECD20E009C39EC /* ViewController.m in Sources */,
 				CDD5BBF2204AD287005D2FC5 /* HKOutputView.m in Sources */,
+				CD43DA15204D5D210005C077 /* UIFontHelper+HMFont.m in Sources */,
 				CD517D57204BD034001A6992 /* RecordVC.m in Sources */,
 				CD964CD2204AFE5F00A9ECBC /* BaseViewController.m in Sources */,
 				CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */,
@@ -574,7 +590,7 @@
 		};
 		CDA527B41FECD20E009C39EC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D514ABAF5D6810B2D9C6A99 /* Pods-CardiotachMate.debug.xcconfig */;
+			baseConfigurationReference = 50DCEA47E464341C75301902 /* Pods-HeartMate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -592,7 +608,7 @@
 		};
 		CDA527B51FECD20E009C39EC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 983B29790E3937E207C8E55A /* Pods-CardiotachMate.release.xcconfig */;
+			baseConfigurationReference = 1689D13B55BEC752C2AE663B /* Pods-HeartMate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";

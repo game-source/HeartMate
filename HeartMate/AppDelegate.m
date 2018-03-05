@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "UIFontHelper+HMFont.h"
 
 @interface AppDelegate ()
 
@@ -28,8 +29,8 @@
     [[UIThemeManager sharedInstance] configDefaultTheme:^(UIThemeManager *theme) {
         theme.color.background = [UIColor colorWithHexString:@"#EEEEEE"];
         theme.color.theme = [UIColor ax_lightRed];
-        theme.color.accent = [UIColor md_lightBlue];
-        theme.font.name = @"Chalkboard SE";
+        theme.color.accent = [UIColor md_amber];
+        theme.font.name = @"ChalkboardSE-Regular";
     }];
     
     // 创建窗口
@@ -63,6 +64,11 @@
     [UITabBar appearance].barTintColor = UIColor.whiteColor;
     [UITabBar appearance].tintColor = axThemeManager.color.theme;
     
+//    UIColor *tintColor = axThemeManager.color.theme;
+//    [MDCalendar appearance].tintColor = tintColor;
+//    [MDCalendar appearance].backgroundColors[@(MDCalendarCellStateSelected)] = tintColor;
+//    [MDCalendar appearance].titleColors[@(MDCalendarCellStateToday)] = tintColor;
+//    [MDCalendar appearance].titleColors[@(MDCalendarCellStateWeekend)] = [UIColor md_green];
     
     
     return YES;

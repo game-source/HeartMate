@@ -1,0 +1,6 @@
+framework module Pods_HeartMate {
+  umbrella header "Pods-HeartMate-umbrella.h"
+
+  export *
+  module * { export * }
+}

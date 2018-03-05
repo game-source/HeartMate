@@ -8,7 +8,12 @@
 
 #import "CalendarVC.h"
 
-@interface CalendarVC ()
+
+@interface CalendarVC () <MDCalendarDelegate>
+
+@property (strong, nonatomic) MDCalendar *calendar;
+
+@property (strong, nonatomic) NSDate *selectedDate;
 
 @end
 
@@ -17,6 +22,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    self.navigationController.navigationBarHidden = YES;
+    
+    UIColor *tintColor = self.view.tintColor;
+    MDCalendar *calendar = [[MDCalendar alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:calendar];
+    self.calendar = calendar;
+    calendar.backgroundColor = axThemeManager.color.background;
+    calendar.delegate = self;
+    calendar.theme = MDCalendarThemeLight;
+    calendar.currentDate = [NSDate date];
+    calendar.selectedDate = [NSDate date];
+    calendar.tintColor = tintColor;
+    calendar.backgroundColors[@(MDCalendarCellStateSelected)] = tintColor;
+    calendar.titleColors[@(MDCalendarCellStateToday)] = tintColor;
+    calendar.titleColors[@(MDCalendarCellStateWeekend)] = [UIColor md_green];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,6 +50,22 @@
     frame.size.height -= kTopBarHeight + kTabBarHeight;
     return frame;
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.calendar scrollToDate:[NSDate date]];
+}
+
+- (void)calendar:(MDCalendar *)calendar didSelectDate:(nullable NSDate *)date{
+    calendar.selectedDate = date;
+    self.selectedDate = date;
+}
+
 
 
 @end

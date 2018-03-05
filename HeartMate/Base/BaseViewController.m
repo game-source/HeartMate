@@ -21,6 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.view.tintColor = axThemeManager.color.theme;
     // @xaoxuu: 基类 初始化 顶部区域 NavigationBar
     [self baseInitNavBar];
     // @xaoxuu: 基类 初始化 内容区域

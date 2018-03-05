@@ -2,7 +2,7 @@ platform:ios, '8.0'
 #inhibit_all_warnings!
 use_frameworks!
 #:inhibit_warnings => true
-target 'CardiotachMate' do
+target 'HeartMate' do
     
   pod 'AXKit'
   pod 'YYKit'
@@ -11,8 +11,9 @@ target 'CardiotachMate' do
   pod 'FMDB'
   pod 'SDWebImage'
   pod 'Realm'
-  
-  
+  pod 'MaterialControls'
+#  pod 'FSCalendar'
+
 
 end
 
