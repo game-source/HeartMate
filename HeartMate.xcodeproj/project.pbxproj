@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1751DF36B9995837226F2D8D /* Pods_CardiotachMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887175E55E5A0CC8CFA108C8 /* Pods_CardiotachMate.framework */; };
 		CD43DA15204D5D210005C077 /* UIFontHelper+HMFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CD43DA14204D5D210005C077 /* UIFontHelper+HMFont.m */; };
 		CD517D41204BAC28001A6992 /* HMData.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517D40204BAC28001A6992 /* HMData.m */; };
 		CD517D4D204BC387001A6992 /* HMHeartRate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517D4C204BC387001A6992 /* HMHeartRate.m */; };
@@ -107,7 +106,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1751DF36B9995837226F2D8D /* Pods_CardiotachMate.framework in Frameworks */,
 				EBE69086FBB6D4CFE2EA5881 /* Pods_HeartMate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,7 +599,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hinteen.CardiotachMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b9f70955-ff2b-4c81-88f7-cee73fa0d63c";
-				PROVISIONING_PROFILE_SPECIFIER = CardiotachMate_Dev;
+				PROVISIONING_PROFILE_SPECIFIER = HeartMate_Dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -611,6 +609,7 @@
 			baseConfigurationReference = 1689D13B55BEC752C2AE663B /* Pods-HeartMate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D6M452FYRP;
@@ -620,7 +619,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hinteen.CardiotachMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "63b7349d-406f-45ba-9745-083a84173fd9";
-				PROVISIONING_PROFILE_SPECIFIER = CardiotachMate_Dis;
+				PROVISIONING_PROFILE_SPECIFIER = HeartMate_Dis;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
