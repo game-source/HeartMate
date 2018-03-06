@@ -220,7 +220,7 @@ static void analysisInstantHeartRate(NSMutableArray<HKRecord *> *records, void (
 - (instancetype)init {
     if (self = [super init]) {
         // 初始化
-        self.expectedDuration = 10;
+        self.expectedDuration = [NSUserDefaults ax_readDoubleForKey:CACHE_CAPTURE_DURATION];
         self.device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
         self.session = [[AVCaptureSession alloc] init];
         self.input = [[AVCaptureDeviceInput alloc] initWithDevice:self.device error:nil];
@@ -234,6 +234,7 @@ static void analysisInstantHeartRate(NSMutableArray<HKRecord *> *records, void (
 
 - (void)setExpectedDuration:(NSTimeInterval)expectedDuration{
     _expectedDuration = MAX(5, expectedDuration);
+    [NSUserDefaults ax_setDouble:expectedDuration forKey:CACHE_CAPTURE_DURATION];
 }
 
 - (void)prepare{

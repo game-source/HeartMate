@@ -63,6 +63,8 @@ static BOOL prepared = NO;
 @property (strong, nonatomic) UIView *mask;
 @property (strong, nonatomic) UIView *overlay;
 
+@property (strong, nonatomic) UIButton *edit;
+
 @end
 
 @implementation RecordVC
@@ -81,7 +83,6 @@ static BOOL prepared = NO;
     
     //开启测心率方法
     [HKCaptureSession sharedInstance].delegate = self;
-    [HKCaptureSession sharedInstance].expectedDuration = 3;
     
 }
 
@@ -103,9 +104,7 @@ static BOOL prepared = NO;
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self startCapture];
-    });
+    [self startCapture];
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
@@ -129,8 +128,8 @@ static BOOL prepared = NO;
         [self.overlay.layer insertSublayer:[HKCaptureSession sharedInstance].previewLayer atIndex:0];
         [self updateUI:^{
             [[HKCaptureSession sharedInstance] startRunning];
-            
-            
+            // 操作过快的时候图层可能没有设置完毕
+            [self.overlay.layer insertSublayer:[HKCaptureSession sharedInstance].previewLayer atIndex:0];
         }];
         
     } else {
@@ -300,6 +299,43 @@ static BOOL prepared = NO;
         }
     }];
     
+    UIButton *edit = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [self.view addSubview:edit];
+    self.edit = edit;
+    edit.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+    [edit setImage:UIImageNamed(@"icon_setting") forState:UIControlStateNormal];
+    edit.centerY = button.centerY;
+    edit.right = self.view.width - 8;
+    [edit ax_addTouchUpInsideHandler:^(__kindof UIButton * _Nonnull sender) {
+        NSString *tip = NSLocalizedString(@"In general, the longer the measurement duration, the higher the accuracy.", @"一般来说，测量时长越长，准确率越高。");
+        NSString *msg = [NSString stringWithFormat:@"%@\n\n\n", tip];
+        [UIAlertController ax_showActionSheetWithTitle:NSLocalizedString(@"Select Duration", @"选择测量时长") message:msg actions:^(UIAlertController * _Nonnull alert) {
+            alert.view.tintColor = axThemeManager.color.theme;
+            CGFloat width = self.view.width - 20 - 16;
+            CGFloat topMargin = [tip ax_textHeightWithFont:[UIFont systemFontOfSize:13] width:width];
+            CGFloat height = 40;
+            
+            UILabel *lb = [[UILabel alloc] initWithFrame:CGRectMake(16, kNavBarHeight + topMargin + 8, 60, height)];
+            lb.textAlignment = NSTextAlignmentCenter;
+            lb.text = [NSString stringWithFormat:@"%.0f%@", [HKCaptureSession sharedInstance].expectedDuration, NSLocalizedString(@"s", @"秒")];
+            [alert.view addSubview:lb];
+            lb.font = axThemeManager.font.customLarge;
+            
+            UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(lb.right+8, lb.top, width - lb.right - 8, lb.height)];
+            [alert.view addSubview:slider];
+            slider.minimumValue = 5.0;
+            slider.maximumValue = 30.0;
+            slider.value = [HKCaptureSession sharedInstance].expectedDuration;
+            [slider ax_addValueChangedHandler:^(__kindof UISlider * _Nonnull sender) {
+                lb.text = [NSString stringWithFormat:@"%.0f%@", sender.value, NSLocalizedString(@"s", @"秒")];
+            }];
+            [slider ax_addTouchUpHandler:^(__kindof UISlider * _Nonnull sender) {
+                [HKCaptureSession sharedInstance].expectedDuration = sender.value;
+            }];
+            [alert ax_addCancelAction];
+        }];
+    }];
+    
     UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, 160, 2)];
     [self.view addSubview:progressView];
     progressView.hidden = YES;
@@ -334,17 +370,18 @@ static BOOL prepared = NO;
             CGFloat offset = self.button.top + 0.5 * self.button.height;
             self.mask.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0, -offset), 15, 15);
             self.tabBarController.tabBar.transform = CGAffineTransformMakeTranslation(0, 12);
+            self.edit.transform = CGAffineTransformMakeTranslation(kScreenW - self.edit.left, 0);
         } completion:^(BOOL finished) {
             if (completion) {
                 completion();
             }
         }];
     } else {
-        
         self.button.selected = NO;
         [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseIn animations:^{
             self.mask.transform = CGAffineTransformIdentity;
             self.tabBarController.tabBar.transform = CGAffineTransformIdentity;
+            self.edit.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
             if (completion) {
                 completion();

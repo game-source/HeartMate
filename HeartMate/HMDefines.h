@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+FOUNDATION_EXTERN NSString *CACHE_CAPTURE_DURATION;
+
 @interface HMDefines : NSObject
 
 @end

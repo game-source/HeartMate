@@ -8,6 +8,8 @@
 
 #import "HMDefines.h"
 
+NSString *CACHE_CAPTURE_DURATION = @"com.xaoxuu.capture_duration";
+
 @implementation HMDefines
 
 @end
