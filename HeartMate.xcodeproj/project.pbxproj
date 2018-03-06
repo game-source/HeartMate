@@ -21,6 +21,7 @@
 		CD884542204E7399001F7AF1 /* HMWeightPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884541204E7399001F7AF1 /* HMWeightPicker.m */; };
 		CD884545204E7520001F7AF1 /* HMContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884544204E7520001F7AF1 /* HMContext.m */; };
 		CD884548204E7AA0001F7AF1 /* HMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884547204E7AA0001F7AF1 /* HMUtilities.m */; };
+		CD88454B204E8D7F001F7AF1 /* HMTableFootnoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */; };
 		CD964CAC204AD88900A9ECBC /* HKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CAB204AD88900A9ECBC /* HKRecord.m */; };
 		CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */ = {isa = PBXBuildFile; fileRef = CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */; };
 		CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CB3204AFC2F00A9ECBC /* BaseTabBarController.m */; };
@@ -82,6 +83,8 @@
 		CD884544204E7520001F7AF1 /* HMContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMContext.m; sourceTree = "<group>"; };
 		CD884546204E7AA0001F7AF1 /* HMUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMUtilities.h; sourceTree = "<group>"; };
 		CD884547204E7AA0001F7AF1 /* HMUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMUtilities.m; sourceTree = "<group>"; };
+		CD884549204E8D7F001F7AF1 /* HMTableFootnoteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMTableFootnoteView.h; sourceTree = "<group>"; };
+		CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMTableFootnoteView.m; sourceTree = "<group>"; };
 		CD964CAA204AD88900A9ECBC /* HKRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKRecord.h; sourceTree = "<group>"; };
 		CD964CAB204AD88900A9ECBC /* HKRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKRecord.m; sourceTree = "<group>"; };
 		CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BaseTabBarController.json; sourceTree = "<group>"; };
@@ -317,6 +320,8 @@
 				CD884532204E67F2001F7AF1 /* BasePickerView.m */,
 				CD884534204E684A001F7AF1 /* BaseAlertController.h */,
 				CD884535204E684A001F7AF1 /* BaseAlertController.m */,
+				CD884549204E8D7F001F7AF1 /* HMTableFootnoteView.h */,
+				CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				CD964CC9204AFDC200A9ECBC /* CalendarVC.m in Sources */,
 				CDF4E73B204E5E0A00DDD285 /* MineTV.m in Sources */,
 				CD884536204E684A001F7AF1 /* BaseAlertController.m in Sources */,
+				CD88454B204E8D7F001F7AF1 /* HMTableFootnoteView.m in Sources */,
 				CD964CCF204AFDDF00A9ECBC /* MineVC.m in Sources */,
 				CDCC7294204D0C4500553F25 /* HMTagButton.m in Sources */,
 				CD964CBF204AFD4100A9ECBC /* RootViewController.m in Sources */,

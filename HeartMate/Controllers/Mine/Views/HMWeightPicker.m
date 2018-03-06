@@ -22,9 +22,9 @@
     if (self = [super initWithFrame:frame]) {
         self.dataSource = self;
         self.delegate = self;
-        self.values = [NSMutableArray arrayWithCapacity:200];
-        for (int i = 0; i <= 200; i++) {
-            [self.values addObject:@(i+50)];
+        self.values = [NSMutableArray arrayWithCapacity:300];
+        for (int i = 0; i <= 300; i++) {
+            [self.values addObject:@(i+20)];
         }
         self.value = @([HMUser currentUser].weight);
     }

@@ -49,7 +49,7 @@ FOUNDATION_EXTERN NSString *kStringError(void);
  @param actions 按钮
  */
 + (instancetype)ax_showActionSheetWithTitle:(nullable NSString *)title message:(nullable NSString *)message actions:(void (^ __nullable)(UIAlertController *alert))actions;
-
+- (instancetype)initActionSheetWithTitle:(nullable NSString *)title message:(nullable NSString *)message actions:(void (^ __nullable)(UIAlertController *alert))actions;
 
 #pragma mark - 添加按钮
 

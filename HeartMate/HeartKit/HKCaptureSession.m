@@ -363,6 +363,20 @@ static void analysisInstantHeartRate(NSMutableArray<HKRecord *> *records, void (
             }
             [self.records addObject:record];
             if (self.records.count == 40) {
+                CGFloat max = [[self.records valueForKeyPath:@"hue.@max.doubleValue"] doubleValue];
+                CGFloat min = [[self.records valueForKeyPath:@"hue.@min.doubleValue"] doubleValue];
+                max = fabs(max);
+                min = fabs(min);
+                max = MAX(max, min);
+                AXLogDouble(max);
+                if (max < 0.1) {
+                    NSError *error = [NSError ax_errorWithMaker:^(NSErrorMaker * _Nonnull error) {
+                        error.code = 102;
+                        error.localizedDescription = @"请将手指覆盖住后置摄像头和闪光灯";
+                    }];
+                    [self updateState:HKCaptureStateError error:error];
+                }
+                
                 // 分析波峰波谷
                 analysisInstantHeartRate(self.records, ^(NSInteger hr) {
                     [self updateState:HKCaptureStateCapturing error:nil];
@@ -399,15 +413,6 @@ static void analysisInstantHeartRate(NSMutableArray<HKRecord *> *records, void (
     } error:^(NSError *error) {
         if (is_recording) {
             [self updateState:HKCaptureStateError error:error];
-            // 清除数据
-            [HKRecord reset];
-            [self.records removeAllObjects];
-            [self.instantHeartRate removeAllObjects];
-            is_recording = NO;
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(wait_t * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                is_recording = YES;
-            });
         }
     }];
 }
@@ -419,6 +424,16 @@ static void analysisInstantHeartRate(NSMutableArray<HKRecord *> *records, void (
         if ([self.delegate respondsToSelector:@selector(hkCaptureSession:state:error:)]) {
             [self.delegate hkCaptureSession:self state:self.state error:error];
         }
+    }
+    if (error) {
+        // 清除数据
+        [HKRecord reset];
+        [self.records removeAllObjects];
+        [self.instantHeartRate removeAllObjects];
+        is_recording = NO;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(wait_t * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            is_recording = YES;
+        });
     }
 }
 

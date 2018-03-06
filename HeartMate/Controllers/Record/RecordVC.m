@@ -270,11 +270,6 @@ static BOOL prepared = NO;
     self.largeTitle.top = 40;
     self.largeTitle.text = NSLocalizedString(@"Press the camera with your fingertip.", @"请用指尖轻轻按住摄像头");
     
-    //创建一个心电图的View
-    self.live = [[HKOutputView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 150)];
-    [self.view addSubview:self.live];
-    self.live.center = CGPointMake(centerX, 0.5 * height - 40);
-    self.live.backgroundColor = [UIColor clearColor];
     
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
@@ -282,7 +277,7 @@ static BOOL prepared = NO;
     self.button = button;
     button.titleLabel.font = [UIFont fontWithName:axThemeManager.font.name size:17];
     button.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
-    [button.layer ax_whiteBorder:1];
+    [button.layer ax_whiteBorder:1.2];
     [button.layer ax_cornerRadius:0.5*button.height shadow:LayerShadowNone];
     button.bottom = height - 20 - kTabBarHeight;
     button.centerX = centerX;
@@ -291,7 +286,7 @@ static BOOL prepared = NO;
     __weak typeof(self) weakSelf = self;
     [button ax_addTouchUpInsideHandler:^(__kindof UIButton * _Nonnull sender) {
         if (sender.selected) {
-            [sender ax_animatedScale:0.5 duration:1.8 completion:nil];
+            [sender ax_animatedScale:0.7 duration:1.8 completion:nil];
             [weakSelf stopCapture];
         } else {
             [sender ax_animatedScale:1.15 duration:1.5 completion:nil];
@@ -332,16 +327,16 @@ static BOOL prepared = NO;
             [slider ax_addTouchUpHandler:^(__kindof UISlider * _Nonnull sender) {
                 [HKCaptureSession sharedInstance].expectedDuration = sender.value;
             }];
-            [alert ax_addCancelAction];
+            [alert ax_addCancelActionWithTitle:NSLocalizedString(@"Done", @"完成") handler:nil];
         }];
     }];
     
-    UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, 160, 2)];
+    UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, 140, 2)];
     [self.view addSubview:progressView];
     progressView.hidden = YES;
     progressView.progress = 0;
     progressView.centerX = centerX;
-    progressView.bottom = button.top - 40;
+    progressView.bottom = button.top - 50;
     progressView.tintColor = [UIColor whiteColor];
     progressView.trackTintColor = [UIColor colorWithWhite:1 alpha:0.3];
     self.progressView = progressView;
@@ -349,6 +344,16 @@ static BOOL prepared = NO;
     self.statusTips = defaultLabelWithFontSize(32);
     [self.view addSubview:self.statusTips];
     self.statusTips.bottom = self.progressView.top - 20;
+    
+    
+    //创建一个心电图的View
+    CGFloat centerY = (self.statusTips.top - self.largeTitle.bottom)/2 + self.largeTitle.bottom;
+    self.live = [[HKOutputView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 150)];
+    [self.view addSubview:self.live];
+    self.live.center = CGPointMake(centerX, centerY);
+    self.live.backgroundColor = [UIColor clearColor];
+    
+    
     
     UIView *mask = UIMaskViewWithSizeAndCornerRadius(self.button.bounds.size, 0.5*self.button.height);
     mask.frame = self.button.frame;

@@ -123,8 +123,10 @@ static void RGBtoHSV( float r, float g, float b, float *h, float *s, float *v ) 
         completion(record);
     } else {
         if (error) {
-            NSString *errStr = @"请将手指覆盖住后置摄像头和闪光灯";
-            NSError *err = [NSError errorWithDomain: errStr code:101 userInfo:@{@"content":errStr}];
+            NSError *err = [NSError ax_errorWithMaker:^(NSErrorMaker * _Nonnull error) {
+                error.code = 101;
+                error.localizedDescription = @"请将手指覆盖住后置摄像头和闪光灯";
+            }];
             error(err);
         }
     }

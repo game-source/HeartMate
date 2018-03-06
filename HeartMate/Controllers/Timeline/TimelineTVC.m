@@ -78,7 +78,7 @@
 
 - (void)tagButtonDidTouchUpInside:(HMTagButton *)sender{
     NSString *log = [NSString stringWithFormat:@"点击了Tag<%@>", sender.titleLabel.text];
-    AXCachedLogOBJ(log);
+    AXLogOBJ(log);
 }
 
 //- (void)prepareForReuse{

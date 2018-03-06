@@ -28,12 +28,12 @@
     MDCalendar *calendar = [[MDCalendar alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:calendar];
     self.calendar = calendar;
-    calendar.backgroundColor = axThemeManager.color.background;
     calendar.delegate = self;
     calendar.theme = MDCalendarThemeLight;
+    calendar.tintColor = tintColor;
+    calendar.backgroundColor = axThemeManager.color.background;
     calendar.currentDate = [NSDate date];
     calendar.selectedDate = [NSDate date];
-    calendar.tintColor = tintColor;
     calendar.backgroundColors[@(MDCalendarCellStateSelected)] = tintColor;
     calendar.titleColors[@(MDCalendarCellStateToday)] = tintColor;
     calendar.titleColors[@(MDCalendarCellStateWeekend)] = [UIColor md_green];

@@ -75,6 +75,8 @@ inline NSString *kStringError(void){
  */
 + (instancetype)ax_showActionSheetWithTitle:(nullable NSString *)title message:(nullable NSString *)message actions:(void (^ __nullable)(UIAlertController *alert))actions{
     UIAlertController *alert = [[self alloc] initActionSheetWithTitle:title message:message actions:actions];
+    alert.popoverPresentationController.sourceView = AXRootViewController().view;
+    alert.popoverPresentationController.sourceRect = AXRootViewController().view.bounds;
     [AXRootViewController() presentViewController:alert animated:YES completion:nil];
     return alert;
 }
