@@ -309,8 +309,7 @@ static BOOL prepared = NO;
     [edit ax_addTouchUpInsideHandler:^(__kindof UIButton * _Nonnull sender) {
         NSString *tip = NSLocalizedString(@"In general, the longer the measurement duration, the higher the accuracy.", @"一般来说，测量时长越长，准确率越高。");
         NSString *msg = [NSString stringWithFormat:@"%@\n\n\n", tip];
-        [UIAlertController ax_showActionSheetWithTitle:NSLocalizedString(@"Select Duration", @"选择测量时长") message:msg actions:^(UIAlertController * _Nonnull alert) {
-            alert.view.tintColor = axThemeManager.color.theme;
+        [BaseAlertController ax_showActionSheetWithTitle:NSLocalizedString(@"Select Duration", @"选择测量时长") message:msg actions:^(UIAlertController * _Nonnull alert) {
             CGFloat width = self.view.width - 20 - 16;
             CGFloat topMargin = [tip ax_textHeightWithFont:[UIFont systemFontOfSize:13] width:width];
             CGFloat height = 40;
@@ -325,6 +324,7 @@ static BOOL prepared = NO;
             [alert.view addSubview:slider];
             slider.minimumValue = 5.0;
             slider.maximumValue = 30.0;
+            slider.tintColor = axThemeManager.color.accent;
             slider.value = [HKCaptureSession sharedInstance].expectedDuration;
             [slider ax_addValueChangedHandler:^(__kindof UISlider * _Nonnull sender) {
                 lb.text = [NSString stringWithFormat:@"%.0f%@", sender.value, NSLocalizedString(@"s", @"秒")];
