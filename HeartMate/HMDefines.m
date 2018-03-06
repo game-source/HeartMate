@@ -15,6 +15,9 @@ NSString *NOTI_USER_UPDATE = @"com.xaoxuu.user_update";
 
 NSString *CACHE_CAPTURE_DURATION = @"com.xaoxuu.capture_duration";
 
+
+CGFloat kTableViewCellHeight = 60;
+
 @implementation HMDefines
 
 @end

@@ -87,7 +87,7 @@ static HMUser *user;
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 64;
+    return kTableViewCellHeight;
 }
 
 

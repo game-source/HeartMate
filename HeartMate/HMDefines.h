@@ -16,6 +16,9 @@ FOUNDATION_EXTERN NSString *NOTI_USER_UPDATE;
 
 FOUNDATION_EXTERN NSString *CACHE_CAPTURE_DURATION;
 
+
+CG_EXTERN CGFloat kTableViewCellHeight;
+
 @interface HMDefines : NSObject
 
 @end

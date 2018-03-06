@@ -36,6 +36,10 @@
             
             [mailCompose setToRecipients:@[@"feedback@xaoxuu.com"]];
             [mailCompose setSubject:@"Heart Mate"];
+            
+            
+            [mailCompose setMessageBody:[NSString stringWithFormat:@"\n\n\n\napp name:%@ \napp version: %@ (%@)",[NSBundle ax_appDisplayName], [NSBundle ax_appVersion], [NSBundle ax_appBuild]] isHTML:NO];
+            
         } completion:^(MFMailComposeResult result) {
 
         } fail:^(NSError * _Nonnull error) {
