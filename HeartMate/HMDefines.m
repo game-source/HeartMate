@@ -11,6 +11,7 @@
 
 
 NSString *NOTI_USER_UPDATE = @"com.xaoxuu.user_update";
+NSString *NOTI_REMINDER_UPDATE = @"com.xaoxuu.reminder_update";
 
 
 NSString *CACHE_CAPTURE_DURATION = @"com.xaoxuu.capture_duration";

@@ -35,7 +35,7 @@
     calendar.backgroundColor = axThemeManager.color.background;
     calendar.minimumDate = joinDate.addDays(1-joinDate.day);
     calendar.currentDate = [NSDate date];
-    calendar.selectedDate = [NSDate date];
+    self.calendar.selectedDate = [NSDate date];
     calendar.backgroundColors[@(MDCalendarCellStateSelected)] = tintColor;
     calendar.titleColors[@(MDCalendarCellStateToday)] = tintColor;
     calendar.titleColors[@(MDCalendarCellStateWeekend)] = [UIColor md_green];

@@ -44,6 +44,10 @@
 		CDCC7294204D0C4500553F25 /* HMTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC7293204D0C4500553F25 /* HMTagButton.m */; };
 		CDD5BBEC204AD257005D2FC5 /* HKCaptureSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5BBEB204AD257005D2FC5 /* HKCaptureSession.m */; };
 		CDD5BBF2204AD287005D2FC5 /* HKOutputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5BBF1204AD287005D2FC5 /* HKOutputView.m */; };
+		CDE362D5204ED33400BD0865 /* HMReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE362D4204ED33400BD0865 /* HMReminder.m */; };
+		CDE362D8204ED69600BD0865 /* ReminderTV.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE362D7204ED69600BD0865 /* ReminderTV.m */; };
+		CDE362DC204EDA5800BD0865 /* ReminderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE362DA204EDA5800BD0865 /* ReminderTVC.m */; };
+		CDE362DD204EDA5800BD0865 /* ReminderTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE362DB204EDA5800BD0865 /* ReminderTVC.xib */; };
 		CDF4E73B204E5E0A00DDD285 /* MineTV.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF4E73A204E5E0A00DDD285 /* MineTV.m */; };
 		EBE69086FBB6D4CFE2EA5881 /* Pods_HeartMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AC075923DC9F7FBC6678A6 /* Pods_HeartMate.framework */; };
 /* End PBXBuildFile section */
@@ -127,6 +131,13 @@
 		CDD5BBF0204AD287005D2FC5 /* HKOutputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKOutputView.h; sourceTree = "<group>"; };
 		CDD5BBF1204AD287005D2FC5 /* HKOutputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKOutputView.m; sourceTree = "<group>"; };
 		CDD5BBF4204AD2B7005D2FC5 /* HeartKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartKit.h; sourceTree = "<group>"; };
+		CDE362D3204ED33400BD0865 /* HMReminder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMReminder.h; sourceTree = "<group>"; };
+		CDE362D4204ED33400BD0865 /* HMReminder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMReminder.m; sourceTree = "<group>"; };
+		CDE362D6204ED69600BD0865 /* ReminderTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReminderTV.h; sourceTree = "<group>"; };
+		CDE362D7204ED69600BD0865 /* ReminderTV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReminderTV.m; sourceTree = "<group>"; };
+		CDE362D9204EDA5800BD0865 /* ReminderTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReminderTVC.h; sourceTree = "<group>"; };
+		CDE362DA204EDA5800BD0865 /* ReminderTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReminderTVC.m; sourceTree = "<group>"; };
+		CDE362DB204EDA5800BD0865 /* ReminderTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderTVC.xib; sourceTree = "<group>"; };
 		CDF4E739204E5E0A00DDD285 /* MineTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTV.h; sourceTree = "<group>"; };
 		CDF4E73A204E5E0A00DDD285 /* MineTV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTV.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,6 +245,11 @@
 			children = (
 				CD964CCA204AFDCF00A9ECBC /* ReminderVC.h */,
 				CD964CCB204AFDCF00A9ECBC /* ReminderVC.m */,
+				CDE362D6204ED69600BD0865 /* ReminderTV.h */,
+				CDE362D7204ED69600BD0865 /* ReminderTV.m */,
+				CDE362D9204EDA5800BD0865 /* ReminderTVC.h */,
+				CDE362DA204EDA5800BD0865 /* ReminderTVC.m */,
+				CDE362DB204EDA5800BD0865 /* ReminderTVC.xib */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -307,6 +323,8 @@
 				CD517D52204BCF7B001A6992 /* HMUser.m */,
 				CD517D4B204BC387001A6992 /* HMHeartRate.h */,
 				CD517D4C204BC387001A6992 /* HMHeartRate.m */,
+				CDE362D3204ED33400BD0865 /* HMReminder.h */,
+				CDE362D4204ED33400BD0865 /* HMReminder.m */,
 			);
 			path = RLMDataModels;
 			sourceTree = "<group>";
@@ -414,6 +432,7 @@
 				CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */,
 				CDA527AD1FECD20E009C39EC /* LaunchScreen.storyboard in Resources */,
 				CDCC7291204D075B00553F25 /* TimelineTVC.xib in Resources */,
+				CDE362DD204EDA5800BD0865 /* ReminderTVC.xib in Resources */,
 				CDA527AA1FECD20E009C39EC /* Assets.xcassets in Resources */,
 				CDA527A81FECD20E009C39EC /* Main.storyboard in Resources */,
 			);
@@ -500,6 +519,7 @@
 				CD964CCC204AFDCF00A9ECBC /* ReminderVC.m in Sources */,
 				CD884542204E7399001F7AF1 /* HMWeightPicker.m in Sources */,
 				CD964CC9204AFDC200A9ECBC /* CalendarVC.m in Sources */,
+				CDE362D8204ED69600BD0865 /* ReminderTV.m in Sources */,
 				CDF4E73B204E5E0A00DDD285 /* MineTV.m in Sources */,
 				CD884536204E684A001F7AF1 /* BaseAlertController.m in Sources */,
 				CD88454B204E8D7F001F7AF1 /* HMTableFootnoteView.m in Sources */,
@@ -514,6 +534,8 @@
 				CD964CD2204AFE5F00A9ECBC /* BaseViewController.m in Sources */,
 				CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */,
 				CD884533204E67F2001F7AF1 /* BasePickerView.m in Sources */,
+				CDE362DC204EDA5800BD0865 /* ReminderTVC.m in Sources */,
+				CDE362D5204ED33400BD0865 /* HMReminder.m in Sources */,
 				CDCC7275204C31D800553F25 /* HMDefines.m in Sources */,
 				CDA527B01FECD20E009C39EC /* main.m in Sources */,
 				CD884530204E66B5001F7AF1 /* HMGenderPicker.m in Sources */,
