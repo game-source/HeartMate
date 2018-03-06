@@ -7,7 +7,7 @@
 //
 
 #import "CalendarVC.h"
-
+#import "HMUser.h"
 
 @interface CalendarVC () <MDCalendarDelegate>
 
@@ -23,6 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    self.navigationController.navigationBarHidden = YES;
+    NSDate *joinDate = [HMUser currentUser].joinDate;
     
     UIColor *tintColor = self.view.tintColor;
     MDCalendar *calendar = [[MDCalendar alloc] initWithFrame:self.view.bounds];
@@ -32,6 +33,7 @@
     calendar.theme = MDCalendarThemeLight;
     calendar.tintColor = tintColor;
     calendar.backgroundColor = axThemeManager.color.background;
+    calendar.minimumDate = joinDate.addDays(1-joinDate.day);
     calendar.currentDate = [NSDate date];
     calendar.selectedDate = [NSDate date];
     calendar.backgroundColors[@(MDCalendarCellStateSelected)] = tintColor;

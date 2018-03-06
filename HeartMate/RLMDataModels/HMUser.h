@@ -68,6 +68,12 @@ typedef NS_ENUM(NSInteger, HMGender) {
 @property (copy, nonatomic) NSString *avatar;
 
 
+
+/**
+ 开始使用心率助手的日期
+ */
+@property (strong, nonatomic) NSDate *joinDate;
+
 + (instancetype)currentUser;
 
 

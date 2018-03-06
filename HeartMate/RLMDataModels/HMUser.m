@@ -20,6 +20,7 @@
         self.avatar = @"";
         self.height = 180;
         self.weight = 65.0;
+        self.joinDate = [NSDate date];
     }
     return self;
 }
