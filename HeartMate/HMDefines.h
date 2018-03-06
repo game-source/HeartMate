@@ -7,6 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseAlertController.h"
+#import "HMUtilities.h"
+
+FOUNDATION_EXTERN NSString *NOTI_USER_UPDATE;
+
+
 
 FOUNDATION_EXTERN NSString *CACHE_CAPTURE_DURATION;
 

@@ -10,4 +10,18 @@
 
 @implementation HMData
 
++ (void)transactionWithBlock:(void (^)(void))block{
+    RLMRealm *rlm = [RLMRealm defaultRealm];
+    if (block) {
+        [rlm transactionWithBlock:^{
+            block();
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_USER_UPDATE object:@YES];
+        }];
+    }
+}
+
+- (void)transactionWithBlock:(void (^)(void))block{
+    [self.class transactionWithBlock:block];
+}
+
 @end

@@ -10,4 +10,8 @@
 
 @interface HMData : RLMObject
 
++ (void)transactionWithBlock:(void (^)(void))block;
+
+- (void)transactionWithBlock:(void (^)(void))block;
+
 @end

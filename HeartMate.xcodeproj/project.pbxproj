@@ -13,6 +13,14 @@
 		CD517D53204BCF7B001A6992 /* HMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517D52204BCF7B001A6992 /* HMUser.m */; };
 		CD517D57204BD034001A6992 /* RecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517D56204BD034001A6992 /* RecordVC.m */; };
 		CD517D5A204BD3CB001A6992 /* TimelineTV.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517D59204BD3CB001A6992 /* TimelineTV.m */; };
+		CD884530204E66B5001F7AF1 /* HMGenderPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CD88452F204E66B5001F7AF1 /* HMGenderPicker.m */; };
+		CD884533204E67F2001F7AF1 /* BasePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884532204E67F2001F7AF1 /* BasePickerView.m */; };
+		CD884536204E684A001F7AF1 /* BaseAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884535204E684A001F7AF1 /* BaseAlertController.m */; };
+		CD884539204E70FA001F7AF1 /* HMBirthdayPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884538204E70FA001F7AF1 /* HMBirthdayPicker.m */; };
+		CD88453C204E719A001F7AF1 /* HMHeightPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CD88453B204E719A001F7AF1 /* HMHeightPicker.m */; };
+		CD884542204E7399001F7AF1 /* HMWeightPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884541204E7399001F7AF1 /* HMWeightPicker.m */; };
+		CD884545204E7520001F7AF1 /* HMContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884544204E7520001F7AF1 /* HMContext.m */; };
+		CD884548204E7AA0001F7AF1 /* HMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884547204E7AA0001F7AF1 /* HMUtilities.m */; };
 		CD964CAC204AD88900A9ECBC /* HKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CAB204AD88900A9ECBC /* HKRecord.m */; };
 		CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */ = {isa = PBXBuildFile; fileRef = CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */; };
 		CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CB3204AFC2F00A9ECBC /* BaseTabBarController.m */; };
@@ -35,6 +43,7 @@
 		CDCC7294204D0C4500553F25 /* HMTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC7293204D0C4500553F25 /* HMTagButton.m */; };
 		CDD5BBEC204AD257005D2FC5 /* HKCaptureSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5BBEB204AD257005D2FC5 /* HKCaptureSession.m */; };
 		CDD5BBF2204AD287005D2FC5 /* HKOutputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5BBF1204AD287005D2FC5 /* HKOutputView.m */; };
+		CDF4E73B204E5E0A00DDD285 /* MineTV.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF4E73A204E5E0A00DDD285 /* MineTV.m */; };
 		EBE69086FBB6D4CFE2EA5881 /* Pods_HeartMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AC075923DC9F7FBC6678A6 /* Pods_HeartMate.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +66,22 @@
 		CD517D56204BD034001A6992 /* RecordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordVC.m; sourceTree = "<group>"; };
 		CD517D58204BD3CB001A6992 /* TimelineTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineTV.h; sourceTree = "<group>"; };
 		CD517D59204BD3CB001A6992 /* TimelineTV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineTV.m; sourceTree = "<group>"; };
+		CD88452E204E66B5001F7AF1 /* HMGenderPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMGenderPicker.h; sourceTree = "<group>"; };
+		CD88452F204E66B5001F7AF1 /* HMGenderPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMGenderPicker.m; sourceTree = "<group>"; };
+		CD884531204E67F2001F7AF1 /* BasePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePickerView.h; sourceTree = "<group>"; };
+		CD884532204E67F2001F7AF1 /* BasePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasePickerView.m; sourceTree = "<group>"; };
+		CD884534204E684A001F7AF1 /* BaseAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseAlertController.h; sourceTree = "<group>"; };
+		CD884535204E684A001F7AF1 /* BaseAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseAlertController.m; sourceTree = "<group>"; };
+		CD884537204E70FA001F7AF1 /* HMBirthdayPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMBirthdayPicker.h; sourceTree = "<group>"; };
+		CD884538204E70FA001F7AF1 /* HMBirthdayPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMBirthdayPicker.m; sourceTree = "<group>"; };
+		CD88453A204E719A001F7AF1 /* HMHeightPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMHeightPicker.h; sourceTree = "<group>"; };
+		CD88453B204E719A001F7AF1 /* HMHeightPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMHeightPicker.m; sourceTree = "<group>"; };
+		CD884540204E7399001F7AF1 /* HMWeightPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMWeightPicker.h; sourceTree = "<group>"; };
+		CD884541204E7399001F7AF1 /* HMWeightPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMWeightPicker.m; sourceTree = "<group>"; };
+		CD884543204E7520001F7AF1 /* HMContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMContext.h; sourceTree = "<group>"; };
+		CD884544204E7520001F7AF1 /* HMContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMContext.m; sourceTree = "<group>"; };
+		CD884546204E7AA0001F7AF1 /* HMUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMUtilities.h; sourceTree = "<group>"; };
+		CD884547204E7AA0001F7AF1 /* HMUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMUtilities.m; sourceTree = "<group>"; };
 		CD964CAA204AD88900A9ECBC /* HKRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKRecord.h; sourceTree = "<group>"; };
 		CD964CAB204AD88900A9ECBC /* HKRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKRecord.m; sourceTree = "<group>"; };
 		CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BaseTabBarController.json; sourceTree = "<group>"; };
@@ -99,6 +124,8 @@
 		CDD5BBF0204AD287005D2FC5 /* HKOutputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKOutputView.h; sourceTree = "<group>"; };
 		CDD5BBF1204AD287005D2FC5 /* HKOutputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKOutputView.m; sourceTree = "<group>"; };
 		CDD5BBF4204AD2B7005D2FC5 /* HeartKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartKit.h; sourceTree = "<group>"; };
+		CDF4E739204E5E0A00DDD285 /* MineTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTV.h; sourceTree = "<group>"; };
+		CDF4E73A204E5E0A00DDD285 /* MineTV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTV.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +158,21 @@
 				CD517D56204BD034001A6992 /* RecordVC.m */,
 			);
 			path = Record;
+			sourceTree = "<group>";
+		};
+		CD88452D204E669F001F7AF1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD88452E204E66B5001F7AF1 /* HMGenderPicker.h */,
+				CD88452F204E66B5001F7AF1 /* HMGenderPicker.m */,
+				CD884537204E70FA001F7AF1 /* HMBirthdayPicker.h */,
+				CD884538204E70FA001F7AF1 /* HMBirthdayPicker.m */,
+				CD88453A204E719A001F7AF1 /* HMHeightPicker.h */,
+				CD88453B204E719A001F7AF1 /* HMHeightPicker.m */,
+				CD884540204E7399001F7AF1 /* HMWeightPicker.h */,
+				CD884541204E7399001F7AF1 /* HMWeightPicker.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CD964CB5204AFD0400A9ECBC /* Base */ = {
@@ -198,6 +240,9 @@
 			children = (
 				CD964CCD204AFDDF00A9ECBC /* MineVC.h */,
 				CD964CCE204AFDDF00A9ECBC /* MineVC.m */,
+				CDF4E739204E5E0A00DDD285 /* MineTV.h */,
+				CDF4E73A204E5E0A00DDD285 /* MineTV.m */,
+				CD88452D204E669F001F7AF1 /* Views */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -230,6 +275,10 @@
 				CDA527A11FECD20E009C39EC /* AppDelegate.m */,
 				CDCC7273204C31D800553F25 /* HMDefines.h */,
 				CDCC7274204C31D800553F25 /* HMDefines.m */,
+				CD884546204E7AA0001F7AF1 /* HMUtilities.h */,
+				CD884547204E7AA0001F7AF1 /* HMUtilities.m */,
+				CD884543204E7520001F7AF1 /* HMContext.h */,
+				CD884544204E7520001F7AF1 /* HMContext.m */,
 				CD43DA13204D5D210005C077 /* UIFontHelper+HMFont.h */,
 				CD43DA14204D5D210005C077 /* UIFontHelper+HMFont.m */,
 				CD964CB5204AFD0400A9ECBC /* Base */,
@@ -264,6 +313,10 @@
 			children = (
 				CDCC7292204D0C4500553F25 /* HMTagButton.h */,
 				CDCC7293204D0C4500553F25 /* HMTagButton.m */,
+				CD884531204E67F2001F7AF1 /* BasePickerView.h */,
+				CD884532204E67F2001F7AF1 /* BasePickerView.m */,
+				CD884534204E684A001F7AF1 /* BaseAlertController.h */,
+				CD884535204E684A001F7AF1 /* BaseAlertController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -437,9 +490,13 @@
 				CD517D5A204BD3CB001A6992 /* TimelineTV.m in Sources */,
 				CD964CC6204AFDB800A9ECBC /* TimelineVC.m in Sources */,
 				CDCC7290204D075B00553F25 /* TimelineTVC.m in Sources */,
+				CD884539204E70FA001F7AF1 /* HMBirthdayPicker.m in Sources */,
 				CD517D41204BAC28001A6992 /* HMData.m in Sources */,
 				CD964CCC204AFDCF00A9ECBC /* ReminderVC.m in Sources */,
+				CD884542204E7399001F7AF1 /* HMWeightPicker.m in Sources */,
 				CD964CC9204AFDC200A9ECBC /* CalendarVC.m in Sources */,
+				CDF4E73B204E5E0A00DDD285 /* MineTV.m in Sources */,
+				CD884536204E684A001F7AF1 /* BaseAlertController.m in Sources */,
 				CD964CCF204AFDDF00A9ECBC /* MineVC.m in Sources */,
 				CDCC7294204D0C4500553F25 /* HMTagButton.m in Sources */,
 				CD964CBF204AFD4100A9ECBC /* RootViewController.m in Sources */,
@@ -450,8 +507,13 @@
 				CD517D57204BD034001A6992 /* RecordVC.m in Sources */,
 				CD964CD2204AFE5F00A9ECBC /* BaseViewController.m in Sources */,
 				CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */,
+				CD884533204E67F2001F7AF1 /* BasePickerView.m in Sources */,
 				CDCC7275204C31D800553F25 /* HMDefines.m in Sources */,
 				CDA527B01FECD20E009C39EC /* main.m in Sources */,
+				CD884530204E66B5001F7AF1 /* HMGenderPicker.m in Sources */,
+				CD88453C204E719A001F7AF1 /* HMHeightPicker.m in Sources */,
+				CD884548204E7AA0001F7AF1 /* HMUtilities.m in Sources */,
+				CD884545204E7520001F7AF1 /* HMContext.m in Sources */,
 				CD517D4D204BC387001A6992 /* HMHeartRate.m in Sources */,
 				CD964CBD204AFD4100A9ECBC /* BaseNavController.m in Sources */,
 				CDD5BBEC204AD257005D2FC5 /* HKCaptureSession.m in Sources */,

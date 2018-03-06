@@ -8,11 +8,13 @@
 
 #import "HMData.h"
 
-typedef NS_ENUM(NSInteger, HKGender) {
-    HKGenderUnknown,
-    HKGenderMale,
-    HKGenderFemale,
+typedef NS_ENUM(NSInteger, HMGender) {
+    HMGenderPrivary,
+    HMGenderMale,
+    HMGenderFemale,
 };
+
+
 
 @interface HMUser : HMData
 
@@ -38,10 +40,10 @@ typedef NS_ENUM(NSInteger, HKGender) {
 @property (copy, nonatomic) NSString *phone;
 
 /**
- gender 请使用HKGender枚举
- HKGenderUnknown = 未知
- HKGenderMale    = 男
- HKGenderFemale  = 女
+ gender 请使用HMGender枚举
+ HMGenderPrivary = 保密
+ HMGenderMale    = 男
+ HMGenderFemale  = 女
  */
 @property (assign, nonatomic) NSInteger gender;
 
@@ -66,7 +68,10 @@ typedef NS_ENUM(NSInteger, HKGender) {
 @property (copy, nonatomic) NSString *avatar;
 
 
++ (instancetype)currentUser;
 
+
++ (NSString *)descriptionForGender:(HMGender)gender;
 
 
 @end
