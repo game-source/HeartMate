@@ -81,6 +81,7 @@
                 <outlet property="content" destination="Xgx-zo-jYc" id="0Si-Yf-f8B"/>
                 <outlet property="contentWidth" destination="hle-uq-B24" id="54u-Df-HVY"/>
                 <outlet property="imgv" destination="lXr-5L-pYN" id="wsU-hO-FWg"/>
+                <outlet property="lb_bpm" destination="93Q-kO-WxH" id="YSG-jV-ryN"/>
                 <outlet property="lb_hr" destination="A4K-5g-4dF" id="cWI-Yy-dbK"/>
                 <outlet property="scrollView" destination="8aB-Kl-Np5" id="CRT-QR-OAe"/>
             </connections>

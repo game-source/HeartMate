@@ -13,6 +13,8 @@
 @interface TimelineTVC () <HMTagButtonDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *lb_hr;
+@property (weak, nonatomic) IBOutlet UILabel *lb_bpm;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imgv;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *content;
@@ -79,12 +81,16 @@
     AXCachedLogOBJ(log);
 }
 
-- (void)prepareForReuse{
-    [super prepareForReuse];
-    self.alpha = 0;
-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseOut animations:^{
-        self.alpha = 1;
-    } completion:nil];
-}
+//- (void)prepareForReuse{
+//    [super prepareForReuse];
+//    self.lb_hr.alpha = 0;
+//    self.lb_bpm.alpha = 0;
+//    self.content.alpha = 0;
+//    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseOut animations:^{
+//        self.lb_hr.alpha = 1;
+//        self.lb_bpm.alpha = 1;
+//        self.content.alpha = 1;
+//    } completion:nil];
+//}
 
 @end

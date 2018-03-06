@@ -81,7 +81,7 @@ static BOOL prepared = NO;
     
     //开启测心率方法
     [HKCaptureSession sharedInstance].delegate = self;
-    [HKCaptureSession sharedInstance].expectedDuration = 5;
+    [HKCaptureSession sharedInstance].expectedDuration = 3;
     
 }
 
