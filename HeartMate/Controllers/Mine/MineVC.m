@@ -34,8 +34,8 @@
             mailCompose.navigationBar.tintColor = axThemeManager.color.theme;
             mailCompose.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:axThemeManager.color.theme, NSFontAttributeName:[UIFont fontWithName:axThemeManager.font.name size:20]};
             
-            [mailCompose setToRecipients:@[@"me@xaoxuu.com"]];
-            [mailCompose setSubject:@"Heart Mate Feedback"];
+            [mailCompose setToRecipients:@[@"feedback@xaoxuu.com"]];
+            [mailCompose setSubject:@"Heart Mate"];
         } completion:^(MFMailComposeResult result) {
 
         } fail:^(NSError * _Nonnull error) {
