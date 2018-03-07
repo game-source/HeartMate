@@ -18,6 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReminderEditVC">
             <connections>
+                <outlet property="bottomMargin" destination="QKH-Gn-QHk" id="6Ec-BR-jXZ"/>
                 <outlet property="btn_done" destination="MUc-nF-0Ry" id="5Rj-TV-FkC"/>
                 <outlet property="lb_repeat" destination="tSf-Hf-HFZ" id="kak-GR-mMK"/>
                 <outlet property="lb_time" destination="ebI-dm-OcI" id="K33-9F-Pnq"/>
@@ -46,24 +47,24 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dk9-Ig-1aa">
-                    <rect key="frame" x="16" y="41" width="183.33333333333334" height="294.33333333333331"/>
+                    <rect key="frame" x="16" y="41" width="183.33333333333334" height="331.33333333333331"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="remind me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Y4-IW-Mbp">
-                    <rect key="frame" x="16" y="367.33333333333331" width="80" height="25"/>
+                    <rect key="frame" x="16" y="404.33333333333331" width="80" height="25"/>
                     <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="l6Y-bV-ngD">
-                    <rect key="frame" x="216" y="41" width="182" height="295"/>
+                    <rect key="frame" x="216" y="41" width="182" height="332"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <date key="date" timeIntervalSinceReferenceDate="542084765.18357503">
                         <!--2018-03-07 03:06:05 +0000-->
                     </date>
                 </datePicker>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ikJ-7Y-cFO" customClass="BaseTextField">
-                    <rect key="frame" x="16" y="400.33333333333331" width="382" height="44"/>
+                    <rect key="frame" x="16" y="437.33333333333331" width="382" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="S5j-Li-gww"/>
                     </constraints>
@@ -95,7 +96,7 @@
                 <constraint firstItem="Dk9-Ig-1aa" firstAttribute="top" secondItem="tSf-Hf-HFZ" secondAttribute="bottom" constant="8" id="Pf9-Vl-RYm"/>
                 <constraint firstItem="l6Y-bV-ngD" firstAttribute="bottom" secondItem="Dk9-Ig-1aa" secondAttribute="bottom" id="Pwd-tl-bou"/>
                 <constraint firstAttribute="bottom" secondItem="MUc-nF-0Ry" secondAttribute="bottom" constant="20" id="QKH-Gn-QHk"/>
-                <constraint firstItem="Dk9-Ig-1aa" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.4" id="SYm-xM-evb"/>
+                <constraint firstItem="Dk9-Ig-1aa" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.45" id="SYm-xM-evb"/>
                 <constraint firstItem="tSf-Hf-HFZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="VyW-d0-sQ6"/>
                 <constraint firstAttribute="trailing" secondItem="ebI-dm-OcI" secondAttribute="trailing" constant="16" id="ZqZ-Gn-9oI"/>
                 <constraint firstItem="MUc-nF-0Ry" firstAttribute="trailing" secondItem="ikJ-7Y-cFO" secondAttribute="trailing" id="b6C-9l-jhy"/>

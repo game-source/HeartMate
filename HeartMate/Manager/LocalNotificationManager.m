@@ -24,9 +24,6 @@ static inline void pushNotification(NSString *identifier, UNNotificationTrigger 
     
     UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
     content.sound = [UNNotificationSound defaultSound];
-    content.title = @"title";
-    content.subtitle = @"subtitle";
-    content.body = @"body";
     if (notificationContent) {
         notificationContent(content);
     }
@@ -67,7 +64,7 @@ static inline void pushNotification(NSString *identifier, UNNotificationTrigger 
     pushNotification(identifier, trigger, ^(UNMutableNotificationContent *content) {
         content.title = title;//@"这是标题title";//title;
         content.body = message;
-        content.badge = @1;
+        content.badge = @(1);
     });
 }
 

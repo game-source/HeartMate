@@ -36,6 +36,7 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
 @property (strong, nonatomic) NSMutableArray<NSNumber *> *weekday;
 
 @property (assign, nonatomic) BOOL createMode;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomMargin;
 
 @end
 
@@ -44,6 +45,8 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.bottomMargin.constant = CGConstGetScreenBottomSafeAreaHeight() ? : 20;
+    
     self.title = NSLocalizedString(@"Edit Reminder", @"编辑提醒");
     self.today = [NSDate date];
     
@@ -75,7 +78,8 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
     if (!self.reminder) {
         self.createMode = YES;
         self.reminder = [[HMReminder alloc] init];
-        
+        // 默认选中今天
+        [self.weekday addObject:@(self.today.weekday-1)];
     } else {
         for (int i = 0; i < self.reminder.weekday.count; i++) {
             [self.weekday addObject:self.reminder.weekday[i]];
