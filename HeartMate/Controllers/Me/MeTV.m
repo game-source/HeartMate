@@ -41,6 +41,8 @@ static HMUser *user;
             row.title = NSLocalizedString(@"Age", @"");
             row.cmd = @"user.age";
         }];
+    }];
+    [model addSection:^(AXTableSectionModel *section) {
         [section addRow:^(AXTableRowModel *row) {
             row.title = NSLocalizedString(@"Height", @"");
             row.cmd = @"user.height";
@@ -48,6 +50,26 @@ static HMUser *user;
         [section addRow:^(AXTableRowModel *row) {
             row.title = NSLocalizedString(@"Weight", @"");
             row.cmd = @"user.weight";
+        }];
+        [section addRow:^(AXTableRowModel *row) {
+            row.title = NSLocalizedString(@"BMI", @"");
+            row.cmd = @"user.bmi";
+        }];
+    }];
+    [model addSection:^(AXTableSectionModel *section) {
+        [section addRow:^(AXTableRowModel *row) {
+            row.title = NSLocalizedString(@"App Version", @"");
+            row.cmd = @"about.version";
+            row.detail = [BaseUtilities descriptionForAppVersion];
+        }];
+        [section addRow:^(AXTableRowModel *row) {
+            row.title = NSLocalizedString(@"Developer", @"");
+            row.cmd = @"about.developer";
+            row.detail = @"xaoxuu.com";
+        }];
+        [section addRow:^(AXTableRowModel *row) {
+            row.title = NSLocalizedString(@"Feedback", @"");
+            row.cmd = @"about.feedback";
         }];
     }];
     return model;
@@ -80,6 +102,9 @@ static HMUser *user;
         model.detail = [NSString stringWithFormat:@"%d cm", (int)user.height];
     } else if ([model.cmd isEqualToString:@"user.weight"]) {
         model.detail = [NSString stringWithFormat:@"%.1f kg", user.weight];
+    } else if ([model.cmd isEqualToString:@"user.bmi"]) {
+        CGFloat bmi = [BaseUtilities bmiWithHeight:user.height/100.0 weight:user.weight];
+        model.detail = [NSString stringWithFormat:@"%.1f", bmi];
     }
 }
 
@@ -175,6 +200,7 @@ static HMUser *user;
                     user.height = picker.value.doubleValue;
                 }];
                 [self reloadRowAtIndexPath:indexPath];
+                [self reloadRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section+1]];
             }];
             [alert ax_addCancelAction];
         }];
@@ -187,9 +213,17 @@ static HMUser *user;
                     user.weight = picker.value.doubleValue;
                 }];
                 [self reloadRowAtIndexPath:indexPath];
+                [self reloadRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section+1]];
             }];
             [alert ax_addCancelAction];
         }];
+    }
+    
+    
+    else if ([model.cmd isEqualToString:@"about.developer"]) {
+        [UIApplication ax_presentSafariViewControllerWithURL:[BaseUtilities developerURL] fromViewController:self.controller];
+    } else if ([model.cmd isEqualToString:@"about.feedback"]) {
+        [BaseUtilities sendFeedbackEmail];
     }
     
     

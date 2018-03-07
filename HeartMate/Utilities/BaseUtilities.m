@@ -7,6 +7,7 @@
 //
 
 #import "BaseUtilities.h"
+#import <AXKit/FeedbackKit.h>
 
 @implementation BaseUtilities
 
@@ -53,5 +54,39 @@
     }
 }
 
++ (NSString *)descriptionForAppVersion{
+    return [NSString stringWithFormat:@"%@ (%@)", [NSBundle ax_appVersion], [NSBundle ax_appBuild]];
+}
+
++ (CGFloat)bmiWithHeight:(CGFloat)height weight:(CGFloat)weight{
+    CGFloat bmi = weight / pow(height, 2);
+    return bmi;
+}
+
++ (void)sendFeedbackEmail{
+    [[EmailManager sharedInstance] sendEmail:^(MFMailComposeViewController * _Nonnull mailCompose) {
+        mailCompose.navigationBar.barStyle = UIBarStyleDefault;
+        mailCompose.navigationBar.translucent = NO;
+        mailCompose.navigationBar.opaque = YES;
+        mailCompose.navigationBar.barTintColor = axThemeManager.color.background;
+        mailCompose.navigationBar.tintColor = axThemeManager.color.theme;
+        mailCompose.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:axThemeManager.color.theme, NSFontAttributeName:[UIFont fontWithName:axThemeManager.font.name size:20]};
+        
+        [mailCompose setToRecipients:@[@"feedback@xaoxuu.com"]];
+        [mailCompose setSubject:@"Heart Mate"];
+        
+        
+        [mailCompose setMessageBody:[NSString stringWithFormat:@"\n\n\n\napp name:%@ \napp version: %@",[NSBundle ax_appDisplayName], [self descriptionForAppVersion]] isHTML:NO];
+        
+    } completion:^(MFMailComposeResult result) {
+        
+    } fail:^(NSError * _Nonnull error) {
+        
+    }];
+}
+
++ (NSURL *)developerURL{
+    return [NSURL URLWithString:@"https://xaoxuu.com"];
+}
 
 @end

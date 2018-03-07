@@ -34,4 +34,19 @@
  */
 + (NSString *)descriptionForDate:(NSDate *)date;
 
++ (NSString *)descriptionForAppVersion;
+
+/**
+ 体脂率
+
+ @param height 身高（米）
+ @param weight 体重（千克）
+ @return 体脂率
+ */
++ (CGFloat)bmiWithHeight:(CGFloat)height weight:(CGFloat)weight;
+
++ (void)sendFeedbackEmail;
+
++ (NSURL *)developerURL;
+
 @end

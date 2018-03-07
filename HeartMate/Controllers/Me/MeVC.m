@@ -7,7 +7,6 @@
 //
 
 #import "MeVC.h"
-#import <AXKit/FeedbackKit.h>
 #import "MeTV.h"
 #import "HMUser.h"
 
@@ -42,25 +41,7 @@
         self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
     }
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_service" action:^(UIBarButtonItem * _Nonnull sender) {
-        [[EmailManager sharedInstance] sendEmail:^(MFMailComposeViewController * _Nonnull mailCompose) {
-            mailCompose.navigationBar.barStyle = UIBarStyleDefault;
-            mailCompose.navigationBar.translucent = NO;
-            mailCompose.navigationBar.opaque = YES;
-            mailCompose.navigationBar.barTintColor = axThemeManager.color.background;
-            mailCompose.navigationBar.tintColor = axThemeManager.color.theme;
-            mailCompose.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:axThemeManager.color.theme, NSFontAttributeName:[UIFont fontWithName:axThemeManager.font.name size:20]};
-            
-            [mailCompose setToRecipients:@[@"feedback@xaoxuu.com"]];
-            [mailCompose setSubject:@"Heart Mate"];
-            
-            
-            [mailCompose setMessageBody:[NSString stringWithFormat:@"\n\n\n\napp name:%@ \napp version: %@ (%@)",[NSBundle ax_appDisplayName], [NSBundle ax_appVersion], [NSBundle ax_appBuild]] isHTML:NO];
-            
-        } completion:^(MFMailComposeResult result) {
-            
-        } fail:^(NSError * _Nonnull error) {
-            
-        }];
+        [BaseUtilities sendFeedbackEmail];
     }];
 }
 
