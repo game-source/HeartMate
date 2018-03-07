@@ -20,21 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if (@available(iOS 11.0, *)) {
-        // on newer versions
-        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
-    } else {
-        // Fallback on earlier versions
-        
-    }
     
-    self.view.tintColor = axThemeManager.color.theme;
-    // @xaoxuu: 基类 初始化 顶部区域 NavigationBar
+    // @xaoxuu: initialize data
+    [self baseInitData];
+    // @xaoxuu: initialize navigation bar
     [self baseInitNavBar];
-    // @xaoxuu: 基类 初始化 内容区域
+    // @xaoxuu: initialize content view
     [self baseInitContentView];
-    
-    
     
 }
 
@@ -67,39 +59,53 @@
 
 
 #pragma mark - base init
-// @xaoxuu: 基类 初始化 顶部区域 NavigationBar
+
+- (void)baseInitData{
+    if ([self respondsToSelector:@selector(ax_initData)]) {
+        [self ax_initData];
+    }
+}
+
 - (void)baseInitNavBar{
     // @xaoxuu: default title
     if (!self.title.length) {
         self.title = NSStringFromClass([self class]);
     }
     
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
+    } 
+    
     // @xaoxuu: back bar item
     [self.navigationItem ax_hideBackBarButtonTitle];
+    
     // @xaoxuu: ...
+    if ([self respondsToSelector:@selector(ax_initNavigationBar)]) {
+        [self ax_initNavigationBar];
+    }
     
 }
 
-// @xaoxuu: 基类 初始化 内容区域
 - (void)baseInitContentView{
     // @xaoxuu: color
+    self.view.tintColor = axThemeManager.color.theme;
     self.view.backgroundColor = axThemeManager.color.background;
     // @xaoxuu: frame
-    
-    if ([self respondsToSelector:@selector(initContentFrame:)]) {
-        CGRect frame = [self initContentFrame:kScreenBounds];
+    if ([self respondsToSelector:@selector(ax_contentViewFrame:)]) {
+        CGRect frame = [self ax_contentViewFrame:kScreenBounds];
         self.view.frame = frame;
-    }
-    
-    if ([self respondsToSelector:@selector(initContentView:)]) {
-        [self initContentView:self.view];
+    } else {
+        
     }
     
     // @xaoxuu: subview
-    if ([self respondsToSelector:@selector(initSubview)]) {
-        [self initSubview];
+    if ([self respondsToSelector:@selector(ax_initSubview)]) {
+        [self ax_initSubview];
     }
     
+    if ([self respondsToSelector:@selector(ax_initTableView)]) {
+        [self ax_initTableView];
+    }
     
     // @xaoxuu: ...
     
@@ -110,7 +116,7 @@
 
 #pragma mark - delegate
 
-- (CGRect)initContentFrame:(CGRect)frame{
+- (CGRect)ax_contentViewFrame:(CGRect)frame{
     frame.origin.y = kTopBarHeight;
     frame.size.height = kScreenH - kTopBarHeight;
     return frame;

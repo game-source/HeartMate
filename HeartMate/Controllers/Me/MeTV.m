@@ -21,7 +21,6 @@ static HMUser *user;
 - (AXTableModelType *)ax_tableViewPreloadDataSource{
     AXTableModel *model = [[AXTableModel alloc] init];
     [model addSection:^(AXTableSectionModel *section) {
-//        section.headerTitle = NSLocalizedString(@"My Info", @"");
         [section addRow:^(AXTableRowModel *row) {
             row.title = NSLocalizedString(@"Nickname", @"");
             row.cmd = @"user.input.name";

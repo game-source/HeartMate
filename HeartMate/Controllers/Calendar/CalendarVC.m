@@ -21,39 +21,16 @@ static CGFloat minHeightOfCalendar = 320;
 
 @property (strong, nonatomic) HeartRateTableView *tableView;
 
-@property (strong, nonatomic) UIScrollView *scrollView;
 
 @end
 
 @implementation CalendarVC
 
+#pragma mark - life circle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if (@available(iOS 11.0, *)) {
-        // on newer versions
-        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
-    } else {
-        // Fallback on earlier versions
-        
-    }
-    NSDate *today = [NSDate date];
-    self.navigationItem.title = today.stringValue(@"yyyy-MM-dd");
-    
-    __weak typeof(self) weakSelf = self;
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_position" action:^(UIBarButtonItem * _Nonnull sender) {
-        weakSelf.calendar.selectedDate = [NSDate date];
-        [weakSelf.calendar reloadData];
-        weakSelf.navigationItem.title = weakSelf.calendar.selectedDate.stringValue(@"yyyy-MM-dd");
-    }];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:NOTI_HR_UPDATE object:nil];
-    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:self.scrollView];
-    [self setupCalendar];
-    [self setupTableView];
-    
-    [self reloadTableData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,26 +38,44 @@ static CGFloat minHeightOfCalendar = 320;
     // Dispose of any resources that can be recreated.
 }
 
-- (CGRect)initContentFrame:(CGRect)frame{
+- (CGRect)ax_contentViewFrame:(CGRect)frame{
     frame.size.height -= kTopBarHeight + kTabBarHeight;
     return frame;
 }
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
+- (void)ax_initData{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:NOTI_HR_UPDATE object:nil];
+}
+- (void)ax_initNavigationBar{
+    NSDate *today = [NSDate date];
+    self.navigationItem.title = today.stringValue(@"yyyy-MM-dd");
+    if (@available(iOS 11.0, *)) {
+        // on newer versions
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
+    } else {
+        // Fallback on earlier versions
+        
+    }
+    __weak typeof(self) weakSelf = self;
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_position" action:^(UIBarButtonItem * _Nonnull sender) {
+        weakSelf.calendar.selectedDate = [NSDate date];
+        [weakSelf.calendar reloadData];
+        weakSelf.navigationItem.title = weakSelf.calendar.selectedDate.stringValue(@"yyyy-MM-dd");
+    }];
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+- (void)ax_initTableView{
+    self.tableView = [[HeartRateTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStyleGrouped];
+    self.tableView.showSectionHeader = NO;
+    [self.view addSubview:self.tableView];
+    [self setupCalendar];
+    self.tableView.tableHeaderView = self.calendar;
+    [self reloadTableData];
 }
-
 
 - (void)setupCalendar{
     self.selectedDate = [NSDate date];
     UIColor *tintColor = self.view.tintColor;
     MDCalendar *calendar = [[MDCalendar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, minHeightOfCalendar)];
-    [self.scrollView addSubview:calendar];
     self.calendar = calendar;
     calendar.delegate = self;
     calendar.theme = MDCalendarThemeLight;
@@ -95,41 +90,26 @@ static CGFloat minHeightOfCalendar = 320;
     calendar.titleColors[@(MDCalendarCellStateWeekend)] = [UIColor md_green];
 }
 
+
+#pragma mark - func
+
+- (void)reloadTableData{
+    NSString *where = [NSString stringWithFormat:@"year = %d and month = %d and day = %d", (int)self.selectedDate.year, (int)self.selectedDate.month, (int)self.selectedDate.day];
+    [self.tableView reloadDataWhere:where ascending:NO];
+}
+
+
+#pragma mark - priv
+
+
+
+#pragma mark - delegate
+
 - (void)calendar:(MDCalendar *)calendar didSelectDate:(nullable NSDate *)date{
     calendar.selectedDate = date;
     self.selectedDate = date;
     self.navigationItem.title = calendar.selectedDate.stringValue(@"yyyy-MM-dd");
     [self reloadTableData];
 }
-
-- (void)reloadTableData{
-    NSString *where = [NSString stringWithFormat:@"year = %d and month = %d and day = %d", (int)self.selectedDate.year, (int)self.selectedDate.month, (int)self.selectedDate.day];
-    [self.tableView reloadDataWhere:where ascending:NO];
-    [self updateContentHeight];
-}
-
-- (void)setupTableView{
-    CGFloat headerHeight = 1;
-    self.tableView = [[HeartRateTableView alloc] initWithFrame:CGRectMake(0, self.calendar.bottom-headerHeight, self.view.width, self.view.height) style:UITableViewStyleGrouped];
-    self.tableView.showSectionHeader = NO;
-    [self.scrollView addSubview:self.tableView];
-    self.tableView.scrollEnabled = NO;
-    self.tableView.tableHeaderView = UIViewWithHeight(headerHeight);
-    
-}
-
-
-- (void)updateContentHeight{
-    // 先获取tableView的内容高度
-    CGFloat heightOfTableView = self.tableView.contentSize.height;
-    // table view 实际等于内容高度
-    if (self.tableView.results.count) {
-        self.tableView.height = heightOfTableView;
-    } else {
-        self.tableView.height = 0;
-    }
-    self.scrollView.contentSize = CGSizeMake(0, self.calendar.height + self.tableView.height);
-}
-
 
 @end

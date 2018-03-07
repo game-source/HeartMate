@@ -22,15 +22,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)ax_initData{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUserUpdated) name:NOTI_USER_UPDATE object:nil];
+}
+- (void)ax_initNavigationBar{
     if (@available(iOS 11.0, *)) {
         // on newer versions
         self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
-    } else {
-        // Fallback on earlier versions
-        
     }
-    
-    
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_service" action:^(UIBarButtonItem * _Nonnull sender) {
         [[EmailManager sharedInstance] sendEmail:^(MFMailComposeViewController * _Nonnull mailCompose) {
             mailCompose.navigationBar.barStyle = UIBarStyleDefault;
@@ -47,34 +57,31 @@
             [mailCompose setMessageBody:[NSString stringWithFormat:@"\n\n\n\napp name:%@ \napp version: %@ (%@)",[NSBundle ax_appDisplayName], [NSBundle ax_appVersion], [NSBundle ax_appBuild]] isHTML:NO];
             
         } completion:^(MFMailComposeResult result) {
-
+            
         } fail:^(NSError * _Nonnull error) {
-
+            
         }];
     }];
-    
+}
+
+- (void)ax_initTableView{
     MeTV *tv = [[MeTV alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     tv.backgroundColor = axThemeManager.color.background;
     tv.separatorColor = tv.backgroundColor;
     [self.view addSubview:tv];
     self.tableView = tv;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUserUpdated) name:NOTI_USER_UPDATE object:nil];
-    
     [self didUserUpdated];
-    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (CGRect)ax_contentViewFrame:(CGRect)frame{
+    frame.size.height -= kTopBarHeight + kTabBarHeight;
+    return frame;
 }
 
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+#pragma mark - func
+
 
 - (void)didUserUpdated{
-//    [self.tableView reloadDataSourceAndRefreshTableView];
     HMUser *user = [HMUser currentUser];
     if (user) {
         if (user.firstName.length && user.lastName.length) {
@@ -86,15 +93,7 @@
         } else {
             self.navigationItem.title = self.title;
         }
-    } else {
-        
     }
 }
-
-- (CGRect)initContentFrame:(CGRect)frame{
-    frame.size.height -= kTopBarHeight + kTabBarHeight;
-    return frame;
-}
-
 
 @end

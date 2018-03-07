@@ -92,7 +92,7 @@ static BOOL prepared = NO;
     // Dispose of any resources that can be recreated.
 }
 
-- (CGRect)initContentFrame:(CGRect)frame{
+- (CGRect)ax_contentViewFrame:(CGRect)frame{
 //    frame.size.height -= kTabBarHeight;
     return frame;
 }

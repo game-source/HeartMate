@@ -12,7 +12,6 @@
 		CD517D4D204BC387001A6992 /* HMHeartRate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517D4C204BC387001A6992 /* HMHeartRate.m */; };
 		CD517D53204BCF7B001A6992 /* HMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517D52204BCF7B001A6992 /* HMUser.m */; };
 		CD517D57204BD034001A6992 /* RecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517D56204BD034001A6992 /* RecordVC.m */; };
-		CD517D5A204BD3CB001A6992 /* TimelineTV.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517D59204BD3CB001A6992 /* TimelineTV.m */; };
 		CD884530204E66B5001F7AF1 /* HMGenderPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CD88452F204E66B5001F7AF1 /* HMGenderPicker.m */; };
 		CD884533204E67F2001F7AF1 /* BasePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884532204E67F2001F7AF1 /* BasePickerView.m */; };
 		CD884536204E684A001F7AF1 /* BaseAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884535204E684A001F7AF1 /* BaseAlertController.m */; };
@@ -77,8 +76,6 @@
 		CD517D52204BCF7B001A6992 /* HMUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMUser.m; sourceTree = "<group>"; };
 		CD517D55204BD034001A6992 /* RecordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordVC.h; sourceTree = "<group>"; };
 		CD517D56204BD034001A6992 /* RecordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordVC.m; sourceTree = "<group>"; };
-		CD517D58204BD3CB001A6992 /* TimelineTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineTV.h; sourceTree = "<group>"; };
-		CD517D59204BD3CB001A6992 /* TimelineTV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineTV.m; sourceTree = "<group>"; };
 		CD88452E204E66B5001F7AF1 /* HMGenderPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMGenderPicker.h; sourceTree = "<group>"; };
 		CD88452F204E66B5001F7AF1 /* HMGenderPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMGenderPicker.m; sourceTree = "<group>"; };
 		CD884531204E67F2001F7AF1 /* BasePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePickerView.h; sourceTree = "<group>"; };
@@ -266,8 +263,6 @@
 			children = (
 				CD964CC4204AFDB800A9ECBC /* TimelineVC.h */,
 				CD964CC5204AFDB800A9ECBC /* TimelineVC.m */,
-				CD517D58204BD3CB001A6992 /* TimelineTV.h */,
-				CD517D59204BD3CB001A6992 /* TimelineTV.m */,
 				CDCC728D204D075B00553F25 /* TimelineTVC.h */,
 				CDCC728E204D075B00553F25 /* TimelineTVC.m */,
 				CDCC728F204D075B00553F25 /* TimelineTVC.xib */,
@@ -566,7 +561,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD517D5A204BD3CB001A6992 /* TimelineTV.m in Sources */,
 				CD964CC6204AFDB800A9ECBC /* TimelineVC.m in Sources */,
 				CD944143204F7D98005BCC03 /* RecordStartButton.m in Sources */,
 				CDCC7290204D075B00553F25 /* TimelineTVC.m in Sources */,

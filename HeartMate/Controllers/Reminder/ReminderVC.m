@@ -25,22 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if (@available(iOS 11.0, *)) {
-        // on newer versions
-        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
-    } else {
-        // Fallback on earlier versions
-        
-    }
-    
-    [self setupTableView];
-    
-    __weak typeof(self) weakSelf = self;
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_plus" action:^(UIBarButtonItem * _Nonnull sender) {
-        ReminderEditVC *vc = [[ReminderEditVC alloc] init];
-        [weakSelf.navigationController pushViewController:vc animated:YES];
-    }];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,21 +32,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self reload];
-    
+- (void)ax_initNavigationBar{
+    if (@available(iOS 11.0, *)) {
+        // on newer versions
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
+    }
+    __weak typeof(self) weakSelf = self;
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_plus" action:^(UIBarButtonItem * _Nonnull sender) {
+        ReminderEditVC *vc = [[ReminderEditVC alloc] init];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+    }];
 }
 
-- (CGRect)initContentFrame:(CGRect)frame{
+- (CGRect)ax_contentViewFrame:(CGRect)frame{
     frame.size.height -= kTopBarHeight + kTabBarHeight;
     return frame;
 }
 
-
-- (void)setupTableView{
+- (void)ax_initTableView{
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(ReminderTVC.class) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:NSStringFromClass(ReminderTVC.class)];
     self.tableView.dataSource = self;
@@ -73,14 +60,21 @@
     self.tableView.separatorColor = self.tableView.backgroundColor;
     [self.view addSubview:self.tableView];
     
-    
-    
 }
 
-- (void)reload{
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self reloadData];
+}
+
+#pragma mark - func
+
+- (void)reloadData{
     [self.results removeAllObjects];
     [self.tableView reloadData];
 }
+
+#pragma mark - priv
 
 - (NSMutableArray<HMReminder *> *)results{
     if (!_results.count) {
@@ -96,7 +90,7 @@
     return _results;
 }
 
-
+#pragma mark - delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.results.count;
@@ -114,4 +108,5 @@
     vc.reminder = self.results[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 @end

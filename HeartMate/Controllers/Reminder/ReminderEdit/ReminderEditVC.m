@@ -55,7 +55,6 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
     
     self.weekday = [NSMutableArray array];
     
-    [self setupTableView];
     
     self.pickerView.layer.backgroundColor = [UIColor whiteColor].CGColor;
     [self.pickerView.layer ax_cornerRadius:8 shadow:LayerShadowNone];
@@ -111,7 +110,7 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
     }];
 }
 
-- (void)setupTableView{
+- (void)ax_initTableView{
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView.layer ax_cornerRadius:8 shadow:LayerShadowNone];

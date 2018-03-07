@@ -25,20 +25,6 @@ static NSDate *today;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if (@available(iOS 11.0, *)) {
-        // on newer versions
-        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
-    } else {
-        // Fallback on earlier versions
-        
-    }
-    today = [NSDate date];
-    
-    self.tableView = [[HeartRateTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-    [self.view addSubview:self.tableView];
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,9 +32,25 @@ static NSDate *today;
     // Dispose of any resources that can be recreated.
 }
 
-- (CGRect)initContentFrame:(CGRect)frame{
+- (CGRect)ax_contentViewFrame:(CGRect)frame{
     frame.size.height -= kTopBarHeight + kTabBarHeight;
     return frame;
+}
+
+- (void)ax_initData{
+    today = [NSDate date];
+}
+
+- (void)ax_initNavigationBar{
+    if (@available(iOS 11.0, *)) {
+        // on newer versions
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
+    }
+}
+
+- (void)ax_initTableView{
+    self.tableView = [[HeartRateTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    [self.view addSubview:self.tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
