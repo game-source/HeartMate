@@ -29,6 +29,7 @@
 		CD944152204F9816005BCC03 /* BaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944151204F9816005BCC03 /* BaseTextField.m */; };
 		CD944155204F9848005BCC03 /* BaseTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944154204F9848005BCC03 /* BaseTextView.m */; };
 		CD944158204FB4FC005BCC03 /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944157204FB4FC005BCC03 /* LocalNotificationManager.m */; };
+		CD944164204FEBA8005BCC03 /* HeartRateTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944163204FEBA8005BCC03 /* HeartRateTableView.m */; };
 		CD964CAC204AD88900A9ECBC /* HKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CAB204AD88900A9ECBC /* HKRecord.m */; };
 		CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */ = {isa = PBXBuildFile; fileRef = CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */; };
 		CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CB3204AFC2F00A9ECBC /* BaseTabBarController.m */; };
@@ -109,6 +110,8 @@
 		CD944154204F9848005BCC03 /* BaseTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTextView.m; sourceTree = "<group>"; };
 		CD944156204FB4FC005BCC03 /* LocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationManager.h; sourceTree = "<group>"; };
 		CD944157204FB4FC005BCC03 /* LocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationManager.m; sourceTree = "<group>"; };
+		CD944162204FEBA8005BCC03 /* HeartRateTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateTableView.h; sourceTree = "<group>"; };
+		CD944163204FEBA8005BCC03 /* HeartRateTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartRateTableView.m; sourceTree = "<group>"; };
 		CD964CAA204AD88900A9ECBC /* HKRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKRecord.h; sourceTree = "<group>"; };
 		CD964CAB204AD88900A9ECBC /* HKRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKRecord.m; sourceTree = "<group>"; };
 		CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BaseTabBarController.json; sourceTree = "<group>"; };
@@ -247,6 +250,8 @@
 		CD964CB6204AFD1D00A9ECBC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CD944162204FEBA8005BCC03 /* HeartRateTableView.h */,
+				CD944163204FEBA8005BCC03 /* HeartRateTableView.m */,
 				CD964CC0204AFD6400A9ECBC /* Timeline */,
 				CD964CC1204AFD7000A9ECBC /* Calendar */,
 				CD517D54204BD007001A6992 /* Record */,
@@ -518,7 +523,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-HeartMate/Pods-HeartMate-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AXKit/AXKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialControls/MaterialControls.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -529,7 +533,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AXKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -577,6 +580,7 @@
 				CDF4E73B204E5E0A00DDD285 /* MeTV.m in Sources */,
 				CD884536204E684A001F7AF1 /* BaseAlertController.m in Sources */,
 				CD88454B204E8D7F001F7AF1 /* HMTableFootnoteView.m in Sources */,
+				CD944164204FEBA8005BCC03 /* HeartRateTableView.m in Sources */,
 				CD944152204F9816005BCC03 /* BaseTextField.m in Sources */,
 				CD964CCF204AFDDF00A9ECBC /* MeVC.m in Sources */,
 				CDCC7294204D0C4500553F25 /* HMTagButton.m in Sources */,

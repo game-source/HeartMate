@@ -9,7 +9,7 @@
 #import "HMDefines.h"
 
 
-
+NSString *NOTI_HR_UPDATE = @"com.xaoxuu.hr_update";
 NSString *NOTI_USER_UPDATE = @"com.xaoxuu.user_update";
 NSString *NOTI_REMINDER_UPDATE = @"com.xaoxuu.reminder_update";
 

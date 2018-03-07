@@ -35,36 +35,30 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="every" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSf-Hf-HFZ">
-                    <rect key="frame" x="16" y="8" width="183.33333333333334" height="25"/>
+                    <rect key="frame" x="16" y="101" width="183.33333333333334" height="25"/>
                     <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="at time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebI-dm-OcI">
-                    <rect key="frame" x="215.33333333333337" y="8" width="182.66666666666663" height="25"/>
+                    <rect key="frame" x="215.33333333333337" y="101" width="182.66666666666663" height="25"/>
                     <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dk9-Ig-1aa">
-                    <rect key="frame" x="16" y="41" width="183.33333333333334" height="331.33333333333331"/>
+                    <rect key="frame" x="16" y="133.99999999999997" width="183.33333333333334" height="331.33333333333326"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="remind me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Y4-IW-Mbp">
-                    <rect key="frame" x="16" y="404.33333333333331" width="80" height="25"/>
-                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="l6Y-bV-ngD">
-                    <rect key="frame" x="216" y="41" width="182" height="332"/>
+                    <rect key="frame" x="216" y="134" width="182" height="332"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <date key="date" timeIntervalSinceReferenceDate="542084765.18357503">
                         <!--2018-03-07 03:06:05 +0000-->
                     </date>
                 </datePicker>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ikJ-7Y-cFO" customClass="BaseTextField">
-                    <rect key="frame" x="16" y="437.33333333333331" width="382" height="44"/>
+                    <rect key="frame" x="16" y="41" width="382" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="S5j-Li-gww"/>
                     </constraints>
@@ -82,10 +76,15 @@
                         <action selector="tappedDone:" destination="-1" eventType="touchUpInside" id="vbj-PS-BKq"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="remind me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Y4-IW-Mbp">
+                    <rect key="frame" x="16" y="8" width="80" height="25"/>
+                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="6Y4-IW-Mbp" firstAttribute="top" secondItem="Dk9-Ig-1aa" secondAttribute="bottom" constant="32" id="6PZ-GU-WZL"/>
                 <constraint firstItem="ebI-dm-OcI" firstAttribute="top" secondItem="tSf-Hf-HFZ" secondAttribute="top" id="7b7-Y5-O38"/>
                 <constraint firstItem="Dk9-Ig-1aa" firstAttribute="leading" secondItem="tSf-Hf-HFZ" secondAttribute="leading" id="9tb-L5-z4v"/>
                 <constraint firstItem="ebI-dm-OcI" firstAttribute="width" secondItem="tSf-Hf-HFZ" secondAttribute="width" id="Ad1-ph-AYl"/>
@@ -98,10 +97,11 @@
                 <constraint firstAttribute="bottom" secondItem="MUc-nF-0Ry" secondAttribute="bottom" constant="20" id="QKH-Gn-QHk"/>
                 <constraint firstItem="Dk9-Ig-1aa" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.45" id="SYm-xM-evb"/>
                 <constraint firstItem="tSf-Hf-HFZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="VyW-d0-sQ6"/>
+                <constraint firstItem="6Y4-IW-Mbp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="WEn-TH-wKz"/>
                 <constraint firstAttribute="trailing" secondItem="ebI-dm-OcI" secondAttribute="trailing" constant="16" id="ZqZ-Gn-9oI"/>
                 <constraint firstItem="MUc-nF-0Ry" firstAttribute="trailing" secondItem="ikJ-7Y-cFO" secondAttribute="trailing" id="b6C-9l-jhy"/>
-                <constraint firstItem="tSf-Hf-HFZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="eAR-XB-1es"/>
                 <constraint firstItem="l6Y-bV-ngD" firstAttribute="trailing" secondItem="ebI-dm-OcI" secondAttribute="trailing" id="hhF-lc-sOn"/>
+                <constraint firstItem="tSf-Hf-HFZ" firstAttribute="top" secondItem="ikJ-7Y-cFO" secondAttribute="bottom" constant="16" id="jw2-Io-F5J"/>
                 <constraint firstItem="ikJ-7Y-cFO" firstAttribute="trailing" secondItem="ebI-dm-OcI" secondAttribute="trailing" id="p8V-bk-5AI"/>
                 <constraint firstItem="ebI-dm-OcI" firstAttribute="leading" secondItem="tSf-Hf-HFZ" secondAttribute="trailing" constant="16" id="qRR-VG-MUQ"/>
                 <constraint firstItem="Dk9-Ig-1aa" firstAttribute="trailing" secondItem="tSf-Hf-HFZ" secondAttribute="trailing" id="rP8-UU-14l"/>

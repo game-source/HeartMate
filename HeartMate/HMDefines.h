@@ -11,6 +11,8 @@
 #import "HMUtilities.h"
 #import <MaterialControls/MaterialControls.h>
 
+
+FOUNDATION_EXTERN NSString *NOTI_HR_UPDATE;
 FOUNDATION_EXTERN NSString *NOTI_USER_UPDATE;
 FOUNDATION_EXTERN NSString *NOTI_REMINDER_UPDATE;
 

@@ -61,21 +61,21 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="measure heart rate" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwj-JQ-jXN">
-                        <rect key="frame" x="16" y="69" width="288" height="43"/>
+                        <rect key="frame" x="20" y="69" width="280" height="43"/>
                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="zwj-JQ-jXN" secondAttribute="trailing" id="2xc-Ow-5Lj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="zwj-JQ-jXN" secondAttribute="trailing" constant="4" id="2xc-Ow-5Lj"/>
                     <constraint firstItem="zwj-JQ-jXN" firstAttribute="top" secondItem="5Au-j0-2CZ" secondAttribute="bottom" id="AmQ-Bi-wft"/>
                     <constraint firstItem="rMF-RI-HSg" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Bkd-8P-3YL"/>
                     <constraint firstItem="rMF-RI-HSg" firstAttribute="top" secondItem="zwj-JQ-jXN" secondAttribute="bottom" id="E9b-gh-cIw"/>
                     <constraint firstItem="rMF-RI-HSg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="GiX-4I-uFp"/>
                     <constraint firstItem="aaC-vU-jz0" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Kfj-Uf-A6m"/>
                     <constraint firstItem="5Au-j0-2CZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Rxg-cj-g5W"/>
-                    <constraint firstItem="zwj-JQ-jXN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Vd2-cM-PKi"/>
+                    <constraint firstItem="zwj-JQ-jXN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="Vd2-cM-PKi"/>
                     <constraint firstAttribute="bottomMargin" secondItem="rMF-RI-HSg" secondAttribute="bottom" id="gYf-bh-cDi"/>
                     <constraint firstItem="aaC-vU-jz0" firstAttribute="bottom" secondItem="5Au-j0-2CZ" secondAttribute="bottom" id="iYf-Yo-oog"/>
                     <constraint firstItem="5Au-j0-2CZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="j74-vn-bpv"/>

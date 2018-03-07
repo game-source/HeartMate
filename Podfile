@@ -12,8 +12,6 @@ target 'HeartMate' do
   pod 'SDWebImage'
   pod 'Realm'
   pod 'MaterialControls'
-#  pod 'FSCalendar'
-  pod 'IQKeyboardManager'
 
 
 end

@@ -208,6 +208,7 @@ static BOOL prepared = NO;
                                 [realm addObject:avgHR];
                             }];
                             [self stopCapture];
+                            [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_HR_UPDATE object:@(heartRate)];
                         }];
                         [alert ax_addCancelActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
                             RLMRealm *realm = [RLMRealm defaultRealm];
