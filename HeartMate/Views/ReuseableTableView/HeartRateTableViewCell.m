@@ -1,16 +1,16 @@
 //
-//  TimelineTVC.m
+//  HeartRateTableViewCell.m
 //  HeartMate
 //
 //  Created by xaoxuu on 05/03/2018.
 //  Copyright © 2018 xaoxuu. All rights reserved.
 //
 
-#import "TimelineTVC.h"
+#import "HeartRateTableViewCell.h"
 #import "HMTagButton.h"
 
 
-@interface TimelineTVC () <HMTagButtonDelegate>
+@interface HeartRateTableViewCell () <HMTagButtonDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *lb_hr;
 @property (weak, nonatomic) IBOutlet UILabel *lb_bpm;
@@ -25,7 +25,7 @@
 @end
 
 
-@implementation TimelineTVC
+@implementation HeartRateTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

@@ -35,8 +35,6 @@
     self.lb_time.textColor = self.tintColor;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

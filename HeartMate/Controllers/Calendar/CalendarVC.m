@@ -42,7 +42,7 @@ static CGFloat minHeightOfCalendar = 320;
     frame.size.height -= kTopBarHeight + kTabBarHeight;
     return frame;
 }
-- (void)ax_initData{
+- (void)ax_initProperty{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:NOTI_HR_UPDATE object:nil];
 }
 - (void)ax_initNavigationBar{

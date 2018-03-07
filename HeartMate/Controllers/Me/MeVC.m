@@ -33,7 +33,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)ax_initData{
+- (void)ax_initProperty{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUserUpdated) name:NOTI_USER_UPDATE object:nil];
 }
 - (void)ax_initNavigationBar{

@@ -61,8 +61,8 @@
 #pragma mark - base init
 
 - (void)baseInitData{
-    if ([self respondsToSelector:@selector(ax_initData)]) {
-        [self ax_initData];
+    if ([self respondsToSelector:@selector(ax_initProperty)]) {
+        [self ax_initProperty];
     }
 }
 

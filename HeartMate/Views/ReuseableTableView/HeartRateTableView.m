@@ -7,7 +7,7 @@
 //
 
 #import "HeartRateTableView.h"
-#import "TimelineTVC.h"
+#import "HeartRateTableViewCell.h"
 
 @interface HeartRateTableView() <UITableViewDataSource, UITableViewDelegate>
 
@@ -19,7 +19,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     if (self = [super initWithFrame:frame style:style]) {
-        [self registerNib:[UINib nibWithNibName:NSStringFromClass(TimelineTVC.class) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:NSStringFromClass(TimelineTVC.class)];
+        [self registerNib:[UINib nibWithNibName:NSStringFromClass(HeartRateTableViewCell.class) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:NSStringFromClass(HeartRateTableViewCell.class)];
         self.dataSource = self;
         self.delegate = self;
         self.estimatedRowHeight = 107;
@@ -85,7 +85,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TimelineTVC *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(TimelineTVC.class) forIndexPath:indexPath];
+    HeartRateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(HeartRateTableViewCell.class) forIndexPath:indexPath];
     cell.model = self.results[indexPath.section][indexPath.row];
     return cell;
 }

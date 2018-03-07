@@ -8,7 +8,6 @@
 
 #import "TimelineVC.h"
 #import "HMHeartRate.h"
-#import "TimelineTVC.h"
 #import "HeartRateTableView.h"
 
 
@@ -37,7 +36,7 @@ static NSDate *today;
     return frame;
 }
 
-- (void)ax_initData{
+- (void)ax_initProperty{
     today = [NSDate date];
 }
 

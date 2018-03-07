@@ -1,5 +1,5 @@
 //
-//  TimelineTVC.h
+//  HeartRateTableViewCell.h
 //  HeartMate
 //
 //  Created by xaoxuu on 05/03/2018.
@@ -10,7 +10,7 @@
 #import "HMHeartRate.h"
 
 
-@interface TimelineTVC : UITableViewCell
+@interface HeartRateTableViewCell : UITableViewCell
 
 /**
  model

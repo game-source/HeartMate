@@ -45,71 +45,58 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.bottomMargin.constant = CGConstGetScreenBottomSafeAreaHeight() ? : 20;
-    
-    self.title = NSLocalizedString(@"Edit Reminder", @"编辑提醒");
-    self.today = [NSDate date];
-    
-    
-    
-    
-    self.weekday = [NSMutableArray array];
-    
-    
-    self.pickerView.layer.backgroundColor = [UIColor whiteColor].CGColor;
-    [self.pickerView.layer ax_cornerRadius:8 shadow:LayerShadowNone];
-    
-    if (!self.reminder) {
-        self.createMode = YES;
-        self.reminder = [[HMReminder alloc] init];
-        // 默认选中今天
-        [self.weekday addObject:@(self.today.weekday-1)];
-    } else {
-        for (int i = 0; i < self.reminder.weekday.count; i++) {
-            [self.weekday addObject:self.reminder.weekday[i]];
-        }
-        [self setupNavigationItem];
-    }
-    NSDate *date = [NSDate dateWithString:[NSString stringWithFormat:@"%02d:%02d", (int)self.reminder.hour, (int)self.reminder.minute] format:@"HH:mm"];
-    self.pickerView.date = date;
-    
-    self.tf_title.text = self.reminder.title;
-    self.tf_title.placeholder = NSLocalizedString(@"It's time to measure my heart rate.", @"是时候测量一下心率了。");
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
-- (void)setReminder:(HMReminder *)reminder{
-    _reminder = reminder;
-    for (int i = 0; i < reminder.weekday.count; i++) {
-        [self.weekday addObject:reminder.weekday[i]];
+- (void)ax_initProperty{
+    self.today = [NSDate date];
+    self.weekday = [NSMutableArray array];
+    [self reminder];
+    if (!self.createMode) {
+        for (int i = 0; i < self.reminder.weekday.count; i++) {
+            [self.weekday addObject:self.reminder.weekday[i]];
+        }
     }
+}
+- (void)ax_initSubview{
+    self.bottomMargin.constant = CGConstGetScreenBottomSafeAreaHeight() ? : 20;
     
+    self.pickerView.layer.backgroundColor = [UIColor whiteColor].CGColor;
+    [self.pickerView.layer ax_cornerRadius:8 shadow:LayerShadowNone];
+    NSDate *date = [NSDate dateWithString:[NSString stringWithFormat:@"%02d:%02d", (int)self.reminder.hour, (int)self.reminder.minute] format:@"HH:mm"];
+    self.pickerView.date = date;
+    
+    self.tf_title.placeholder = NSLocalizedString(@"It's time to measure my heart rate.", @"是时候测量一下心率了。");
+    if (self.createMode) {
+        self.tf_title.text = self.tf_title.placeholder;
+    } else {
+        self.tf_title.text = self.reminder.title;
+    }
 }
 
-- (void)setupNavigationItem{
-    __weak typeof(self) weakSelf = self;
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_delete" action:^(UIBarButtonItem * _Nonnull sender) {
-        NSString *title = NSLocalizedString(@"Notice", @"注意");
-        NSString *msg = NSLocalizedString(@"Do you really want to delete the reminder?", @"你真的要删除提醒吗？");
-        [BaseAlertController ax_showAlertWithTitle:title message:msg actions:^(UIAlertController * _Nonnull alert) {
-            [alert ax_addDestructiveActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
-                deleteLocalNotificationWithIdentifier(weakSelf.reminder.identifier);
-                [[RLMRealm defaultRealm] transactionWithBlock:^{
-                    [[RLMRealm defaultRealm] deleteObject:weakSelf.reminder];
+- (void)ax_initNavigationBar{
+    self.navigationItem.title = NSLocalizedString(@"Edit Reminder", @"编辑提醒");
+    if (!self.createMode) {
+        __weak typeof(self) weakSelf = self;
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_delete" action:^(UIBarButtonItem * _Nonnull sender) {
+            NSString *title = NSLocalizedString(@"Notice", @"注意");
+            NSString *msg = NSLocalizedString(@"Do you really want to delete the reminder?", @"你真的要删除提醒吗？");
+            [BaseAlertController ax_showAlertWithTitle:title message:msg actions:^(UIAlertController * _Nonnull alert) {
+                [alert ax_addDestructiveActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
+                    deleteLocalNotificationWithIdentifier(weakSelf.reminder.identifier);
+                    [[RLMRealm defaultRealm] transactionWithBlock:^{
+                        [[RLMRealm defaultRealm] deleteObject:weakSelf.reminder];
+                    }];
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
                 }];
-                [weakSelf.navigationController popViewControllerAnimated:YES];
+                [alert ax_addCancelAction];
             }];
-            [alert ax_addCancelAction];
         }];
-    }];
+    }
 }
-
 - (void)ax_initTableView{
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -118,12 +105,22 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.tableView.showsVerticalScrollIndicator = NO;
 }
-
+- (HMReminder *)reminder{
+    if (!_reminder) {
+        self.createMode = YES;
+        self.reminder = [[HMReminder alloc] init];
+        // 默认选中今天
+        [self.weekday addObject:@(self.today.weekday-1)];
+    }
+    return _reminder;
+}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.tf_title resignFirstResponder];
 }
 
+
+#pragma mark - delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 7;
@@ -167,9 +164,7 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
     
 }
 
-- (void)dealloc{
-    AXLogSuccess();
-}
+#pragma mark - action
 
 - (IBAction)tappedDone:(UIButton *)sender {
     if (self.createMode) {
@@ -178,7 +173,6 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
             [[RLMRealm defaultRealm] addObject:self.reminder];
         }];
     }
-    
     
     HMReminder *reminder = self.reminder;
     // 进行数据库修改

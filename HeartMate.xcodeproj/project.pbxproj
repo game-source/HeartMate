@@ -46,13 +46,12 @@
 		CDA527AD1FECD20E009C39EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA527AB1FECD20E009C39EC /* LaunchScreen.storyboard */; };
 		CDA527B01FECD20E009C39EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA527AF1FECD20E009C39EC /* main.m */; };
 		CDCC7275204C31D800553F25 /* HMDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC7274204C31D800553F25 /* HMDefines.m */; };
-		CDCC7290204D075B00553F25 /* TimelineTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC728E204D075B00553F25 /* TimelineTVC.m */; };
-		CDCC7291204D075B00553F25 /* TimelineTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCC728F204D075B00553F25 /* TimelineTVC.xib */; };
+		CDCC7290204D075B00553F25 /* HeartRateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC728E204D075B00553F25 /* HeartRateTableViewCell.m */; };
+		CDCC7291204D075B00553F25 /* HeartRateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCC728F204D075B00553F25 /* HeartRateTableViewCell.xib */; };
 		CDCC7294204D0C4500553F25 /* HMTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC7293204D0C4500553F25 /* HMTagButton.m */; };
 		CDD5BBEC204AD257005D2FC5 /* HKCaptureSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5BBEB204AD257005D2FC5 /* HKCaptureSession.m */; };
 		CDD5BBF2204AD287005D2FC5 /* HKOutputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5BBF1204AD287005D2FC5 /* HKOutputView.m */; };
 		CDE362D5204ED33400BD0865 /* HMReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE362D4204ED33400BD0865 /* HMReminder.m */; };
-		CDE362D8204ED69600BD0865 /* ReminderTV.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE362D7204ED69600BD0865 /* ReminderTV.m */; };
 		CDE362DC204EDA5800BD0865 /* ReminderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE362DA204EDA5800BD0865 /* ReminderTVC.m */; };
 		CDE362DD204EDA5800BD0865 /* ReminderTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE362DB204EDA5800BD0865 /* ReminderTVC.xib */; };
 		CDF4E73B204E5E0A00DDD285 /* MeTV.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF4E73A204E5E0A00DDD285 /* MeTV.m */; };
@@ -141,9 +140,9 @@
 		CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		CDCC7273204C31D800553F25 /* HMDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMDefines.h; sourceTree = "<group>"; };
 		CDCC7274204C31D800553F25 /* HMDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMDefines.m; sourceTree = "<group>"; };
-		CDCC728D204D075B00553F25 /* TimelineTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineTVC.h; sourceTree = "<group>"; };
-		CDCC728E204D075B00553F25 /* TimelineTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineTVC.m; sourceTree = "<group>"; };
-		CDCC728F204D075B00553F25 /* TimelineTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineTVC.xib; sourceTree = "<group>"; };
+		CDCC728D204D075B00553F25 /* HeartRateTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateTableViewCell.h; sourceTree = "<group>"; };
+		CDCC728E204D075B00553F25 /* HeartRateTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartRateTableViewCell.m; sourceTree = "<group>"; };
+		CDCC728F204D075B00553F25 /* HeartRateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeartRateTableViewCell.xib; sourceTree = "<group>"; };
 		CDCC7292204D0C4500553F25 /* HMTagButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMTagButton.h; sourceTree = "<group>"; };
 		CDCC7293204D0C4500553F25 /* HMTagButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMTagButton.m; sourceTree = "<group>"; };
 		CDD5BBEA204AD257005D2FC5 /* HKCaptureSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKCaptureSession.h; sourceTree = "<group>"; };
@@ -153,8 +152,6 @@
 		CDD5BBF4204AD2B7005D2FC5 /* HeartKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartKit.h; sourceTree = "<group>"; };
 		CDE362D3204ED33400BD0865 /* HMReminder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMReminder.h; sourceTree = "<group>"; };
 		CDE362D4204ED33400BD0865 /* HMReminder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMReminder.m; sourceTree = "<group>"; };
-		CDE362D6204ED69600BD0865 /* ReminderTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReminderTV.h; sourceTree = "<group>"; };
-		CDE362D7204ED69600BD0865 /* ReminderTV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReminderTV.m; sourceTree = "<group>"; };
 		CDE362D9204EDA5800BD0865 /* ReminderTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReminderTVC.h; sourceTree = "<group>"; };
 		CDE362DA204EDA5800BD0865 /* ReminderTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReminderTVC.m; sourceTree = "<group>"; };
 		CDE362DB204EDA5800BD0865 /* ReminderTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderTVC.xib; sourceTree = "<group>"; };
@@ -183,6 +180,18 @@
 				1689D13B55BEC752C2AE663B /* Pods-HeartMate.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CD0CD70F2050315C006CBB4C /* ReuseableTableView */ = {
+			isa = PBXGroup;
+			children = (
+				CD944162204FEBA8005BCC03 /* HeartRateTableView.h */,
+				CD944163204FEBA8005BCC03 /* HeartRateTableView.m */,
+				CDCC728D204D075B00553F25 /* HeartRateTableViewCell.h */,
+				CDCC728E204D075B00553F25 /* HeartRateTableViewCell.m */,
+				CDCC728F204D075B00553F25 /* HeartRateTableViewCell.xib */,
+			);
+			path = ReuseableTableView;
 			sourceTree = "<group>";
 		};
 		CD517D54204BD007001A6992 /* Record */ = {
@@ -247,8 +256,6 @@
 		CD964CB6204AFD1D00A9ECBC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CD944162204FEBA8005BCC03 /* HeartRateTableView.h */,
-				CD944163204FEBA8005BCC03 /* HeartRateTableView.m */,
 				CD964CC0204AFD6400A9ECBC /* Timeline */,
 				CD964CC1204AFD7000A9ECBC /* Calendar */,
 				CD517D54204BD007001A6992 /* Record */,
@@ -263,9 +270,6 @@
 			children = (
 				CD964CC4204AFDB800A9ECBC /* TimelineVC.h */,
 				CD964CC5204AFDB800A9ECBC /* TimelineVC.m */,
-				CDCC728D204D075B00553F25 /* TimelineTVC.h */,
-				CDCC728E204D075B00553F25 /* TimelineTVC.m */,
-				CDCC728F204D075B00553F25 /* TimelineTVC.xib */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -284,8 +288,6 @@
 			children = (
 				CD964CCA204AFDCF00A9ECBC /* ReminderVC.h */,
 				CD964CCB204AFDCF00A9ECBC /* ReminderVC.m */,
-				CDE362D6204ED69600BD0865 /* ReminderTV.h */,
-				CDE362D7204ED69600BD0865 /* ReminderTV.m */,
 				CDE362D9204EDA5800BD0865 /* ReminderTVC.h */,
 				CDE362DA204EDA5800BD0865 /* ReminderTVC.m */,
 				CDE362DB204EDA5800BD0865 /* ReminderTVC.xib */,
@@ -373,6 +375,7 @@
 		CDCC728C204D069300553F25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CD0CD70F2050315C006CBB4C /* ReuseableTableView */,
 				CDCC7292204D0C4500553F25 /* HMTagButton.h */,
 				CDCC7293204D0C4500553F25 /* HMTagButton.m */,
 				CD884531204E67F2001F7AF1 /* BasePickerView.h */,
@@ -481,7 +484,7 @@
 				CD94414C204F8E7B005BCC03 /* ReminderEditVC.xib in Resources */,
 				CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */,
 				CDA527AD1FECD20E009C39EC /* LaunchScreen.storyboard in Resources */,
-				CDCC7291204D075B00553F25 /* TimelineTVC.xib in Resources */,
+				CDCC7291204D075B00553F25 /* HeartRateTableViewCell.xib in Resources */,
 				CDE362DD204EDA5800BD0865 /* ReminderTVC.xib in Resources */,
 				CDA527AA1FECD20E009C39EC /* Assets.xcassets in Resources */,
 				CDA527A81FECD20E009C39EC /* Main.storyboard in Resources */,
@@ -563,14 +566,13 @@
 			files = (
 				CD964CC6204AFDB800A9ECBC /* TimelineVC.m in Sources */,
 				CD944143204F7D98005BCC03 /* RecordStartButton.m in Sources */,
-				CDCC7290204D075B00553F25 /* TimelineTVC.m in Sources */,
+				CDCC7290204D075B00553F25 /* HeartRateTableViewCell.m in Sources */,
 				CD884539204E70FA001F7AF1 /* HMBirthdayPicker.m in Sources */,
 				CD517D41204BAC28001A6992 /* HMData.m in Sources */,
 				CD964CCC204AFDCF00A9ECBC /* ReminderVC.m in Sources */,
 				CD94414F204F95D6005BCC03 /* HMWideButton.m in Sources */,
 				CD884542204E7399001F7AF1 /* HMWeightPicker.m in Sources */,
 				CD964CC9204AFDC200A9ECBC /* CalendarVC.m in Sources */,
-				CDE362D8204ED69600BD0865 /* ReminderTV.m in Sources */,
 				CDF4E73B204E5E0A00DDD285 /* MeTV.m in Sources */,
 				CD884536204E684A001F7AF1 /* BaseAlertController.m in Sources */,
 				CD88454B204E8D7F001F7AF1 /* HMTableFootnoteView.m in Sources */,

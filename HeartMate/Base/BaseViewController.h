@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, ContentViewStyle) {
 
 - (void)ax_initNavigationBar;
 
-- (void)ax_initData;
+- (void)ax_initProperty;
 
 @end
 
