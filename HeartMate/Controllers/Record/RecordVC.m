@@ -8,11 +8,12 @@
 
 #import "RecordVC.h"
 #import <AXKit/StatusKit.h>
-
+#import "RecordStartButton.h"
 #import "HeartKit.h"
 #import "HMHeartRate.h"
 
 static BOOL run = NO;
+static ax_dispatch_operation_t token;
 
 static inline UILabel *defaultLabelWithFontSize(CGFloat fontSize){
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, kScreenW - 16, 40)];
@@ -56,7 +57,7 @@ static BOOL prepared = NO;
 
 @property (strong, nonatomic) UIProgressView *progressView;
 
-@property (strong, nonatomic) UIButton *button;
+@property (strong, nonatomic) UIButton *startButton;
 
 @property (strong, nonatomic) UIVisualEffectView *visualEffectView;
 
@@ -104,10 +105,15 @@ static BOOL prepared = NO;
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self startCapture];
+    // 如果太快，用户可能没反应过来，看不到动画
+    token = ax_dispatch_cancellable(0.2, dispatch_get_main_queue(), ^{
+        [self startCapture];
+    });
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+    // 如果用户在0.2秒内迅速离开页面，要取消掉[self startCapture]的定时任务
+    ax_dispatch_cancel_operation(token);
     [self stopCapture];
 }
 
@@ -270,36 +276,27 @@ static BOOL prepared = NO;
     self.largeTitle.top = 40;
     self.largeTitle.text = NSLocalizedString(@"Press the camera with your fingertip.", @"请用指尖轻轻按住摄像头");
     
-    
-    
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
-    [self.view addSubview:button];
-    self.button = button;
-    button.titleLabel.font = [UIFont fontWithName:axThemeManager.font.name size:17];
-    button.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
-    [button.layer ax_whiteBorder:1.2];
-    [button.layer ax_cornerRadius:0.5*button.height shadow:LayerShadowNone];
-    button.bottom = height - 20 - kTabBarHeight;
-    button.centerX = centerX;
-    [button setTitle:NSLocalizedString(@"Start", @"结束测量") forState:UIControlStateNormal];
-    [button setTitle:NSLocalizedString(@"Stop", @"结束测量") forState:UIControlStateSelected];
+    RecordStartButton *startButton = [[RecordStartButton alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+    [self.view addSubview:startButton];
+    self.startButton = startButton;
+    startButton.bottom = height - 20 - kTabBarHeight;
+    startButton.centerX = centerX;
     __weak typeof(self) weakSelf = self;
-    [button ax_addTouchUpInsideHandler:^(__kindof UIButton * _Nonnull sender) {
+    [startButton ax_addTouchUpInsideHandler:^(__kindof UIButton * _Nonnull sender) {
         if (sender.selected) {
-            [sender ax_animatedScale:0.7 duration:1.8 completion:nil];
             [weakSelf stopCapture];
         } else {
-            [sender ax_animatedScale:1.15 duration:1.5 completion:nil];
             [weakSelf startCapture];
         }
     }];
+    
     
     UIButton *edit = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     [self.view addSubview:edit];
     self.edit = edit;
     edit.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
     [edit setImage:UIImageNamed(@"icon_setting") forState:UIControlStateNormal];
-    edit.centerY = button.centerY;
+    edit.centerY = startButton.centerY;
     edit.right = self.view.width - 8;
     [edit ax_addTouchUpInsideHandler:^(__kindof UIButton * _Nonnull sender) {
         NSString *tip = NSLocalizedString(@"In general, the longer the measurement duration, the higher the accuracy.", @"一般来说，测量时长越长，准确率越高。");
@@ -329,14 +326,14 @@ static BOOL prepared = NO;
             }];
             [alert ax_addCancelActionWithTitle:NSLocalizedString(@"Done", @"完成") handler:nil];
         }];
-    }];
+    } animatedScale:1.36 duration:0.8];
     
     UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, 140, 2)];
     [self.view addSubview:progressView];
     progressView.hidden = YES;
     progressView.progress = 0;
     progressView.centerX = centerX;
-    progressView.bottom = button.top - 50;
+    progressView.bottom = startButton.top - 50;
     progressView.tintColor = [UIColor whiteColor];
     progressView.trackTintColor = [UIColor colorWithWhite:1 alpha:0.3];
     self.progressView = progressView;
@@ -355,8 +352,8 @@ static BOOL prepared = NO;
     
     
     
-    UIView *mask = UIMaskViewWithSizeAndCornerRadius(self.button.bounds.size, 0.5*self.button.height);
-    mask.frame = self.button.frame;
+    UIView *mask = UIMaskViewWithSizeAndCornerRadius(self.startButton.bounds.size, 0.5*self.startButton.height);
+    mask.frame = self.startButton.frame;
     self.mask = mask;
     self.overlay.maskView = self.mask;
     
@@ -370,9 +367,9 @@ static BOOL prepared = NO;
 - (void)updateUI:(void (^)(void))completion{
     if (run) {
         [self.progressView setProgress:0 animated:NO];
-        self.button.selected = YES;
+        self.startButton.selected = YES;
         [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseIn animations:^{
-            CGFloat offset = self.button.top + 0.5 * self.button.height;
+            CGFloat offset = self.startButton.top + 0.5 * self.startButton.height;
             self.mask.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0, -offset), 15, 15);
             self.tabBarController.tabBar.transform = CGAffineTransformMakeTranslation(0, 12);
             self.edit.transform = CGAffineTransformMakeTranslation(kScreenW - self.edit.left, 0);
@@ -382,7 +379,7 @@ static BOOL prepared = NO;
             }
         }];
     } else {
-        self.button.selected = NO;
+        self.startButton.selected = NO;
         [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseIn animations:^{
             self.mask.transform = CGAffineTransformIdentity;
             self.tabBarController.tabBar.transform = CGAffineTransformIdentity;

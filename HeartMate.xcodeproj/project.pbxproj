@@ -22,6 +22,7 @@
 		CD884545204E7520001F7AF1 /* HMContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884544204E7520001F7AF1 /* HMContext.m */; };
 		CD884548204E7AA0001F7AF1 /* HMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884547204E7AA0001F7AF1 /* HMUtilities.m */; };
 		CD88454B204E8D7F001F7AF1 /* HMTableFootnoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */; };
+		CD944143204F7D98005BCC03 /* RecordStartButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944142204F7D98005BCC03 /* RecordStartButton.m */; };
 		CD964CAC204AD88900A9ECBC /* HKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CAB204AD88900A9ECBC /* HKRecord.m */; };
 		CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */ = {isa = PBXBuildFile; fileRef = CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */; };
 		CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CB3204AFC2F00A9ECBC /* BaseTabBarController.m */; };
@@ -89,6 +90,8 @@
 		CD884547204E7AA0001F7AF1 /* HMUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMUtilities.m; sourceTree = "<group>"; };
 		CD884549204E8D7F001F7AF1 /* HMTableFootnoteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMTableFootnoteView.h; sourceTree = "<group>"; };
 		CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMTableFootnoteView.m; sourceTree = "<group>"; };
+		CD944141204F7D98005BCC03 /* RecordStartButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordStartButton.h; sourceTree = "<group>"; };
+		CD944142204F7D98005BCC03 /* RecordStartButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordStartButton.m; sourceTree = "<group>"; };
 		CD964CAA204AD88900A9ECBC /* HKRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKRecord.h; sourceTree = "<group>"; };
 		CD964CAB204AD88900A9ECBC /* HKRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKRecord.m; sourceTree = "<group>"; };
 		CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BaseTabBarController.json; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 				CD884535204E684A001F7AF1 /* BaseAlertController.m */,
 				CD884549204E8D7F001F7AF1 /* HMTableFootnoteView.h */,
 				CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */,
+				CD944141204F7D98005BCC03 /* RecordStartButton.h */,
+				CD944142204F7D98005BCC03 /* RecordStartButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -513,6 +518,7 @@
 			files = (
 				CD517D5A204BD3CB001A6992 /* TimelineTV.m in Sources */,
 				CD964CC6204AFDB800A9ECBC /* TimelineVC.m in Sources */,
+				CD944143204F7D98005BCC03 /* RecordStartButton.m in Sources */,
 				CDCC7290204D075B00553F25 /* TimelineTVC.m in Sources */,
 				CD884539204E70FA001F7AF1 /* HMBirthdayPicker.m in Sources */,
 				CD517D41204BAC28001A6992 /* HMData.m in Sources */,
