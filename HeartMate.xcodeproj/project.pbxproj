@@ -37,7 +37,7 @@
 		CD964CC6204AFDB800A9ECBC /* TimelineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CC5204AFDB800A9ECBC /* TimelineVC.m */; };
 		CD964CC9204AFDC200A9ECBC /* CalendarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CC8204AFDC200A9ECBC /* CalendarVC.m */; };
 		CD964CCC204AFDCF00A9ECBC /* ReminderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CCB204AFDCF00A9ECBC /* ReminderVC.m */; };
-		CD964CCF204AFDDF00A9ECBC /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CCE204AFDDF00A9ECBC /* MineVC.m */; };
+		CD964CCF204AFDDF00A9ECBC /* MeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CCE204AFDDF00A9ECBC /* MeVC.m */; };
 		CD964CD2204AFE5F00A9ECBC /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CD0204AFE5E00A9ECBC /* BaseViewController.m */; };
 		CDA527A21FECD20E009C39EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA527A11FECD20E009C39EC /* AppDelegate.m */; };
 		CDA527A51FECD20E009C39EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA527A41FECD20E009C39EC /* ViewController.m */; };
@@ -55,7 +55,7 @@
 		CDE362D8204ED69600BD0865 /* ReminderTV.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE362D7204ED69600BD0865 /* ReminderTV.m */; };
 		CDE362DC204EDA5800BD0865 /* ReminderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE362DA204EDA5800BD0865 /* ReminderTVC.m */; };
 		CDE362DD204EDA5800BD0865 /* ReminderTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE362DB204EDA5800BD0865 /* ReminderTVC.xib */; };
-		CDF4E73B204E5E0A00DDD285 /* MineTV.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF4E73A204E5E0A00DDD285 /* MineTV.m */; };
+		CDF4E73B204E5E0A00DDD285 /* MeTV.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF4E73A204E5E0A00DDD285 /* MeTV.m */; };
 		EBE69086FBB6D4CFE2EA5881 /* Pods_HeartMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AC075923DC9F7FBC6678A6 /* Pods_HeartMate.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,8 +124,8 @@
 		CD964CC8204AFDC200A9ECBC /* CalendarVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarVC.m; sourceTree = "<group>"; };
 		CD964CCA204AFDCF00A9ECBC /* ReminderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReminderVC.h; sourceTree = "<group>"; };
 		CD964CCB204AFDCF00A9ECBC /* ReminderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReminderVC.m; sourceTree = "<group>"; };
-		CD964CCD204AFDDF00A9ECBC /* MineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineVC.h; sourceTree = "<group>"; };
-		CD964CCE204AFDDF00A9ECBC /* MineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineVC.m; sourceTree = "<group>"; };
+		CD964CCD204AFDDF00A9ECBC /* MeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeVC.h; sourceTree = "<group>"; };
+		CD964CCE204AFDDF00A9ECBC /* MeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeVC.m; sourceTree = "<group>"; };
 		CD964CD0204AFE5E00A9ECBC /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		CD964CD1204AFE5F00A9ECBC /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		CDA5279D1FECD20E009C39EC /* HeartMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,8 +158,8 @@
 		CDE362D9204EDA5800BD0865 /* ReminderTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReminderTVC.h; sourceTree = "<group>"; };
 		CDE362DA204EDA5800BD0865 /* ReminderTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReminderTVC.m; sourceTree = "<group>"; };
 		CDE362DB204EDA5800BD0865 /* ReminderTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderTVC.xib; sourceTree = "<group>"; };
-		CDF4E739204E5E0A00DDD285 /* MineTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTV.h; sourceTree = "<group>"; };
-		CDF4E73A204E5E0A00DDD285 /* MineTV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTV.m; sourceTree = "<group>"; };
+		CDF4E739204E5E0A00DDD285 /* MeTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeTV.h; sourceTree = "<group>"; };
+		CDF4E73A204E5E0A00DDD285 /* MeTV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeTV.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,10 +297,10 @@
 		CD964CC3204AFD7B00A9ECBC /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				CD964CCD204AFDDF00A9ECBC /* MineVC.h */,
-				CD964CCE204AFDDF00A9ECBC /* MineVC.m */,
-				CDF4E739204E5E0A00DDD285 /* MineTV.h */,
-				CDF4E73A204E5E0A00DDD285 /* MineTV.m */,
+				CD964CCD204AFDDF00A9ECBC /* MeVC.h */,
+				CD964CCE204AFDDF00A9ECBC /* MeVC.m */,
+				CDF4E739204E5E0A00DDD285 /* MeTV.h */,
+				CDF4E73A204E5E0A00DDD285 /* MeTV.m */,
 				CD88452D204E669F001F7AF1 /* Views */,
 			);
 			path = Mine;
@@ -574,11 +574,11 @@
 				CD884542204E7399001F7AF1 /* HMWeightPicker.m in Sources */,
 				CD964CC9204AFDC200A9ECBC /* CalendarVC.m in Sources */,
 				CDE362D8204ED69600BD0865 /* ReminderTV.m in Sources */,
-				CDF4E73B204E5E0A00DDD285 /* MineTV.m in Sources */,
+				CDF4E73B204E5E0A00DDD285 /* MeTV.m in Sources */,
 				CD884536204E684A001F7AF1 /* BaseAlertController.m in Sources */,
 				CD88454B204E8D7F001F7AF1 /* HMTableFootnoteView.m in Sources */,
 				CD944152204F9816005BCC03 /* BaseTextField.m in Sources */,
-				CD964CCF204AFDDF00A9ECBC /* MineVC.m in Sources */,
+				CD964CCF204AFDDF00A9ECBC /* MeVC.m in Sources */,
 				CDCC7294204D0C4500553F25 /* HMTagButton.m in Sources */,
 				CD964CBF204AFD4100A9ECBC /* RootViewController.m in Sources */,
 				CD517D53204BCF7B001A6992 /* HMUser.m in Sources */,

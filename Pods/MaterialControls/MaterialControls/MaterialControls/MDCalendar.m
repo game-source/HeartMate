@@ -46,7 +46,6 @@
 @property(strong, nonatomic) NSMutableDictionary *backgroundThemeColors;
 @property(strong, nonatomic) NSMutableDictionary *titleThemeColors;
 
-@property(weak, nonatomic) UICollectionView *collectionView;
 @property(weak, nonatomic) UICollectionViewFlowLayout *collectionViewFlowLayout;
 
 @property(copy, nonatomic) NSDate *maximumDate;

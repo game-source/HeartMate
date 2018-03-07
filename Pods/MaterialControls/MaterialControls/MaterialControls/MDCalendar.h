@@ -60,6 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(weak, nonatomic) IBOutlet id<MDCalendarDelegate> delegate;
 @property(assign, nonatomic) BOOL showPlaceholder;
 
+@property(weak, nonatomic) UICollectionView *collectionView;
 @property(copy, nonatomic) NSDate *currentDate;
 @property(copy, nonatomic) NSDate *selectedDate;
 @property(copy, nonatomic) NSDate *minimumDate;

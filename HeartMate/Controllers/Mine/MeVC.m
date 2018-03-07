@@ -1,23 +1,23 @@
 //
-//  MineVC.m
+//  MeVC.m
 //  CardiotachMate
 //
 //  Created by xaoxuu on 03/03/2018.
 //  Copyright © 2018 xaoxuu. All rights reserved.
 //
 
-#import "MineVC.h"
+#import "MeVC.h"
 #import <AXKit/FeedbackKit.h>
-#import "MineTV.h"
+#import "MeTV.h"
 #import "HMUser.h"
 
-@interface MineVC ()
+@interface MeVC ()
 
-@property (strong, nonatomic) MineTV *tableView;
+@property (strong, nonatomic) MeTV *tableView;
 
 @end
 
-@implementation MineVC
+@implementation MeVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -53,7 +53,7 @@
         }];
     }];
     
-    MineTV *tv = [[MineTV alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    MeTV *tv = [[MeTV alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     tv.backgroundColor = axThemeManager.color.background;
     tv.separatorColor = tv.backgroundColor;
     [self.view addSubview:tv];

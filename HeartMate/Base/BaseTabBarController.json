@@ -24,8 +24,8 @@
          "icon_sel":""
      },
      {
-         "vc":"MineVC",
-         "title":"Mine",
+         "vc":"MeVC",
+         "title":"Me",
          "icon":"tabbar_me",
          "icon_sel":""
      }

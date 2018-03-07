@@ -1,5 +1,5 @@
 //
-//  MineTV.h
+//  MeTV.h
 //  HeartMate
 //
 //  Created by xaoxuu on 06/03/2018.
@@ -8,6 +8,6 @@
 
 #import <AXKit/AXKit.h>
 
-@interface MineTV : AXTableView
+@interface MeTV : AXTableView
 
 @end

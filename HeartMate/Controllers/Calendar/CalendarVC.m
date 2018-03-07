@@ -43,15 +43,17 @@
     calendar.backgroundColor = axThemeManager.color.background;
     calendar.minimumDate = joinDate.addDays(1-joinDate.day);
     calendar.currentDate = [NSDate date];
-    self.calendar.selectedDate = [NSDate date];
+    calendar.selectedDate = [NSDate date];
     calendar.backgroundColors[@(MDCalendarCellStateSelected)] = tintColor;
     calendar.titleColors[@(MDCalendarCellStateToday)] = tintColor;
     calendar.titleColors[@(MDCalendarCellStateWeekend)] = [UIColor md_green];
     
+    self.navigationItem.title = calendar.selectedDate.stringValue(@"yyyy-MM-dd");
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_position" action:^(UIBarButtonItem * _Nonnull sender) {
         calendar.selectedDate = [NSDate date];
         [calendar reloadData];
+        self.navigationItem.title = calendar.selectedDate.stringValue(@"yyyy-MM-dd");
     }];
     
 }
@@ -78,6 +80,7 @@
 - (void)calendar:(MDCalendar *)calendar didSelectDate:(nullable NSDate *)date{
     calendar.selectedDate = date;
     self.selectedDate = date;
+    self.navigationItem.title = calendar.selectedDate.stringValue(@"yyyy-MM-dd");
 }
 
 

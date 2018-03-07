@@ -1,5 +1,5 @@
 //
-//  MineVC.h
+//  MeVC.h
 //  CardiotachMate
 //
 //  Created by xaoxuu on 03/03/2018.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface MineVC : BaseViewController
+@interface MeVC : BaseViewController
 
 @end
