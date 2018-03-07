@@ -27,6 +27,7 @@
     [self.layer ax_cornerRadius:8 shadow:LayerShadowNone];
     self.tintColor = axThemeManager.color.background;
     self.backgroundColor = axThemeManager.color.theme;
+    self.titleLabel.font = axThemeManager.font.customNormal;
 }
 
 - (instancetype)initWithType:(UIButtonType)buttonType action:(void (^)(HMWideButton *))action{

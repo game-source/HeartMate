@@ -83,7 +83,9 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
     }
     NSDate *date = [NSDate dateWithString:[NSString stringWithFormat:@"%02d:%02d", (int)self.reminder.hour, (int)self.reminder.minute] format:@"HH:mm"];
     self.pickerView.date = date;
+    
     self.tf_title.text = self.reminder.title;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -127,7 +129,7 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
+        cell.textLabel.font = axThemeManager.font.customNormal;
     }
     cell.textLabel.text = [HMReminder descriptionForWeekday:indexPath.row];
     if ([self.weekday containsObject:@(indexPath.row)]) {
@@ -164,27 +166,33 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
 }
 
 - (IBAction)tappedDone:(UIButton *)sender {
-    NSDate *time = self.pickerView.date;
-    HMReminder *reminder = self.reminder;
     if (self.createMode) {
         // 如果是创造模式，就把这个提醒添加进数据库
         [[RLMRealm defaultRealm] transactionWithBlock:^{
             [[RLMRealm defaultRealm] addObject:self.reminder];
         }];
-    } else {
-        // 否则就只进行数据库修改
-        [self.reminder transactionWithBlock:^{
-            reminder.title = self.tf_title.text;
-            [reminder.weekday removeAllObjects];
-            for (int i = 0; i < 7; i++) {
-                if ([self.weekday containsObject:@(i)]) {
-                    [reminder.weekday addObject:@(i)];
-                }
-            }
-            reminder.hour = time.hour;
-            reminder.minute = time.minute;
-        }];
     }
+    
+    
+    HMReminder *reminder = self.reminder;
+    // 进行数据库修改
+    [self.reminder transactionWithBlock:^{
+        if (self.tf_title.text.length) {
+            reminder.title = self.tf_title.text;
+        } else {
+            reminder.title = NSLocalizedString(@"It's time to measure my heart rate.", @"是时候测量一下心率了。");
+        }
+        
+        [reminder.weekday removeAllObjects];
+        for (int i = 0; i < 7; i++) {
+            if ([self.weekday containsObject:@(i)]) {
+                [reminder.weekday addObject:@(i)];
+            }
+        }
+        NSDate *time = self.pickerView.date;
+        reminder.hour = time.hour;
+        reminder.minute = time.minute;
+    }];
     
     
     static dispatch_once_t onceToken;

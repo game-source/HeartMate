@@ -68,6 +68,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.estimatedRowHeight = 132;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.backgroundColor = axThemeManager.color.background;
     self.tableView.separatorColor = self.tableView.backgroundColor;
     [self.view addSubview:self.tableView];
@@ -105,10 +106,6 @@
     ReminderTVC *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(ReminderTVC.class) forIndexPath:indexPath];
     cell.model = self.results[indexPath.row];
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 132;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

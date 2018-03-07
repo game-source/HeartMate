@@ -65,8 +65,9 @@ static inline void pushNotification(NSString *identifier, UNNotificationTrigger 
     }
     UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:com repeats:repeat];
     pushNotification(identifier, trigger, ^(UNMutableNotificationContent *content) {
-        content.title = title;
+        content.title = title;//@"这是标题title";//title;
         content.body = message;
+        content.badge = @1;
     });
 }
 

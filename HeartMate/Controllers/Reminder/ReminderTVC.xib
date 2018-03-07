@@ -18,21 +18,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="175" id="KGk-i7-Jjw" customClass="ReminderTVC">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="194" id="KGk-i7-Jjw" customClass="ReminderTVC">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="151"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="131.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="150.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aaC-vU-jz0">
-                        <rect key="frame" x="247" y="11" width="57" height="57"/>
+                        <rect key="frame" x="246" y="11" width="58" height="58"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="aaC-vU-jz0" secondAttribute="height" multiplier="1:1" id="DeU-Re-ggj"/>
                         </constraints>
                     </imageView>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMF-RI-HSg">
-                        <rect key="frame" x="16" y="92.5" width="288" height="28"/>
+                        <rect key="frame" x="16" y="112" width="288" height="28"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdg-WQ-Ln9">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="28"/>
@@ -52,13 +52,16 @@
                         </constraints>
                     </scrollView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Au-j0-2CZ">
-                        <rect key="frame" x="16" y="11" width="81" height="57"/>
+                        <rect key="frame" x="16" y="11" width="81" height="58"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="58" id="ktP-8L-8qJ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="measure heart rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwj-JQ-jXN">
-                        <rect key="frame" x="16" y="68" width="288" height="24.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="measure heart rate" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwj-JQ-jXN">
+                        <rect key="frame" x="16" y="69" width="288" height="43"/>
                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -73,6 +76,7 @@
                     <constraint firstItem="aaC-vU-jz0" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Kfj-Uf-A6m"/>
                     <constraint firstItem="5Au-j0-2CZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Rxg-cj-g5W"/>
                     <constraint firstItem="zwj-JQ-jXN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Vd2-cM-PKi"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="rMF-RI-HSg" secondAttribute="bottom" id="gYf-bh-cDi"/>
                     <constraint firstItem="aaC-vU-jz0" firstAttribute="bottom" secondItem="5Au-j0-2CZ" secondAttribute="bottom" id="iYf-Yo-oog"/>
                     <constraint firstItem="5Au-j0-2CZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="j74-vn-bpv"/>
                     <constraint firstItem="aaC-vU-jz0" firstAttribute="top" secondItem="5Au-j0-2CZ" secondAttribute="top" id="u8D-5l-9dC"/>
@@ -86,7 +90,7 @@
                 <outlet property="lb_title" destination="zwj-JQ-jXN" id="5rV-Wn-bIc"/>
                 <outlet property="scrollView" destination="rMF-RI-HSg" id="pce-LJ-DRl"/>
             </connections>
-            <point key="canvasLocation" x="-72" y="-4.5"/>
+            <point key="canvasLocation" x="-72" y="4.5"/>
         </tableViewCell>
     </objects>
 </document>
