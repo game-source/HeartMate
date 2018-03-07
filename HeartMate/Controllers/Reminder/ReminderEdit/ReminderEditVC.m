@@ -50,22 +50,7 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
     self.title = NSLocalizedString(@"Edit Reminder", @"编辑提醒");
     self.today = [NSDate date];
     
-    __weak typeof(self) weakSelf = self;
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_delete" action:^(UIBarButtonItem * _Nonnull sender) {
-        NSString *title = NSLocalizedString(@"Notice", @"注意");
-        NSString *msg = NSLocalizedString(@"Do you really want to delete the reminder?", @"你真的要删除提醒吗？");
-        [BaseAlertController ax_showAlertWithTitle:title message:msg actions:^(UIAlertController * _Nonnull alert) {
-            [alert ax_addDestructiveActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
-                deleteLocalNotificationWithIdentifier(weakSelf.reminder.identifier);
-                [[RLMRealm defaultRealm] transactionWithBlock:^{
-                    [[RLMRealm defaultRealm] deleteObject:weakSelf.reminder];
-                }];
-                [weakSelf.navigationController popViewControllerAnimated:YES];
-            }];
-            [alert ax_addCancelAction];
-        }];
-        
-    }];
+    
     
     
     self.weekday = [NSMutableArray array];
@@ -84,12 +69,13 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
         for (int i = 0; i < self.reminder.weekday.count; i++) {
             [self.weekday addObject:self.reminder.weekday[i]];
         }
+        [self setupNavigationItem];
     }
     NSDate *date = [NSDate dateWithString:[NSString stringWithFormat:@"%02d:%02d", (int)self.reminder.hour, (int)self.reminder.minute] format:@"HH:mm"];
     self.pickerView.date = date;
     
     self.tf_title.text = self.reminder.title;
-    
+    self.tf_title.placeholder = NSLocalizedString(@"It's time to measure my heart rate.", @"是时候测量一下心率了。");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,6 +93,23 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
     
 }
 
+- (void)setupNavigationItem{
+    __weak typeof(self) weakSelf = self;
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_delete" action:^(UIBarButtonItem * _Nonnull sender) {
+        NSString *title = NSLocalizedString(@"Notice", @"注意");
+        NSString *msg = NSLocalizedString(@"Do you really want to delete the reminder?", @"你真的要删除提醒吗？");
+        [BaseAlertController ax_showAlertWithTitle:title message:msg actions:^(UIAlertController * _Nonnull alert) {
+            [alert ax_addDestructiveActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
+                deleteLocalNotificationWithIdentifier(weakSelf.reminder.identifier);
+                [[RLMRealm defaultRealm] transactionWithBlock:^{
+                    [[RLMRealm defaultRealm] deleteObject:weakSelf.reminder];
+                }];
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }];
+            [alert ax_addCancelAction];
+        }];
+    }];
+}
 
 - (void)setupTableView{
     self.tableView.dataSource = self;
@@ -114,7 +117,7 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
     [self.tableView.layer ax_cornerRadius:8 shadow:LayerShadowNone];
     self.tableView.separatorColor = axThemeManager.color.background;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    
+    self.tableView.showsVerticalScrollIndicator = NO;
 }
 
 
@@ -184,7 +187,7 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
         if (self.tf_title.text.length) {
             reminder.title = self.tf_title.text;
         } else {
-            reminder.title = NSLocalizedString(@"It's time to measure my heart rate.", @"是时候测量一下心率了。");
+            reminder.title = self.tf_title.placeholder;
         }
         
         [reminder.weekday removeAllObjects];

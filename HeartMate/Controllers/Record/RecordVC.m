@@ -329,19 +329,20 @@ static BOOL prepared = NO;
         }];
     } animatedScale:1.36 duration:0.8];
     
-    UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, 140, 2)];
+    UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, 120, 2)];
     [self.view addSubview:progressView];
     progressView.hidden = YES;
     progressView.progress = 0;
     progressView.centerX = centerX;
-    progressView.bottom = startButton.top - 50;
+    progressView.bottom = startButton.top - 54;
     progressView.tintColor = [UIColor whiteColor];
     progressView.trackTintColor = [UIColor colorWithWhite:1 alpha:0.3];
     self.progressView = progressView;
     
     self.statusTips = defaultLabelWithFontSize(32);
+    self.statusTips.height = 50;
     [self.view addSubview:self.statusTips];
-    self.statusTips.bottom = self.progressView.top - 20;
+    self.statusTips.bottom = self.progressView.top - 8;
     
     
     //创建一个心电图的View
@@ -369,9 +370,11 @@ static BOOL prepared = NO;
     if (run) {
         [self.progressView setProgress:0 animated:NO];
         self.startButton.selected = YES;
-        [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseIn animations:^{
-            CGFloat offset = self.startButton.top + 0.5 * self.startButton.height;
-            self.mask.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0, -offset), 15, 15);
+        [UIView animateWithDuration:1 delay:0.08 usingSpringWithDamping:0.7 initialSpringVelocity:0.5 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^{
+            CGFloat w0 = self.startButton.height/2;
+            CGFloat n = 12; // 放大n倍，w1 = n * w0
+            CGFloat offset = n*w0;
+            self.mask.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0, -offset), n, n);
             self.tabBarController.tabBar.transform = CGAffineTransformMakeTranslation(0, 12);
             self.edit.transform = CGAffineTransformMakeTranslation(kScreenW - self.edit.left, 0);
         } completion:^(BOOL finished) {
@@ -381,7 +384,7 @@ static BOOL prepared = NO;
         }];
     } else {
         self.startButton.selected = NO;
-        [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseIn animations:^{
+        [UIView animateWithDuration:1 delay:0.08 usingSpringWithDamping:0.7 initialSpringVelocity:0.5 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^{
             self.mask.transform = CGAffineTransformIdentity;
             self.tabBarController.tabBar.transform = CGAffineTransformIdentity;
             self.edit.transform = CGAffineTransformIdentity;

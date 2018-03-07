@@ -53,7 +53,7 @@ __weak typeof(self) weakSelf = self;
     if (selected) {
         [self ax_animatedScale:1.15 duration:1.0 completion:nil];
     } else {
-        [self ax_animatedScale:0.3 duration:2.0 completion:nil];
+        [self ax_animatedScale:0.5 duration:1.6 completion:nil];
     }
 }
 

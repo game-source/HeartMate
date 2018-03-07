@@ -256,7 +256,7 @@
 				CD964CC1204AFD7000A9ECBC /* Calendar */,
 				CD517D54204BD007001A6992 /* Record */,
 				CD964CC2204AFD7600A9ECBC /* Reminder */,
-				CD964CC3204AFD7B00A9ECBC /* Mine */,
+				CD964CC3204AFD7B00A9ECBC /* Me */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -299,7 +299,7 @@
 			path = Reminder;
 			sourceTree = "<group>";
 		};
-		CD964CC3204AFD7B00A9ECBC /* Mine */ = {
+		CD964CC3204AFD7B00A9ECBC /* Me */ = {
 			isa = PBXGroup;
 			children = (
 				CD964CCD204AFDDF00A9ECBC /* MeVC.h */,
@@ -308,7 +308,7 @@
 				CDF4E73A204E5E0A00DDD285 /* MeTV.m */,
 				CD88452D204E669F001F7AF1 /* Views */,
 			);
-			path = Mine;
+			path = Me;
 			sourceTree = "<group>";
 		};
 		CDA527941FECD20E009C39EC = {

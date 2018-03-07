@@ -28,7 +28,7 @@
     [[UIThemeManager sharedInstance] configDefaultTheme:^(UIThemeManager *theme) {
         theme.color.background = [UIColor colorWithHexString:@"#EEEEEE"];
         theme.color.theme = [UIColor ax_lightRed];
-        theme.color.accent = [UIColor md_green];
+        theme.color.accent = [UIColor md_blue];
         theme.font.name = @"ChalkboardSE-Regular";
         theme.font.prefersFontSize = 16;
     }];

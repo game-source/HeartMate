@@ -31,7 +31,7 @@
     }
     
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_talk" action:^(UIBarButtonItem * _Nonnull sender) {
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_service" action:^(UIBarButtonItem * _Nonnull sender) {
         [[EmailManager sharedInstance] sendEmail:^(MFMailComposeViewController * _Nonnull mailCompose) {
             mailCompose.navigationBar.barStyle = UIBarStyleDefault;
             mailCompose.navigationBar.translucent = NO;

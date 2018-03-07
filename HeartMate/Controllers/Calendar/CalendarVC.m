@@ -53,6 +53,7 @@ static CGFloat minHeightOfCalendar = 320;
     [self setupCalendar];
     [self setupTableView];
     
+    [self reloadTableData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,8 +104,8 @@ static CGFloat minHeightOfCalendar = 320;
 
 - (void)reloadTableData{
     NSString *where = [NSString stringWithFormat:@"year = %d and month = %d and day = %d", (int)self.selectedDate.year, (int)self.selectedDate.month, (int)self.selectedDate.day];
-    [self.tableView reloadDataWhere:where ascending:YES];
-    [self refreshSize];
+    [self.tableView reloadDataWhere:where ascending:NO];
+    [self updateContentHeight];
 }
 
 - (void)setupTableView{
@@ -118,7 +119,7 @@ static CGFloat minHeightOfCalendar = 320;
 }
 
 
-- (void)refreshSize{
+- (void)updateContentHeight{
     // 先获取tableView的内容高度
     CGFloat heightOfTableView = self.tableView.contentSize.height;
     // table view 实际等于内容高度
