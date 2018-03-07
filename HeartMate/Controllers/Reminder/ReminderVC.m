@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view.
     if (@available(iOS 11.0, *)) {
         // on newer versions
-        self.navigationController.navigationBar.prefersLargeTitles = YES;
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
     } else {
         // Fallback on earlier versions
         
@@ -86,7 +86,7 @@
         _results = [NSMutableArray array];
         RLMResults<HMReminder *> *puppies = [HMReminder allObjects];
         if (puppies.count) {
-            puppies = [puppies sortedResultsUsingKeyPath:@"hour" ascending:YES];
+            puppies = [puppies sortedResultsUsingDescriptors:@[[RLMSortDescriptor sortDescriptorWithKeyPath:@"hour" ascending:YES], [RLMSortDescriptor sortDescriptorWithKeyPath:@"minute" ascending:YES]]];
         }
         for (int i = 0; i < puppies.count; i++) {
             [_results addObject:puppies[i]];

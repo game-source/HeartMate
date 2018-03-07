@@ -52,20 +52,22 @@
     
     [self.content removeAllSubviews];
     if (model.weekday.count) {
-        self.alpha = 1;
         NSArray<NSString *> *weekday = model.descriptionForWeekday;
         CGFloat lastX = 0;
         for (int i = 0; i < weekday.count; i++) {
             HMTagButton *btn = [HMTagButton buttonWithTag:weekday[i] delegate:self];
             [btn setImage:UIImageNamed(@"footnote_ring") forState:UIControlStateNormal];
-            [btn setTintColor:axThemeManager.color.accent];
             btn.left = lastX;
             lastX += btn.width;
             self.contentWidth.constant = lastX;
             [self.content addSubview:btn];
         }
     } else {
-        self.alpha = 0.5;
+        HMTagButton *btn = [HMTagButton buttonWithTag:NSLocalizedString(@"once", @"一次") delegate:self];
+        [btn setImage:UIImageNamed(@"footnote_ring") forState:UIControlStateNormal];
+        self.contentWidth.constant = btn.width;
+        btn.userInteractionEnabled = NO;
+        [self.content addSubview:btn];
     }
     
     

@@ -32,7 +32,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSf-Hf-HFZ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="every" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSf-Hf-HFZ">
                     <rect key="frame" x="16" y="8" width="183.33333333333334" height="25"/>
                     <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                     <nil key="textColor"/>
@@ -48,20 +48,21 @@
                     <rect key="frame" x="16" y="41" width="183.33333333333334" height="294.33333333333331"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reminder title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Y4-IW-Mbp">
-                    <rect key="frame" x="16" y="351.33333333333331" width="107" height="25"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="remind me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Y4-IW-Mbp">
+                    <rect key="frame" x="16" y="367.33333333333331" width="80" height="25"/>
                     <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="l6Y-bV-ngD">
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="l6Y-bV-ngD">
                     <rect key="frame" x="216" y="41" width="182" height="295"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <date key="date" timeIntervalSinceReferenceDate="542084765.18357503">
                         <!--2018-03-07 03:06:05 +0000-->
                     </date>
                 </datePicker>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ikJ-7Y-cFO" customClass="BaseTextField">
-                    <rect key="frame" x="16" y="384.33333333333331" width="382" height="32"/>
+                    <rect key="frame" x="16" y="400.33333333333331" width="382" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="S5j-Li-gww"/>
                     </constraints>
@@ -82,7 +83,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="6Y4-IW-Mbp" firstAttribute="top" secondItem="Dk9-Ig-1aa" secondAttribute="bottom" constant="16" id="6PZ-GU-WZL"/>
+                <constraint firstItem="6Y4-IW-Mbp" firstAttribute="top" secondItem="Dk9-Ig-1aa" secondAttribute="bottom" constant="32" id="6PZ-GU-WZL"/>
                 <constraint firstItem="ebI-dm-OcI" firstAttribute="top" secondItem="tSf-Hf-HFZ" secondAttribute="top" id="7b7-Y5-O38"/>
                 <constraint firstItem="Dk9-Ig-1aa" firstAttribute="leading" secondItem="tSf-Hf-HFZ" secondAttribute="leading" id="9tb-L5-z4v"/>
                 <constraint firstItem="ebI-dm-OcI" firstAttribute="width" secondItem="tSf-Hf-HFZ" secondAttribute="width" id="Ad1-ph-AYl"/>

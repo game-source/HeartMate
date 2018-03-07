@@ -64,7 +64,6 @@
         for (int i = 0; i < model.tags.count; i++) {
             NSString *tag = model.tags[i];
             HMTagButton *btn = [HMTagButton buttonWithTag:tag delegate:self];
-            [btn setTintColor:axThemeManager.color.accent];
             btn.left = lastX;
             lastX += btn.width;
             self.contentWidth.constant = lastX;

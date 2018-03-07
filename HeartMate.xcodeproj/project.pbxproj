@@ -28,6 +28,7 @@
 		CD94414F204F95D6005BCC03 /* HMWideButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD94414E204F95D6005BCC03 /* HMWideButton.m */; };
 		CD944152204F9816005BCC03 /* BaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944151204F9816005BCC03 /* BaseTextField.m */; };
 		CD944155204F9848005BCC03 /* BaseTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944154204F9848005BCC03 /* BaseTextView.m */; };
+		CD944158204FB4FC005BCC03 /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944157204FB4FC005BCC03 /* LocalNotificationManager.m */; };
 		CD964CAC204AD88900A9ECBC /* HKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CAB204AD88900A9ECBC /* HKRecord.m */; };
 		CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */ = {isa = PBXBuildFile; fileRef = CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */; };
 		CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CB3204AFC2F00A9ECBC /* BaseTabBarController.m */; };
@@ -106,6 +107,8 @@
 		CD944151204F9816005BCC03 /* BaseTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTextField.m; sourceTree = "<group>"; };
 		CD944153204F9848005BCC03 /* BaseTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTextView.h; sourceTree = "<group>"; };
 		CD944154204F9848005BCC03 /* BaseTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTextView.m; sourceTree = "<group>"; };
+		CD944156204FB4FC005BCC03 /* LocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationManager.h; sourceTree = "<group>"; };
+		CD944157204FB4FC005BCC03 /* LocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationManager.m; sourceTree = "<group>"; };
 		CD964CAA204AD88900A9ECBC /* HKRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKRecord.h; sourceTree = "<group>"; };
 		CD964CAB204AD88900A9ECBC /* HKRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKRecord.m; sourceTree = "<group>"; };
 		CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BaseTabBarController.json; sourceTree = "<group>"; };
@@ -214,6 +217,15 @@
 				CD94414A204F8E7B005BCC03 /* ReminderEditVC.xib */,
 			);
 			path = ReminderEdit;
+			sourceTree = "<group>";
+		};
+		CD944159204FB506005BCC03 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CD944156204FB4FC005BCC03 /* LocalNotificationManager.h */,
+				CD944157204FB4FC005BCC03 /* LocalNotificationManager.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		CD964CB5204AFD0400A9ECBC /* Base */ = {
@@ -335,6 +347,7 @@
 				CDCC728B204D066800553F25 /* RLMDataModels */,
 				CDA527A91FECD20E009C39EC /* Assets.xcassets */,
 				CDCC728C204D069300553F25 /* Views */,
+				CD944159204FB506005BCC03 /* Manager */,
 				CDA527AB1FECD20E009C39EC /* LaunchScreen.storyboard */,
 				CDA527AE1FECD20E009C39EC /* Info.plist */,
 				CDA527AF1FECD20E009C39EC /* main.m */,
@@ -572,6 +585,7 @@
 				CDA527A51FECD20E009C39EC /* ViewController.m in Sources */,
 				CDD5BBF2204AD287005D2FC5 /* HKOutputView.m in Sources */,
 				CD43DA15204D5D210005C077 /* UIFontHelper+HMFont.m in Sources */,
+				CD944158204FB4FC005BCC03 /* LocalNotificationManager.m in Sources */,
 				CD517D57204BD034001A6992 /* RecordVC.m in Sources */,
 				CD964CD2204AFE5F00A9ECBC /* BaseViewController.m in Sources */,
 				CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */,

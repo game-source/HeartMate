@@ -9,7 +9,7 @@
 #import "ReminderEditVC.h"
 #import "BaseTextField.h"
 #import "HMWideButton.h"
-
+#import "LocalNotificationManager.h"
 
 
 @interface ReminderEditVC () <UITableViewDataSource, UITableViewDelegate>
@@ -36,11 +36,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = NSLocalizedString(@"Edit Reminder", @"编辑提醒");
     self.today = [NSDate date];
     
     self.weekday = [NSMutableArray array];
     
     [self setupTableView];
+    
+    self.pickerView.layer.backgroundColor = [UIColor whiteColor].CGColor;
+    [self.pickerView.layer ax_cornerRadius:8 shadow:LayerShadowNone];
     
     if (!self.reminder) {
         [[RLMRealm defaultRealm] transactionWithBlock:^{
@@ -80,7 +84,6 @@
     [self.tableView.layer ax_cornerRadius:8 shadow:LayerShadowNone];
     self.tableView.separatorColor = axThemeManager.color.background;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
-//    self.tableView.backgroundColor = [UIColor clearColor];
     
 }
 
@@ -132,17 +135,52 @@
     
 }
 
+- (void)dealloc{
+    AXLogSuccess();
+}
+
 - (IBAction)tappedDone:(UIButton *)sender {
     NSDate *time = self.pickerView.date;
+    HMReminder *reminder = self.reminder;
     [self.reminder transactionWithBlock:^{
-        self.reminder.title = self.tf_title.text;
-        for (NSNumber *tmp in self.weekday) {
-            [self.reminder.weekday addObject:tmp];
+        reminder.title = self.tf_title.text;
+        [reminder.weekday removeAllObjects];
+        for (int i = 0; i < 7; i++) {
+            if ([self.weekday containsObject:@(i)]) {
+                [reminder.weekday addObject:@(i)];
+            }
         }
-        self.reminder.hour = time.hour;
-        self.reminder.minute = time.minute;
+        reminder.hour = time.hour;
+        reminder.minute = time.minute;
     }];
     
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [LocalNotificationManager prepare];
+    });
+    
+    for (int i = 0; i <= 7; i++) {
+        NSString *identifier = [NSString stringWithFormat:@"%@.%d", reminder.identifier, i];
+        [LocalNotificationManager removeNotificationWithIdentifier:identifier];
+    }
+    
+    
+    if (self.weekday.count) {
+        for (NSNumber *obj in self.weekday) {
+            NSString *identifier = [NSString stringWithFormat:@"%@.%@", reminder.identifier, obj];
+            [LocalNotificationManager pushNotificationWithIdentifier:identifier dateComponents:^(NSDateComponents *components) {
+                [components setWeekday:obj.integerValue+1];
+                [components setHour:reminder.hour];
+                [components setMinute:reminder.minute];
+            } title:nil message:self.reminder.title repeat:YES];
+        }
+    } else {
+        NSString *identifier = [NSString stringWithFormat:@"%@.0", reminder.identifier];
+        [LocalNotificationManager pushNotificationWithIdentifier:identifier dateComponents:^(NSDateComponents *components) {
+            [components setHour:reminder.hour];
+            [components setMinute:reminder.minute];
+        } title:nil message:self.reminder.title repeat:NO];
+    }
     
     [self.navigationController popViewControllerAnimated:YES];
 }

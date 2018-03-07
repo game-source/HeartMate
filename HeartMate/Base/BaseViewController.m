@@ -20,6 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (@available(iOS 11.0, *)) {
+        // on newer versions
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
+    } else {
+        // Fallback on earlier versions
+        
+    }
     
     self.view.tintColor = axThemeManager.color.theme;
     // @xaoxuu: 基类 初始化 顶部区域 NavigationBar
@@ -27,13 +34,7 @@
     // @xaoxuu: 基类 初始化 内容区域
     [self baseInitContentView];
     
-    if (@available(iOS 11.0, *)) {
-        // on newer versions
-        self.navigationController.navigationBar.prefersLargeTitles = NO;
-    } else {
-        // Fallback on earlier versions
-        
-    }
+    
     
 }
 
