@@ -9,13 +9,13 @@
 #import "ReminderEditVC.h"
 #import "BaseTextField.h"
 #import "HMWideButton.h"
-#import "LocalNotificationManager.h"
+#import "NKManager.h"
 
 
 static void deleteLocalNotificationWithIdentifier(NSString *identifier){
     for (int i = 0; i <= 7; i++) {
         NSString *fullIdentifier = [NSString stringWithFormat:@"%@.%d", identifier, i];
-        [LocalNotificationManager removeNotificationWithIdentifier:fullIdentifier];
+        [NKManager removeNotificationWithIdentifier:fullIdentifier];
     }
 }
 
@@ -197,7 +197,7 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [LocalNotificationManager prepare];
+        [NKManager prepare];
     });
     
     
@@ -206,7 +206,7 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
     if (self.weekday.count) {
         for (NSNumber *obj in self.weekday) {
             NSString *identifier = [NSString stringWithFormat:@"%@.%@", reminder.identifier, obj];
-            [LocalNotificationManager pushNotificationWithIdentifier:identifier dateComponents:^(NSDateComponents *components) {
+            [NKManager pushNotificationWithIdentifier:identifier dateComponents:^(NSDateComponents *components) {
                 [components setWeekday:obj.integerValue+1];
                 [components setHour:reminder.hour];
                 [components setMinute:reminder.minute];
@@ -214,7 +214,7 @@ static void deleteLocalNotificationWithIdentifier(NSString *identifier){
         }
     } else {
         NSString *identifier = [NSString stringWithFormat:@"%@.0", reminder.identifier];
-        [LocalNotificationManager pushNotificationWithIdentifier:identifier dateComponents:^(NSDateComponents *components) {
+        [NKManager pushNotificationWithIdentifier:identifier dateComponents:^(NSDateComponents *components) {
             [components setHour:reminder.hour];
             [components setMinute:reminder.minute];
         } title:nil message:self.reminder.title repeat:NO];

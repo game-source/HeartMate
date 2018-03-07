@@ -18,8 +18,7 @@
 		CD884539204E70FA001F7AF1 /* HMBirthdayPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884538204E70FA001F7AF1 /* HMBirthdayPicker.m */; };
 		CD88453C204E719A001F7AF1 /* HMHeightPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CD88453B204E719A001F7AF1 /* HMHeightPicker.m */; };
 		CD884542204E7399001F7AF1 /* HMWeightPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884541204E7399001F7AF1 /* HMWeightPicker.m */; };
-		CD884545204E7520001F7AF1 /* HMContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884544204E7520001F7AF1 /* HMContext.m */; };
-		CD884548204E7AA0001F7AF1 /* HMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884547204E7AA0001F7AF1 /* HMUtilities.m */; };
+		CD884548204E7AA0001F7AF1 /* BaseUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884547204E7AA0001F7AF1 /* BaseUtilities.m */; };
 		CD88454B204E8D7F001F7AF1 /* HMTableFootnoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */; };
 		CD944143204F7D98005BCC03 /* RecordStartButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944142204F7D98005BCC03 /* RecordStartButton.m */; };
 		CD94414B204F8E7B005BCC03 /* ReminderEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944149204F8E7B005BCC03 /* ReminderEditVC.m */; };
@@ -27,7 +26,7 @@
 		CD94414F204F95D6005BCC03 /* HMWideButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD94414E204F95D6005BCC03 /* HMWideButton.m */; };
 		CD944152204F9816005BCC03 /* BaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944151204F9816005BCC03 /* BaseTextField.m */; };
 		CD944155204F9848005BCC03 /* BaseTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944154204F9848005BCC03 /* BaseTextView.m */; };
-		CD944158204FB4FC005BCC03 /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944157204FB4FC005BCC03 /* LocalNotificationManager.m */; };
+		CD944158204FB4FC005BCC03 /* NKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944157204FB4FC005BCC03 /* NKManager.m */; };
 		CD944164204FEBA8005BCC03 /* HeartRateTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944163204FEBA8005BCC03 /* HeartRateTableView.m */; };
 		CD964CAC204AD88900A9ECBC /* HKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CAB204AD88900A9ECBC /* HKRecord.m */; };
 		CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */ = {isa = PBXBuildFile; fileRef = CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */; };
@@ -45,7 +44,7 @@
 		CDA527AA1FECD20E009C39EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA527A91FECD20E009C39EC /* Assets.xcassets */; };
 		CDA527AD1FECD20E009C39EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA527AB1FECD20E009C39EC /* LaunchScreen.storyboard */; };
 		CDA527B01FECD20E009C39EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA527AF1FECD20E009C39EC /* main.m */; };
-		CDCC7275204C31D800553F25 /* HMDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC7274204C31D800553F25 /* HMDefines.m */; };
+		CDCC7275204C31D800553F25 /* BaseDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC7274204C31D800553F25 /* BaseDefines.m */; };
 		CDCC7290204D075B00553F25 /* HeartRateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC728E204D075B00553F25 /* HeartRateTableViewCell.m */; };
 		CDCC7291204D075B00553F25 /* HeartRateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCC728F204D075B00553F25 /* HeartRateTableViewCell.xib */; };
 		CDCC7294204D0C4500553F25 /* HMTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC7293204D0C4500553F25 /* HMTagButton.m */; };
@@ -65,6 +64,7 @@
 		88AC075923DC9F7FBC6678A6 /* Pods_HeartMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeartMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		983B29790E3937E207C8E55A /* Pods-CardiotachMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardiotachMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate.release.xcconfig"; sourceTree = "<group>"; };
 		9D514ABAF5D6810B2D9C6A99 /* Pods-CardiotachMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardiotachMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CardiotachMate/Pods-CardiotachMate.debug.xcconfig"; sourceTree = "<group>"; };
+		CD0CD716205037B9006CBB4C /* NotificationKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationKit.h; sourceTree = "<group>"; };
 		CD43DA13204D5D210005C077 /* UIFontHelper+HMFont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFontHelper+HMFont.h"; sourceTree = "<group>"; };
 		CD43DA14204D5D210005C077 /* UIFontHelper+HMFont.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFontHelper+HMFont.m"; sourceTree = "<group>"; };
 		CD517D3F204BAC28001A6992 /* HMData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMData.h; sourceTree = "<group>"; };
@@ -87,10 +87,8 @@
 		CD88453B204E719A001F7AF1 /* HMHeightPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMHeightPicker.m; sourceTree = "<group>"; };
 		CD884540204E7399001F7AF1 /* HMWeightPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMWeightPicker.h; sourceTree = "<group>"; };
 		CD884541204E7399001F7AF1 /* HMWeightPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMWeightPicker.m; sourceTree = "<group>"; };
-		CD884543204E7520001F7AF1 /* HMContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMContext.h; sourceTree = "<group>"; };
-		CD884544204E7520001F7AF1 /* HMContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMContext.m; sourceTree = "<group>"; };
-		CD884546204E7AA0001F7AF1 /* HMUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMUtilities.h; sourceTree = "<group>"; };
-		CD884547204E7AA0001F7AF1 /* HMUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMUtilities.m; sourceTree = "<group>"; };
+		CD884546204E7AA0001F7AF1 /* BaseUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseUtilities.h; sourceTree = "<group>"; };
+		CD884547204E7AA0001F7AF1 /* BaseUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseUtilities.m; sourceTree = "<group>"; };
 		CD884549204E8D7F001F7AF1 /* HMTableFootnoteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMTableFootnoteView.h; sourceTree = "<group>"; };
 		CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMTableFootnoteView.m; sourceTree = "<group>"; };
 		CD944141204F7D98005BCC03 /* RecordStartButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordStartButton.h; sourceTree = "<group>"; };
@@ -104,8 +102,8 @@
 		CD944151204F9816005BCC03 /* BaseTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTextField.m; sourceTree = "<group>"; };
 		CD944153204F9848005BCC03 /* BaseTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTextView.h; sourceTree = "<group>"; };
 		CD944154204F9848005BCC03 /* BaseTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTextView.m; sourceTree = "<group>"; };
-		CD944156204FB4FC005BCC03 /* LocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationManager.h; sourceTree = "<group>"; };
-		CD944157204FB4FC005BCC03 /* LocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationManager.m; sourceTree = "<group>"; };
+		CD944156204FB4FC005BCC03 /* NKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKManager.h; sourceTree = "<group>"; };
+		CD944157204FB4FC005BCC03 /* NKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKManager.m; sourceTree = "<group>"; };
 		CD944162204FEBA8005BCC03 /* HeartRateTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateTableView.h; sourceTree = "<group>"; };
 		CD944163204FEBA8005BCC03 /* HeartRateTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartRateTableView.m; sourceTree = "<group>"; };
 		CD964CAA204AD88900A9ECBC /* HKRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKRecord.h; sourceTree = "<group>"; };
@@ -138,8 +136,8 @@
 		CDA527AE1FECD20E009C39EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA527AF1FECD20E009C39EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		CDCC7273204C31D800553F25 /* HMDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMDefines.h; sourceTree = "<group>"; };
-		CDCC7274204C31D800553F25 /* HMDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMDefines.m; sourceTree = "<group>"; };
+		CDCC7273204C31D800553F25 /* BaseDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseDefines.h; sourceTree = "<group>"; };
+		CDCC7274204C31D800553F25 /* BaseDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseDefines.m; sourceTree = "<group>"; };
 		CDCC728D204D075B00553F25 /* HeartRateTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateTableViewCell.h; sourceTree = "<group>"; };
 		CDCC728E204D075B00553F25 /* HeartRateTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartRateTableViewCell.m; sourceTree = "<group>"; };
 		CDCC728F204D075B00553F25 /* HeartRateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeartRateTableViewCell.xib; sourceTree = "<group>"; };
@@ -182,7 +180,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		CD0CD70F2050315C006CBB4C /* ReuseableTableView */ = {
+		CD0CD70F2050315C006CBB4C /* HeartRate */ = {
 			isa = PBXGroup;
 			children = (
 				CD944162204FEBA8005BCC03 /* HeartRateTableView.h */,
@@ -191,7 +189,74 @@
 				CDCC728E204D075B00553F25 /* HeartRateTableViewCell.m */,
 				CDCC728F204D075B00553F25 /* HeartRateTableViewCell.xib */,
 			);
-			path = ReuseableTableView;
+			path = HeartRate;
+			sourceTree = "<group>";
+		};
+		CD0CD710205035BE006CBB4C /* Defines */ = {
+			isa = PBXGroup;
+			children = (
+				CDCC7273204C31D800553F25 /* BaseDefines.h */,
+				CDCC7274204C31D800553F25 /* BaseDefines.m */,
+			);
+			path = Defines;
+			sourceTree = "<group>";
+		};
+		CD0CD711205035CE006CBB4C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CD884546204E7AA0001F7AF1 /* BaseUtilities.h */,
+				CD884547204E7AA0001F7AF1 /* BaseUtilities.m */,
+				CD43DA13204D5D210005C077 /* UIFontHelper+HMFont.h */,
+				CD43DA14204D5D210005C077 /* UIFontHelper+HMFont.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CD0CD71220503607006CBB4C /* BaseViews */ = {
+			isa = PBXGroup;
+			children = (
+				CD944150204F9816005BCC03 /* BaseTextField.h */,
+				CD944151204F9816005BCC03 /* BaseTextField.m */,
+				CD944153204F9848005BCC03 /* BaseTextView.h */,
+				CD944154204F9848005BCC03 /* BaseTextView.m */,
+				CD884531204E67F2001F7AF1 /* BasePickerView.h */,
+				CD884532204E67F2001F7AF1 /* BasePickerView.m */,
+				CD884534204E684A001F7AF1 /* BaseAlertController.h */,
+				CD884535204E684A001F7AF1 /* BaseAlertController.m */,
+			);
+			path = BaseViews;
+			sourceTree = "<group>";
+		};
+		CD0CD71320503628006CBB4C /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				CD94414D204F95D6005BCC03 /* HMWideButton.h */,
+				CD94414E204F95D6005BCC03 /* HMWideButton.m */,
+				CDCC7292204D0C4500553F25 /* HMTagButton.h */,
+				CDCC7293204D0C4500553F25 /* HMTagButton.m */,
+				CD884549204E8D7F001F7AF1 /* HMTableFootnoteView.h */,
+				CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */,
+				CD944141204F7D98005BCC03 /* RecordStartButton.h */,
+				CD944142204F7D98005BCC03 /* RecordStartButton.m */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		CD0CD71420503683006CBB4C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CDCC728B204D066800553F25 /* RLMDataModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CD0CD715205036B7006CBB4C /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CD944159204FB506005BCC03 /* NotificationKit */,
+				CDD5BBF3204AD292005D2FC5 /* HeartKit */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		CD517D54204BD007001A6992 /* Record */ = {
@@ -228,13 +293,14 @@
 			path = ReminderEdit;
 			sourceTree = "<group>";
 		};
-		CD944159204FB506005BCC03 /* Manager */ = {
+		CD944159204FB506005BCC03 /* NotificationKit */ = {
 			isa = PBXGroup;
 			children = (
-				CD944156204FB4FC005BCC03 /* LocalNotificationManager.h */,
-				CD944157204FB4FC005BCC03 /* LocalNotificationManager.m */,
+				CD0CD716205037B9006CBB4C /* NotificationKit.h */,
+				CD944156204FB4FC005BCC03 /* NKManager.h */,
+				CD944157204FB4FC005BCC03 /* NKManager.m */,
 			);
-			path = Manager;
+			path = NotificationKit;
 			sourceTree = "<group>";
 		};
 		CD964CB5204AFD0400A9ECBC /* Base */ = {
@@ -249,6 +315,7 @@
 				CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */,
 				CD964CD1204AFE5F00A9ECBC /* BaseViewController.h */,
 				CD964CD0204AFE5E00A9ECBC /* BaseViewController.m */,
+				CD0CD71220503607006CBB4C /* BaseViews */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -329,27 +396,20 @@
 		CDA5279F1FECD20E009C39EC /* HeartMate */ = {
 			isa = PBXGroup;
 			children = (
-				CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */,
-				CDA527A31FECD20E009C39EC /* ViewController.h */,
-				CDA527A41FECD20E009C39EC /* ViewController.m */,
-				CDA527A01FECD20E009C39EC /* AppDelegate.h */,
-				CDA527A11FECD20E009C39EC /* AppDelegate.m */,
-				CDCC7273204C31D800553F25 /* HMDefines.h */,
-				CDCC7274204C31D800553F25 /* HMDefines.m */,
-				CD884546204E7AA0001F7AF1 /* HMUtilities.h */,
-				CD884547204E7AA0001F7AF1 /* HMUtilities.m */,
-				CD884543204E7520001F7AF1 /* HMContext.h */,
-				CD884544204E7520001F7AF1 /* HMContext.m */,
-				CD43DA13204D5D210005C077 /* UIFontHelper+HMFont.h */,
-				CD43DA14204D5D210005C077 /* UIFontHelper+HMFont.m */,
+				CD0CD710205035BE006CBB4C /* Defines */,
+				CD0CD711205035CE006CBB4C /* Utilities */,
 				CD964CB5204AFD0400A9ECBC /* Base */,
 				CD964CB6204AFD1D00A9ECBC /* Controllers */,
-				CDD5BBF3204AD292005D2FC5 /* HeartKit */,
-				CDA527A61FECD20E009C39EC /* Main.storyboard */,
-				CDCC728B204D066800553F25 /* RLMDataModels */,
-				CDA527A91FECD20E009C39EC /* Assets.xcassets */,
+				CD0CD715205036B7006CBB4C /* Modules */,
+				CD0CD71420503683006CBB4C /* Models */,
 				CDCC728C204D069300553F25 /* Views */,
-				CD944159204FB506005BCC03 /* Manager */,
+				CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */,
+				CDA527A01FECD20E009C39EC /* AppDelegate.h */,
+				CDA527A11FECD20E009C39EC /* AppDelegate.m */,
+				CDA527A31FECD20E009C39EC /* ViewController.h */,
+				CDA527A41FECD20E009C39EC /* ViewController.m */,
+				CDA527A61FECD20E009C39EC /* Main.storyboard */,
+				CDA527A91FECD20E009C39EC /* Assets.xcassets */,
 				CDA527AB1FECD20E009C39EC /* LaunchScreen.storyboard */,
 				CDA527AE1FECD20E009C39EC /* Info.plist */,
 				CDA527AF1FECD20E009C39EC /* main.m */,
@@ -375,23 +435,8 @@
 		CDCC728C204D069300553F25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CD0CD70F2050315C006CBB4C /* ReuseableTableView */,
-				CDCC7292204D0C4500553F25 /* HMTagButton.h */,
-				CDCC7293204D0C4500553F25 /* HMTagButton.m */,
-				CD884531204E67F2001F7AF1 /* BasePickerView.h */,
-				CD884532204E67F2001F7AF1 /* BasePickerView.m */,
-				CD884534204E684A001F7AF1 /* BaseAlertController.h */,
-				CD884535204E684A001F7AF1 /* BaseAlertController.m */,
-				CD884549204E8D7F001F7AF1 /* HMTableFootnoteView.h */,
-				CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */,
-				CD944141204F7D98005BCC03 /* RecordStartButton.h */,
-				CD944142204F7D98005BCC03 /* RecordStartButton.m */,
-				CD94414D204F95D6005BCC03 /* HMWideButton.h */,
-				CD94414E204F95D6005BCC03 /* HMWideButton.m */,
-				CD944150204F9816005BCC03 /* BaseTextField.h */,
-				CD944151204F9816005BCC03 /* BaseTextField.m */,
-				CD944153204F9848005BCC03 /* BaseTextView.h */,
-				CD944154204F9848005BCC03 /* BaseTextView.m */,
+				CD0CD70F2050315C006CBB4C /* HeartRate */,
+				CD0CD71320503628006CBB4C /* Controls */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -585,7 +630,7 @@
 				CDA527A51FECD20E009C39EC /* ViewController.m in Sources */,
 				CDD5BBF2204AD287005D2FC5 /* HKOutputView.m in Sources */,
 				CD43DA15204D5D210005C077 /* UIFontHelper+HMFont.m in Sources */,
-				CD944158204FB4FC005BCC03 /* LocalNotificationManager.m in Sources */,
+				CD944158204FB4FC005BCC03 /* NKManager.m in Sources */,
 				CD517D57204BD034001A6992 /* RecordVC.m in Sources */,
 				CD964CD2204AFE5F00A9ECBC /* BaseViewController.m in Sources */,
 				CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */,
@@ -593,12 +638,11 @@
 				CDE362DC204EDA5800BD0865 /* ReminderTVC.m in Sources */,
 				CDE362D5204ED33400BD0865 /* HMReminder.m in Sources */,
 				CD94414B204F8E7B005BCC03 /* ReminderEditVC.m in Sources */,
-				CDCC7275204C31D800553F25 /* HMDefines.m in Sources */,
+				CDCC7275204C31D800553F25 /* BaseDefines.m in Sources */,
 				CDA527B01FECD20E009C39EC /* main.m in Sources */,
 				CD884530204E66B5001F7AF1 /* HMGenderPicker.m in Sources */,
 				CD88453C204E719A001F7AF1 /* HMHeightPicker.m in Sources */,
-				CD884548204E7AA0001F7AF1 /* HMUtilities.m in Sources */,
-				CD884545204E7520001F7AF1 /* HMContext.m in Sources */,
+				CD884548204E7AA0001F7AF1 /* BaseUtilities.m in Sources */,
 				CD944155204F9848005BCC03 /* BaseTextView.m in Sources */,
 				CD517D4D204BC387001A6992 /* HMHeartRate.m in Sources */,
 				CD964CBD204AFD4100A9ECBC /* BaseNavController.m in Sources */,

@@ -94,7 +94,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (self.showSectionHeader) {
         HMHeartRate *hr = self.results[section][0];
-        return [HMUtilities descriptionForDate:hr.time];
+        return [BaseUtilities descriptionForDate:hr.time];
     } else {
         return nil;
     }

@@ -114,7 +114,7 @@ static HMUser *user;
                             user.lastName = tf.text;
                         }];
                     } else if ([model.cmd isEqualToString:@"user.input.email"]) {
-                        if ([HMUtilities validateEmail:tf.text]) {
+                        if ([BaseUtilities validatedEmail:tf.text]) {
                             [user transactionWithBlock:^{
                                 user.email = tf.text;
                             }];
@@ -126,7 +126,7 @@ static HMUser *user;
                         [user transactionWithBlock:^{
                             user.phone = tf.text;
                         }];
-//                        if ([HMUtilities validateMobile:tf.text]) {
+//                        if ([BaseUtilities validatedPhoneNumber:tf.text]) {
 //                            [user transactionWithBlock:^{
 //                                user.phone = tf.text;
 //                            }];

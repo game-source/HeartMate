@@ -1,12 +1,12 @@
 //
-//  LocalNotificationManager.m
+//  NKManager.m
 //  AXKitDemo
 //
 //  Created by xaoxuu on 29/11/2017.
 //  Copyright © 2017 Titan Studio. All rights reserved.
 //
 
-#import "LocalNotificationManager.h"
+#import "NKManager.h"
 #import <UserNotifications/UserNotifications.h>
 
 
@@ -37,7 +37,7 @@ static inline void pushNotification(NSString *identifier, UNNotificationTrigger 
     }];
 }
 
-@implementation LocalNotificationManager
+@implementation NKManager
 
 + (void)prepare{
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
