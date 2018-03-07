@@ -22,7 +22,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    if (@available(iOS 11.0, *)) {
+        // on newer versions
+        self.navigationController.navigationBar.prefersLargeTitles = YES;
+    } else {
+        // Fallback on earlier versions
+        
+    }
     
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_talk" action:^(UIBarButtonItem * _Nonnull sender) {

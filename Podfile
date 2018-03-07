@@ -13,6 +13,7 @@ target 'HeartMate' do
   pod 'Realm'
   pod 'MaterialControls'
 #  pod 'FSCalendar'
+  pod 'IQKeyboardManager'
 
 
 end

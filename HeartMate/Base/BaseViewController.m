@@ -27,6 +27,13 @@
     // @xaoxuu: 基类 初始化 内容区域
     [self baseInitContentView];
     
+    if (@available(iOS 11.0, *)) {
+        // on newer versions
+        self.navigationController.navigationBar.prefersLargeTitles = NO;
+    } else {
+        // Fallback on earlier versions
+        
+    }
     
 }
 

@@ -23,6 +23,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    self.navigationController.navigationBarHidden = YES;
+    if (@available(iOS 11.0, *)) {
+        // on newer versions
+        self.navigationController.navigationBar.prefersLargeTitles = YES;
+    } else {
+        // Fallback on earlier versions
+        
+    }
+    
     NSDate *joinDate = [HMUser currentUser].joinDate;
     
     UIColor *tintColor = self.view.tintColor;

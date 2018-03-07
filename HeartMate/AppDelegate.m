@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import "UIFontHelper+HMFont.h"
-
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 @interface AppDelegate ()
 
@@ -24,6 +24,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [IQKeyboardManager sharedManager].enable = YES;
     
     // 配置主题
     [[UIThemeManager sharedInstance] configDefaultTheme:^(UIThemeManager *theme) {

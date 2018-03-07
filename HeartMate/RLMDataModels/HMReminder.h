@@ -54,4 +54,6 @@
 
 - (NSArray<NSString *> *)descriptionForWeekday;
 
++ (NSString *)descriptionForWeekday:(NSInteger)weekday;
+
 @end

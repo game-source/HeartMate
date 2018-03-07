@@ -23,6 +23,11 @@
 		CD884548204E7AA0001F7AF1 /* HMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884547204E7AA0001F7AF1 /* HMUtilities.m */; };
 		CD88454B204E8D7F001F7AF1 /* HMTableFootnoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */; };
 		CD944143204F7D98005BCC03 /* RecordStartButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944142204F7D98005BCC03 /* RecordStartButton.m */; };
+		CD94414B204F8E7B005BCC03 /* ReminderEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944149204F8E7B005BCC03 /* ReminderEditVC.m */; };
+		CD94414C204F8E7B005BCC03 /* ReminderEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD94414A204F8E7B005BCC03 /* ReminderEditVC.xib */; };
+		CD94414F204F95D6005BCC03 /* HMWideButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD94414E204F95D6005BCC03 /* HMWideButton.m */; };
+		CD944152204F9816005BCC03 /* BaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944151204F9816005BCC03 /* BaseTextField.m */; };
+		CD944155204F9848005BCC03 /* BaseTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944154204F9848005BCC03 /* BaseTextView.m */; };
 		CD964CAC204AD88900A9ECBC /* HKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CAB204AD88900A9ECBC /* HKRecord.m */; };
 		CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */ = {isa = PBXBuildFile; fileRef = CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */; };
 		CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD964CB3204AFC2F00A9ECBC /* BaseTabBarController.m */; };
@@ -92,6 +97,15 @@
 		CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMTableFootnoteView.m; sourceTree = "<group>"; };
 		CD944141204F7D98005BCC03 /* RecordStartButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordStartButton.h; sourceTree = "<group>"; };
 		CD944142204F7D98005BCC03 /* RecordStartButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordStartButton.m; sourceTree = "<group>"; };
+		CD944148204F8E7B005BCC03 /* ReminderEditVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReminderEditVC.h; sourceTree = "<group>"; };
+		CD944149204F8E7B005BCC03 /* ReminderEditVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReminderEditVC.m; sourceTree = "<group>"; };
+		CD94414A204F8E7B005BCC03 /* ReminderEditVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderEditVC.xib; sourceTree = "<group>"; };
+		CD94414D204F95D6005BCC03 /* HMWideButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMWideButton.h; sourceTree = "<group>"; };
+		CD94414E204F95D6005BCC03 /* HMWideButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMWideButton.m; sourceTree = "<group>"; };
+		CD944150204F9816005BCC03 /* BaseTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTextField.h; sourceTree = "<group>"; };
+		CD944151204F9816005BCC03 /* BaseTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTextField.m; sourceTree = "<group>"; };
+		CD944153204F9848005BCC03 /* BaseTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTextView.h; sourceTree = "<group>"; };
+		CD944154204F9848005BCC03 /* BaseTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTextView.m; sourceTree = "<group>"; };
 		CD964CAA204AD88900A9ECBC /* HKRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKRecord.h; sourceTree = "<group>"; };
 		CD964CAB204AD88900A9ECBC /* HKRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKRecord.m; sourceTree = "<group>"; };
 		CD964CB0204AFC1B00A9ECBC /* BaseTabBarController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BaseTabBarController.json; sourceTree = "<group>"; };
@@ -192,6 +206,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CD944147204F8DEC005BCC03 /* ReminderEdit */ = {
+			isa = PBXGroup;
+			children = (
+				CD944148204F8E7B005BCC03 /* ReminderEditVC.h */,
+				CD944149204F8E7B005BCC03 /* ReminderEditVC.m */,
+				CD94414A204F8E7B005BCC03 /* ReminderEditVC.xib */,
+			);
+			path = ReminderEdit;
+			sourceTree = "<group>";
+		};
 		CD964CB5204AFD0400A9ECBC /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +277,7 @@
 				CDE362D9204EDA5800BD0865 /* ReminderTVC.h */,
 				CDE362DA204EDA5800BD0865 /* ReminderTVC.m */,
 				CDE362DB204EDA5800BD0865 /* ReminderTVC.xib */,
+				CD944147204F8DEC005BCC03 /* ReminderEdit */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -345,6 +370,12 @@
 				CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */,
 				CD944141204F7D98005BCC03 /* RecordStartButton.h */,
 				CD944142204F7D98005BCC03 /* RecordStartButton.m */,
+				CD94414D204F95D6005BCC03 /* HMWideButton.h */,
+				CD94414E204F95D6005BCC03 /* HMWideButton.m */,
+				CD944150204F9816005BCC03 /* BaseTextField.h */,
+				CD944151204F9816005BCC03 /* BaseTextField.m */,
+				CD944153204F9848005BCC03 /* BaseTextView.h */,
+				CD944154204F9848005BCC03 /* BaseTextView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -434,6 +465,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD94414C204F8E7B005BCC03 /* ReminderEditVC.xib in Resources */,
 				CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */,
 				CDA527AD1FECD20E009C39EC /* LaunchScreen.storyboard in Resources */,
 				CDCC7291204D075B00553F25 /* TimelineTVC.xib in Resources */,
@@ -473,6 +505,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-HeartMate/Pods-HeartMate-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AXKit/AXKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialControls/MaterialControls.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -483,6 +516,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AXKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -523,12 +557,14 @@
 				CD884539204E70FA001F7AF1 /* HMBirthdayPicker.m in Sources */,
 				CD517D41204BAC28001A6992 /* HMData.m in Sources */,
 				CD964CCC204AFDCF00A9ECBC /* ReminderVC.m in Sources */,
+				CD94414F204F95D6005BCC03 /* HMWideButton.m in Sources */,
 				CD884542204E7399001F7AF1 /* HMWeightPicker.m in Sources */,
 				CD964CC9204AFDC200A9ECBC /* CalendarVC.m in Sources */,
 				CDE362D8204ED69600BD0865 /* ReminderTV.m in Sources */,
 				CDF4E73B204E5E0A00DDD285 /* MineTV.m in Sources */,
 				CD884536204E684A001F7AF1 /* BaseAlertController.m in Sources */,
 				CD88454B204E8D7F001F7AF1 /* HMTableFootnoteView.m in Sources */,
+				CD944152204F9816005BCC03 /* BaseTextField.m in Sources */,
 				CD964CCF204AFDDF00A9ECBC /* MineVC.m in Sources */,
 				CDCC7294204D0C4500553F25 /* HMTagButton.m in Sources */,
 				CD964CBF204AFD4100A9ECBC /* RootViewController.m in Sources */,
@@ -542,12 +578,14 @@
 				CD884533204E67F2001F7AF1 /* BasePickerView.m in Sources */,
 				CDE362DC204EDA5800BD0865 /* ReminderTVC.m in Sources */,
 				CDE362D5204ED33400BD0865 /* HMReminder.m in Sources */,
+				CD94414B204F8E7B005BCC03 /* ReminderEditVC.m in Sources */,
 				CDCC7275204C31D800553F25 /* HMDefines.m in Sources */,
 				CDA527B01FECD20E009C39EC /* main.m in Sources */,
 				CD884530204E66B5001F7AF1 /* HMGenderPicker.m in Sources */,
 				CD88453C204E719A001F7AF1 /* HMHeightPicker.m in Sources */,
 				CD884548204E7AA0001F7AF1 /* HMUtilities.m in Sources */,
 				CD884545204E7520001F7AF1 /* HMContext.m in Sources */,
+				CD944155204F9848005BCC03 /* BaseTextView.m in Sources */,
 				CD517D4D204BC387001A6992 /* HMHeartRate.m in Sources */,
 				CD964CBD204AFD4100A9ECBC /* BaseNavController.m in Sources */,
 				CDD5BBEC204AD257005D2FC5 /* HKCaptureSession.m in Sources */,

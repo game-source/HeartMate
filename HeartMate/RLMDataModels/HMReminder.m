@@ -17,7 +17,7 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-        self.identifier = [NSDate date].stringValue(@"yyyy-MM-dd HH:mm:ss");
+        self.identifier = [NSDate date].stringValue(@"yyyy-MM-dd HH:mm:ss Z");
         self.hour = 8;
         self.title = @"";
         self.message = @"";
@@ -40,5 +40,12 @@
     return results;
 }
 
+
++ (NSString *)descriptionForWeekday:(NSInteger)weekday{
+    NSDate *date = [NSDate date];
+    date = date.addDays(1-date.weekday);
+    NSString *result = date.addDays(weekday).stringValue(@"EEEE");
+    return result;
+}
 
 @end

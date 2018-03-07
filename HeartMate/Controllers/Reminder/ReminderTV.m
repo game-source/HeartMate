@@ -23,7 +23,7 @@
         for (int i = 0; i < results.count; i++) {
             HMReminder *reminder = results[i];
             [section addRow:^(AXTableRowModel *row) {
-                
+                row.title = reminder.title;
             }];
         }
     }];
@@ -33,5 +33,12 @@
     
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
+
+- (void)ax_tableView:(AXTableViewType *)tableView didSetModelForCell:(AXTableViewCellType *)cell atIndexPath:(NSIndexPath *)indexPath{
+    
+}
 
 @end

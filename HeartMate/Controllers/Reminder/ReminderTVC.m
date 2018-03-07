@@ -11,6 +11,7 @@
 
 @interface ReminderTVC () <HMTagButtonDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *lb_time;
 @property (weak, nonatomic) IBOutlet UILabel *lb_title;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgv;
@@ -31,7 +32,9 @@
     // Initialization code
     
     self.tintColor = axThemeManager.color.theme;
+    self.lb_time.textColor = self.tintColor;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     
     
 }
@@ -44,11 +47,12 @@
 
 - (void)setModel:(HMReminder *)model{
     _model = model;
-    
+    self.lb_time.text = [NSString stringWithFormat:@"%d:%02d", (int)model.hour, (int)model.minute];
     self.lb_title.text = model.title;
     
     [self.content removeAllSubviews];
     if (model.weekday.count) {
+        self.alpha = 1;
         NSArray<NSString *> *weekday = model.descriptionForWeekday;
         CGFloat lastX = 0;
         for (int i = 0; i < weekday.count; i++) {
@@ -60,6 +64,8 @@
             self.contentWidth.constant = lastX;
             [self.content addSubview:btn];
         }
+    } else {
+        self.alpha = 0.5;
     }
     
     
