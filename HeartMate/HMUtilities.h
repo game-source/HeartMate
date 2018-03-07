@@ -14,4 +14,6 @@
 
 + (BOOL) validateMobile:(NSString *)mobile;
 
++ (NSString *)descriptionForDate:(NSDate *)date;
+
 @end

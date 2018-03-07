@@ -10,6 +10,8 @@
 #import "HMHeartRate.h"
 #import "TimelineTVC.h"
 
+static NSDate *today;
+
 @interface TimelineVC () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
@@ -30,6 +32,7 @@
         // Fallback on earlier versions
         
     }
+    today = [NSDate date];
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(TimelineTVC.class) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:NSStringFromClass(TimelineTVC.class)];
@@ -112,7 +115,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     HMHeartRate *hr = self.results[section][0];
-    return hr.time.stringValue(@"yyyy-MM-dd EEEE");
+    return [HMUtilities descriptionForDate:hr.time];
 }
 
 

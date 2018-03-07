@@ -26,13 +26,13 @@
 
 + (instancetype)ax_showActionSheetWithTitle:(NSString *)title message:(NSString *)message actions:(void (^)(UIAlertController * _Nonnull))actions{
     BaseAlertController *vc = [super ax_showActionSheetWithTitle:title message:message actions:actions];
-    vc.view.tintColor = axThemeManager.color.theme;
+//    vc.view.tintColor = axThemeManager.color.theme;
     return vc;
 }
 
 + (instancetype)ax_showAlertWithTitle:(NSString *)title message:(NSString *)message actions:(void (^)(UIAlertController * _Nonnull))actions{
     BaseAlertController *vc = [super ax_showAlertWithTitle:title message:message actions:actions];
-    vc.view.tintColor = axThemeManager.color.theme;
+//    vc.view.tintColor = axThemeManager.color.theme;
     return vc;
 }
 @end

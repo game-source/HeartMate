@@ -29,5 +29,16 @@
 }
 
 
++ (NSString *)descriptionForDate:(NSDate *)date{
+    NSDate *today = [NSDate date];
+    if (date.integerValue == today.integerValue) {
+        return NSLocalizedString(@"Today", @"今天");
+    } else if (date.addDays(1).integerValue == today.integerValue) {
+        return NSLocalizedString(@"Yesterday", @"昨天");
+    } else {
+        return date.stringValue(@"yyyy-MM-dd EEEE");
+    }
+}
+
 
 @end

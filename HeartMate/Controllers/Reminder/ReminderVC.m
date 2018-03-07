@@ -36,7 +36,7 @@
     [self setupTableView];
     
     __weak typeof(self) weakSelf = self;
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_add" action:^(UIBarButtonItem * _Nonnull sender) {
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_plus" action:^(UIBarButtonItem * _Nonnull sender) {
         ReminderEditVC *vc = [[ReminderEditVC alloc] init];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];

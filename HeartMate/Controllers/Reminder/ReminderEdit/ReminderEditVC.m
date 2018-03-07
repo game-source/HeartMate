@@ -12,6 +12,13 @@
 #import "LocalNotificationManager.h"
 
 
+static void deleteLocalNotificationWithIdentifier(NSString *identifier){
+    for (int i = 0; i <= 7; i++) {
+        NSString *fullIdentifier = [NSString stringWithFormat:@"%@.%d", identifier, i];
+        [LocalNotificationManager removeNotificationWithIdentifier:fullIdentifier];
+    }
+}
+
 @interface ReminderEditVC () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *lb_repeat;
@@ -28,6 +35,7 @@
 
 @property (strong, nonatomic) NSMutableArray<NSNumber *> *weekday;
 
+@property (assign, nonatomic) BOOL createMode;
 
 @end
 
@@ -39,6 +47,24 @@
     self.title = NSLocalizedString(@"Edit Reminder", @"编辑提醒");
     self.today = [NSDate date];
     
+    __weak typeof(self) weakSelf = self;
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_delete" action:^(UIBarButtonItem * _Nonnull sender) {
+        NSString *title = NSLocalizedString(@"Notice", @"注意");
+        NSString *msg = NSLocalizedString(@"Do you really want to delete the reminder?", @"你真的要删除提醒吗？");
+        [BaseAlertController ax_showAlertWithTitle:title message:msg actions:^(UIAlertController * _Nonnull alert) {
+            [alert ax_addDestructiveActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
+                deleteLocalNotificationWithIdentifier(weakSelf.reminder.identifier);
+                [[RLMRealm defaultRealm] transactionWithBlock:^{
+                    [[RLMRealm defaultRealm] deleteObject:weakSelf.reminder];
+                }];
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }];
+            [alert ax_addCancelAction];
+        }];
+        
+    }];
+    
+    
     self.weekday = [NSMutableArray array];
     
     [self setupTableView];
@@ -47,19 +73,17 @@
     [self.pickerView.layer ax_cornerRadius:8 shadow:LayerShadowNone];
     
     if (!self.reminder) {
-        [[RLMRealm defaultRealm] transactionWithBlock:^{
-            self.reminder = [[HMReminder alloc] init];
-            [[RLMRealm defaultRealm] addObject:self.reminder];
-        }];
+        self.createMode = YES;
+        self.reminder = [[HMReminder alloc] init];
+        
     } else {
         for (int i = 0; i < self.reminder.weekday.count; i++) {
             [self.weekday addObject:self.reminder.weekday[i]];
         }
-        NSDate *date = [NSDate dateWithString:[NSString stringWithFormat:@"%02d:%02d", (int)self.reminder.hour, (int)self.reminder.minute] format:@"HH:mm"];
-        self.pickerView.date = date;
-        self.tf_title.text = self.reminder.title;
     }
-    
+    NSDate *date = [NSDate dateWithString:[NSString stringWithFormat:@"%02d:%02d", (int)self.reminder.hour, (int)self.reminder.minute] format:@"HH:mm"];
+    self.pickerView.date = date;
+    self.tf_title.text = self.reminder.title;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -142,28 +166,34 @@
 - (IBAction)tappedDone:(UIButton *)sender {
     NSDate *time = self.pickerView.date;
     HMReminder *reminder = self.reminder;
-    [self.reminder transactionWithBlock:^{
-        reminder.title = self.tf_title.text;
-        [reminder.weekday removeAllObjects];
-        for (int i = 0; i < 7; i++) {
-            if ([self.weekday containsObject:@(i)]) {
-                [reminder.weekday addObject:@(i)];
+    if (self.createMode) {
+        // 如果是创造模式，就把这个提醒添加进数据库
+        [[RLMRealm defaultRealm] transactionWithBlock:^{
+            [[RLMRealm defaultRealm] addObject:self.reminder];
+        }];
+    } else {
+        // 否则就只进行数据库修改
+        [self.reminder transactionWithBlock:^{
+            reminder.title = self.tf_title.text;
+            [reminder.weekday removeAllObjects];
+            for (int i = 0; i < 7; i++) {
+                if ([self.weekday containsObject:@(i)]) {
+                    [reminder.weekday addObject:@(i)];
+                }
             }
-        }
-        reminder.hour = time.hour;
-        reminder.minute = time.minute;
-    }];
+            reminder.hour = time.hour;
+            reminder.minute = time.minute;
+        }];
+    }
+    
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [LocalNotificationManager prepare];
     });
     
-    for (int i = 0; i <= 7; i++) {
-        NSString *identifier = [NSString stringWithFormat:@"%@.%d", reminder.identifier, i];
-        [LocalNotificationManager removeNotificationWithIdentifier:identifier];
-    }
     
+    deleteLocalNotificationWithIdentifier(reminder.identifier);
     
     if (self.weekday.count) {
         for (NSNumber *obj in self.weekday) {
