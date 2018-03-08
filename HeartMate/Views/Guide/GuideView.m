@@ -23,6 +23,7 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.tintColor = axThemeManager.color.theme;
+    self.lb_tip.text = NSLocalizedString(@"Touch the Record button to start measuring heart rate.", @"轻触“Record”按钮开始测量心率。");
     [self startAnimation];
 }
 
