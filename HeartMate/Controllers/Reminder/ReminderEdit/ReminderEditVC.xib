@@ -67,7 +67,7 @@
                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUc-nF-0Ry" customClass="HMWideButton">
-                    <rect key="frame" x="16" y="666" width="382" height="50"/>
+                    <rect key="frame" x="16" y="670" width="382" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="ozH-nJ-0f5"/>
                     </constraints>
@@ -94,7 +94,7 @@
                 <constraint firstItem="l6Y-bV-ngD" firstAttribute="top" secondItem="Dk9-Ig-1aa" secondAttribute="top" id="NIn-dg-4S4"/>
                 <constraint firstItem="Dk9-Ig-1aa" firstAttribute="top" secondItem="tSf-Hf-HFZ" secondAttribute="bottom" constant="8" id="Pf9-Vl-RYm"/>
                 <constraint firstItem="l6Y-bV-ngD" firstAttribute="bottom" secondItem="Dk9-Ig-1aa" secondAttribute="bottom" id="Pwd-tl-bou"/>
-                <constraint firstAttribute="bottom" secondItem="MUc-nF-0Ry" secondAttribute="bottom" constant="20" id="QKH-Gn-QHk"/>
+                <constraint firstAttribute="bottom" secondItem="MUc-nF-0Ry" secondAttribute="bottom" constant="16" id="QKH-Gn-QHk"/>
                 <constraint firstItem="Dk9-Ig-1aa" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.45" id="SYm-xM-evb"/>
                 <constraint firstItem="tSf-Hf-HFZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="VyW-d0-sQ6"/>
                 <constraint firstItem="6Y4-IW-Mbp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="WEn-TH-wKz"/>

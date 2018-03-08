@@ -52,7 +52,7 @@ static CGFloat margin = 8.0;
     self.chartView = [[AXChartView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 200)];
     self.chartView.smoothFactor = 0;
     self.chartView.backgroundColor = axThemeManager.color.theme;
-    self.chartView.accentColor = axThemeManager.color.accent;
+    self.chartView.accentColor = axThemeManager.color.theme;
     [self addSubview:self.chartView];
 }
 

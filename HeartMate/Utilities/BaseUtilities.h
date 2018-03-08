@@ -36,6 +36,10 @@
 + (NSString *)descriptionForTime:(NSDate *)time;
 + (NSString *)descriptionForAppVersion;
 
+
++ (NSString *)descriptionForCurrentWeekday;
++ (NSString *)descriptionForCurrentTimeInDay;
+
 /**
  体脂率
 

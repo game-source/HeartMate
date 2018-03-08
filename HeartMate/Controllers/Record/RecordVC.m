@@ -11,6 +11,7 @@
 #import "RecordStartButton.h"
 #import "HeartKit.h"
 #import "HMHeartRate.h"
+#import "HeartRateDetailVC.h"
 
 static BOOL run = NO;
 static ax_dispatch_operation_t token;
@@ -24,26 +25,6 @@ static inline UILabel *defaultLabelWithFontSize(CGFloat fontSize){
     return label;
 }
 
-static NSString *defaultTags(){
-    NSDate *date = [NSDate date];
-    NSString *tag1 = date.stringValue(@"EEEE");
-    NSString *tag2;
-    NSInteger hour = date.stringValue(@"HH").integerValue;
-    if (hour < 5) {
-        tag2 = NSLocalizedString(@"Before Dawn", @"凌晨");
-    } if (hour >= 5 && hour < 9) {
-        tag2 = NSLocalizedString(@"Morning", @"早上");
-    } else if (hour >= 9 && hour < 11) {
-        tag2 = NSLocalizedString(@"Forenoon", @"上午");
-    } else if (hour >= 11 && hour < 14) {
-        tag2 = NSLocalizedString(@"Nooning", @"中午");
-    } else if (hour >= 14 && hour < 19) {
-        tag2 = NSLocalizedString(@"Afternoon", @"下午");
-    } else {
-        tag2 = NSLocalizedString(@"Evening", @"晚上");
-    }
-    return [NSString stringWithFormat:@"%@,%@", tag1, tag2];
-}
 
 static BOOL prepared = NO;
 
@@ -100,7 +81,7 @@ static BOOL prepared = NO;
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -110,6 +91,7 @@ static BOOL prepared = NO;
         [self startCapture];
     });
 }
+
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     // 如果用户在0.2秒内迅速离开页面，要取消掉[self startCapture]的定时任务
@@ -173,54 +155,71 @@ static BOOL prepared = NO;
     if (run) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.statusTips.text = [NSString stringWithFormat:@"%d bpm", (int)heartRate];
+            [self stopCapture];
             
-            NSString *msg = [NSString stringWithFormat:@"\n%@\n%@", NSLocalizedString(@"The data samples for this measurement are:", @"本次测量的数据样本为："), detail.firstObject];
-            for (int i = 1; i < detail.count; i++) {
-                msg = [msg stringByAppendingFormat:@",%@", detail[i]];
-            }
-            [UIAlertController ax_showAlertWithTitle:self.statusTips.text message:msg actions:^(UIAlertController * _Nonnull alert) {
-                [alert ax_addDestructiveActionWithTitle:NSLocalizedString(@"Discard", @"丢弃") handler:^(UIAlertAction * _Nonnull sender) {
-                    [self stopCapture];
-                }];
-                [alert ax_addDefaultActionWithTitle:NSLocalizedString(@"Save", @"保存") handler:^(UIAlertAction * _Nonnull sender) {
-                    [UIAlertController ax_showAlertWithTitle:NSLocalizedString(@"Set Tags", @"设置标签") message:NSLocalizedString(@"Please enter a simple vocabulary as a comma separated by commas. You can use these tags for data analysis later.", @"请输入简单的词汇作为标签，用英文逗号分隔。以后你可以通过这些标签进行数据分析。") actions:^(UIAlertController * _Nonnull alert) {
-                        HMHeartRate *avgHR = [[HMHeartRate alloc] init];
-                        avgHR.time = [NSDate date];
-                        [avgHR.detail addObjects:detail];
-                        avgHR.heartRate = heartRate;
-                        
-                        __block UITextField *tf;
-                        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-                            tf = textField;
-                            textField.text = defaultTags();
-                            textField.returnKeyType = UIReturnKeyDone;
-                            [textField ax_addEditingEndOnExitHandler:^(__kindof UITextField * _Nonnull sender) {
-                                [self stopCapture];
-                            }];
-                        }];
-                        [alert ax_addDefaultActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
-                            NSArray<NSString *> *tags = [tf.text componentsSeparatedByString:@","];
-                            if (tags.count) {
-                                [avgHR.tags addObjects:tags];
-                            }
-                            RLMRealm *realm = [RLMRealm defaultRealm];
-                            [realm transactionWithBlock:^{
-                                [realm addObject:avgHR];
-                            }];
-                            [self stopCapture];
-                            [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_HR_UPDATE object:@1];
-                        }];
-                        [alert ax_addCancelActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
-                            RLMRealm *realm = [RLMRealm defaultRealm];
-                            [realm transactionWithBlock:^{
-                                [realm addObject:avgHR];
-                            }];
-                            [self stopCapture];
-                        }];
-                    }];
-                }];
-                
+            HMHeartRate *avgHR = [[HMHeartRate alloc] init];
+            avgHR.time = [NSDate date];
+            [avgHR.detail addObjects:detail];
+            avgHR.heartRate = heartRate;
+            [avgHR.tags addObject:[BaseUtilities descriptionForCurrentWeekday]];
+            [avgHR.tags addObject:[BaseUtilities descriptionForCurrentTimeInDay]];
+            RLMRealm *realm = [RLMRealm defaultRealm];
+            [realm transactionWithBlock:^{
+                [realm addObject:avgHR];
             }];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_HR_UPDATE object:@1];
+            
+            HeartRateDetailVC *vc = [[HeartRateDetailVC alloc] init];
+            vc.model = avgHR;
+            [self.navigationController pushViewController:vc animated:YES];
+            
+//            NSString *msg = [NSString stringWithFormat:@"\n%@\n%@", NSLocalizedString(@"The data samples for this measurement are:", @"本次测量的数据样本为："), detail.firstObject];
+//            for (int i = 1; i < detail.count; i++) {
+//                msg = [msg stringByAppendingFormat:@",%@", detail[i]];
+//            }
+//            [UIAlertController ax_showAlertWithTitle:self.statusTips.text message:msg actions:^(UIAlertController * _Nonnull alert) {
+//                [alert ax_addDestructiveActionWithTitle:NSLocalizedString(@"Discard", @"丢弃") handler:^(UIAlertAction * _Nonnull sender) {
+//                    [self stopCapture];
+//                }];
+//                [alert ax_addDefaultActionWithTitle:NSLocalizedString(@"Save", @"保存") handler:^(UIAlertAction * _Nonnull sender) {
+//                    [UIAlertController ax_showAlertWithTitle:NSLocalizedString(@"Set Tags", @"设置标签") message:NSLocalizedString(@"Please enter a simple vocabulary as a comma separated by commas. You can use these tags for data analysis later.", @"请输入简单的词汇作为标签，用英文逗号分隔。以后你可以通过这些标签进行数据分析。") actions:^(UIAlertController * _Nonnull alert) {
+//                        HMHeartRate *avgHR = [[HMHeartRate alloc] init];
+//                        avgHR.time = [NSDate date];
+//                        [avgHR.detail addObjects:detail];
+//                        avgHR.heartRate = heartRate;
+//
+//                        __block UITextField *tf;
+//                        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+//                            tf = textField;
+//                            textField.text = defaultTags();
+//                            textField.returnKeyType = UIReturnKeyDone;
+//                            [textField ax_addEditingEndOnExitHandler:^(__kindof UITextField * _Nonnull sender) {
+//                                [self stopCapture];
+//                            }];
+//                        }];
+//                        [alert ax_addDefaultActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
+//                            NSArray<NSString *> *tags = [tf.text componentsSeparatedByString:@","];
+//                            if (tags.count) {
+//                                [avgHR.tags addObjects:tags];
+//                            }
+//                            RLMRealm *realm = [RLMRealm defaultRealm];
+//                            [realm transactionWithBlock:^{
+//                                [realm addObject:avgHR];
+//                            }];
+//                            [self stopCapture];
+//                            [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_HR_UPDATE object:@1];
+//                        }];
+//                        [alert ax_addCancelActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
+//                            RLMRealm *realm = [RLMRealm defaultRealm];
+//                            [realm transactionWithBlock:^{
+//                                [realm addObject:avgHR];
+//                            }];
+//                            [self stopCapture];
+//                        }];
+//                    }];
+//                }];
+            
+//            }];
         });
         
     }

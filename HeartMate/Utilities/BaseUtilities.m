@@ -70,6 +70,27 @@
     return [NSString stringWithFormat:@"%@ (%@)", [NSBundle ax_appVersion], [NSBundle ax_appBuild]];
 }
 
++ (NSString *)descriptionForCurrentWeekday{
+    return [NSDate date].stringValue(@"EEEE");
+}
++ (NSString *)descriptionForCurrentTimeInDay{
+    NSString *tag;
+    NSInteger hour = [NSDate date].stringValue(@"HH").integerValue;
+    if (hour < 5) {
+        tag = NSLocalizedString(@"Before Dawn", @"凌晨");
+    } if (hour >= 5 && hour < 9) {
+        tag = NSLocalizedString(@"Morning", @"早上");
+    } else if (hour >= 9 && hour < 11) {
+        tag = NSLocalizedString(@"Forenoon", @"上午");
+    } else if (hour >= 11 && hour < 14) {
+        tag = NSLocalizedString(@"Nooning", @"中午");
+    } else if (hour >= 14 && hour < 19) {
+        tag = NSLocalizedString(@"Afternoon", @"下午");
+    } else {
+        tag = NSLocalizedString(@"Evening", @"晚上");
+    }
+    return tag;
+}
 + (CGFloat)bmiWithHeight:(CGFloat)height weight:(CGFloat)weight{
     CGFloat bmi = weight / pow(height, 2);
     return bmi;

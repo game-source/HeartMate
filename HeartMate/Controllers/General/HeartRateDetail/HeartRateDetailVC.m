@@ -9,7 +9,7 @@
 #import "HeartRateDetailVC.h"
 #import "HeartRateDetailTV.h"
 #import "AXChartView.h"
-
+#import "HMWideButton.h"
 
 @interface HeartRateDetailVC () <AXChartViewDataSource, AXChartViewDelegate>
 
@@ -22,6 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,15 +55,29 @@
 
 - (void)ax_initTableView{
     HeartRateDetailTV *tv = [[HeartRateDetailTV alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    tv.backgroundColor = axThemeManager.color.background;
     tv.separatorColor = axThemeManager.color.background;
     tv.model = self.model;
     [self.view addSubview:tv];
     self.tableView = tv;
+    
+    __weak typeof(self) weakSelf = self;
+    HMWideButton *button = [HMWideButton buttonWithType:UIButtonTypeSystem action:^(HMWideButton *sender) {
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    }];
+    [button setTitle:NSLocalizedString(@"Done", @"完成") forState:UIControlStateNormal];
+    [self.view addSubview:button];
+    CGFloat bottomMargin = CGConstGetScreenBottomSafeAreaHeight() ? : 16;
+    button.bottom = self.view.height - bottomMargin;
+    
+    button.centerX = self.view.centerX;
+    
+    tv.height = button.top - 16;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    self.navigationController.navigationBarHidden = NO;
     [self.tableView reloadDataSourceAndRefreshTableView];
 }
 
