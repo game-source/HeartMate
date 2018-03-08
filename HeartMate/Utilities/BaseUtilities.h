@@ -33,7 +33,7 @@
  @return 描述
  */
 + (NSString *)descriptionForDate:(NSDate *)date;
-
++ (NSString *)descriptionForTime:(NSDate *)time;
 + (NSString *)descriptionForAppVersion;
 
 /**

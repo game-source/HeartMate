@@ -43,7 +43,7 @@ static CGFloat minHeightOfCalendar = 320;
     return frame;
 }
 - (void)ax_initProperty{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:NOTI_HR_UPDATE object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableData) name:NOTI_HR_UPDATE object:nil];
 }
 - (void)ax_initNavigationBar{
     NSDate *today = [NSDate date];

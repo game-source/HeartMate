@@ -44,6 +44,17 @@
 		CDA527AA1FECD20E009C39EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA527A91FECD20E009C39EC /* Assets.xcassets */; };
 		CDA527AD1FECD20E009C39EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA527AB1FECD20E009C39EC /* LaunchScreen.storyboard */; };
 		CDA527B01FECD20E009C39EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA527AF1FECD20E009C39EC /* main.m */; };
+		CDA71CF7205112BD00020F8F /* GuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71CF6205112BD00020F8F /* GuideView.m */; };
+		CDA71CF9205112D300020F8F /* GuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA71CF8205112D300020F8F /* GuideView.xib */; };
+		CDA71CFC20511EAB00020F8F /* BaseAnimationThread.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71CFB20511EAB00020F8F /* BaseAnimationThread.m */; };
+		CDA71D01205121AC00020F8F /* HeartRateDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71CFF205121AC00020F8F /* HeartRateDetailVC.m */; };
+		CDA71D062051270000020F8F /* AXChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D04205126FF00020F8F /* AXChartView.m */; };
+		CDA71D092051272D00020F8F /* HeartRateDetailTV.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D082051272D00020F8F /* HeartRateDetailTV.m */; };
+		CDA71D0D2051289D00020F8F /* HeartRateDetailChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D0B2051289D00020F8F /* HeartRateDetailChartCell.m */; };
+		CDA71D1B20513A4400020F8F /* HeartRateDetailPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D1920513A4400020F8F /* HeartRateDetailPreviewCell.m */; };
+		CDA71D222051430E00020F8F /* EditTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D202051430E00020F8F /* EditTextVC.m */; };
+		CDA71D232051430E00020F8F /* EditTextVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA71D212051430E00020F8F /* EditTextVC.xib */; };
+		CDA71D26205149EF00020F8F /* AddNewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D25205149EF00020F8F /* AddNewCell.m */; };
 		CDCC7275204C31D800553F25 /* BaseDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC7274204C31D800553F25 /* BaseDefines.m */; };
 		CDCC7290204D075B00553F25 /* HeartRateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC728E204D075B00553F25 /* HeartRateTableViewCell.m */; };
 		CDCC7291204D075B00553F25 /* HeartRateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCC728F204D075B00553F25 /* HeartRateTableViewCell.xib */; };
@@ -136,6 +147,26 @@
 		CDA527AE1FECD20E009C39EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA527AF1FECD20E009C39EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CDA71CF5205112BD00020F8F /* GuideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideView.h; sourceTree = "<group>"; };
+		CDA71CF6205112BD00020F8F /* GuideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideView.m; sourceTree = "<group>"; };
+		CDA71CF8205112D300020F8F /* GuideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideView.xib; sourceTree = "<group>"; };
+		CDA71CFA20511EAB00020F8F /* BaseAnimationThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseAnimationThread.h; sourceTree = "<group>"; };
+		CDA71CFB20511EAB00020F8F /* BaseAnimationThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseAnimationThread.m; sourceTree = "<group>"; };
+		CDA71CFE205121AC00020F8F /* HeartRateDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateDetailVC.h; sourceTree = "<group>"; };
+		CDA71CFF205121AC00020F8F /* HeartRateDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartRateDetailVC.m; sourceTree = "<group>"; };
+		CDA71D04205126FF00020F8F /* AXChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXChartView.m; sourceTree = "<group>"; };
+		CDA71D05205126FF00020F8F /* AXChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXChartView.h; sourceTree = "<group>"; };
+		CDA71D072051272D00020F8F /* HeartRateDetailTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateDetailTV.h; sourceTree = "<group>"; };
+		CDA71D082051272D00020F8F /* HeartRateDetailTV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartRateDetailTV.m; sourceTree = "<group>"; };
+		CDA71D0A2051289D00020F8F /* HeartRateDetailChartCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateDetailChartCell.h; sourceTree = "<group>"; };
+		CDA71D0B2051289D00020F8F /* HeartRateDetailChartCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartRateDetailChartCell.m; sourceTree = "<group>"; };
+		CDA71D1820513A4400020F8F /* HeartRateDetailPreviewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateDetailPreviewCell.h; sourceTree = "<group>"; };
+		CDA71D1920513A4400020F8F /* HeartRateDetailPreviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartRateDetailPreviewCell.m; sourceTree = "<group>"; };
+		CDA71D1F2051430E00020F8F /* EditTextVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTextVC.h; sourceTree = "<group>"; };
+		CDA71D202051430E00020F8F /* EditTextVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTextVC.m; sourceTree = "<group>"; };
+		CDA71D212051430E00020F8F /* EditTextVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTextVC.xib; sourceTree = "<group>"; };
+		CDA71D24205149EF00020F8F /* AddNewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewCell.h; sourceTree = "<group>"; };
+		CDA71D25205149EF00020F8F /* AddNewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddNewCell.m; sourceTree = "<group>"; };
 		CDCC7273204C31D800553F25 /* BaseDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseDefines.h; sourceTree = "<group>"; };
 		CDCC7274204C31D800553F25 /* BaseDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseDefines.m; sourceTree = "<group>"; };
 		CDCC728D204D075B00553F25 /* HeartRateTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateTableViewCell.h; sourceTree = "<group>"; };
@@ -206,6 +237,8 @@
 			children = (
 				CD884546204E7AA0001F7AF1 /* BaseUtilities.h */,
 				CD884547204E7AA0001F7AF1 /* BaseUtilities.m */,
+				CDA71CFA20511EAB00020F8F /* BaseAnimationThread.h */,
+				CDA71CFB20511EAB00020F8F /* BaseAnimationThread.m */,
 				CD43DA13204D5D210005C077 /* UIFontHelper+HMFont.h */,
 				CD43DA14204D5D210005C077 /* UIFontHelper+HMFont.m */,
 			);
@@ -323,6 +356,7 @@
 		CD964CB6204AFD1D00A9ECBC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CDA71D1D205142D200020F8F /* General */,
 				CD964CC0204AFD6400A9ECBC /* Timeline */,
 				CD964CC1204AFD7000A9ECBC /* Calendar */,
 				CD517D54204BD007001A6992 /* Record */,
@@ -417,6 +451,68 @@
 			path = HeartMate;
 			sourceTree = "<group>";
 		};
+		CDA71CF4205112AA00020F8F /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				CDA71CF5205112BD00020F8F /* GuideView.h */,
+				CDA71CF6205112BD00020F8F /* GuideView.m */,
+				CDA71CF8205112D300020F8F /* GuideView.xib */,
+			);
+			path = Guide;
+			sourceTree = "<group>";
+		};
+		CDA71CFD2051218F00020F8F /* HeartRateDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CDA71CFE205121AC00020F8F /* HeartRateDetailVC.h */,
+				CDA71CFF205121AC00020F8F /* HeartRateDetailVC.m */,
+				CDA71D072051272D00020F8F /* HeartRateDetailTV.h */,
+				CDA71D082051272D00020F8F /* HeartRateDetailTV.m */,
+				CDA71D1820513A4400020F8F /* HeartRateDetailPreviewCell.h */,
+				CDA71D1920513A4400020F8F /* HeartRateDetailPreviewCell.m */,
+				CDA71D0A2051289D00020F8F /* HeartRateDetailChartCell.h */,
+				CDA71D0B2051289D00020F8F /* HeartRateDetailChartCell.m */,
+			);
+			path = HeartRateDetail;
+			sourceTree = "<group>";
+		};
+		CDA71D03205126FF00020F8F /* AXChartView */ = {
+			isa = PBXGroup;
+			children = (
+				CDA71D04205126FF00020F8F /* AXChartView.m */,
+				CDA71D05205126FF00020F8F /* AXChartView.h */,
+			);
+			path = AXChartView;
+			sourceTree = "<group>";
+		};
+		CDA71D1D205142D200020F8F /* General */ = {
+			isa = PBXGroup;
+			children = (
+				CDA71D1E205142DD00020F8F /* EditTextVC */,
+				CDA71CFD2051218F00020F8F /* HeartRateDetail */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		CDA71D1E205142DD00020F8F /* EditTextVC */ = {
+			isa = PBXGroup;
+			children = (
+				CDA71D1F2051430E00020F8F /* EditTextVC.h */,
+				CDA71D202051430E00020F8F /* EditTextVC.m */,
+				CDA71D212051430E00020F8F /* EditTextVC.xib */,
+			);
+			path = EditTextVC;
+			sourceTree = "<group>";
+		};
+		CDA71D27205149F300020F8F /* AddNew */ = {
+			isa = PBXGroup;
+			children = (
+				CDA71D24205149EF00020F8F /* AddNewCell.h */,
+				CDA71D25205149EF00020F8F /* AddNewCell.m */,
+			);
+			path = AddNew;
+			sourceTree = "<group>";
+		};
 		CDCC728B204D066800553F25 /* RLMDataModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,8 +531,11 @@
 		CDCC728C204D069300553F25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CDA71D03205126FF00020F8F /* AXChartView */,
+				CDA71CF4205112AA00020F8F /* Guide */,
 				CD0CD70F2050315C006CBB4C /* HeartRate */,
 				CD0CD71320503628006CBB4C /* Controls */,
+				CDA71D27205149F300020F8F /* AddNew */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -530,9 +629,11 @@
 				CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */,
 				CDA527AD1FECD20E009C39EC /* LaunchScreen.storyboard in Resources */,
 				CDCC7291204D075B00553F25 /* HeartRateTableViewCell.xib in Resources */,
+				CDA71D232051430E00020F8F /* EditTextVC.xib in Resources */,
 				CDE362DD204EDA5800BD0865 /* ReminderTVC.xib in Resources */,
 				CDA527AA1FECD20E009C39EC /* Assets.xcassets in Resources */,
 				CDA527A81FECD20E009C39EC /* Main.storyboard in Resources */,
+				CDA71CF9205112D300020F8F /* GuideView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,16 +713,22 @@
 				CD964CC6204AFDB800A9ECBC /* TimelineVC.m in Sources */,
 				CD944143204F7D98005BCC03 /* RecordStartButton.m in Sources */,
 				CDCC7290204D075B00553F25 /* HeartRateTableViewCell.m in Sources */,
+				CDA71CFC20511EAB00020F8F /* BaseAnimationThread.m in Sources */,
+				CDA71D092051272D00020F8F /* HeartRateDetailTV.m in Sources */,
 				CD884539204E70FA001F7AF1 /* HMBirthdayPicker.m in Sources */,
 				CD517D41204BAC28001A6992 /* HMData.m in Sources */,
+				CDA71D062051270000020F8F /* AXChartView.m in Sources */,
 				CD964CCC204AFDCF00A9ECBC /* ReminderVC.m in Sources */,
 				CD94414F204F95D6005BCC03 /* HMWideButton.m in Sources */,
+				CDA71D0D2051289D00020F8F /* HeartRateDetailChartCell.m in Sources */,
 				CD884542204E7399001F7AF1 /* HMWeightPicker.m in Sources */,
 				CD964CC9204AFDC200A9ECBC /* CalendarVC.m in Sources */,
 				CDF4E73B204E5E0A00DDD285 /* MeTV.m in Sources */,
 				CD884536204E684A001F7AF1 /* BaseAlertController.m in Sources */,
 				CD88454B204E8D7F001F7AF1 /* HMTableFootnoteView.m in Sources */,
 				CD944164204FEBA8005BCC03 /* HeartRateTableView.m in Sources */,
+				CDA71CF7205112BD00020F8F /* GuideView.m in Sources */,
+				CDA71D26205149EF00020F8F /* AddNewCell.m in Sources */,
 				CD944152204F9816005BCC03 /* BaseTextField.m in Sources */,
 				CD964CCF204AFDDF00A9ECBC /* MeVC.m in Sources */,
 				CDCC7294204D0C4500553F25 /* HMTagButton.m in Sources */,
@@ -631,12 +738,14 @@
 				CDD5BBF2204AD287005D2FC5 /* HKOutputView.m in Sources */,
 				CD43DA15204D5D210005C077 /* UIFontHelper+HMFont.m in Sources */,
 				CD944158204FB4FC005BCC03 /* NKManager.m in Sources */,
+				CDA71D222051430E00020F8F /* EditTextVC.m in Sources */,
 				CD517D57204BD034001A6992 /* RecordVC.m in Sources */,
 				CD964CD2204AFE5F00A9ECBC /* BaseViewController.m in Sources */,
 				CD964CB4204AFC2F00A9ECBC /* BaseTabBarController.m in Sources */,
 				CD884533204E67F2001F7AF1 /* BasePickerView.m in Sources */,
 				CDE362DC204EDA5800BD0865 /* ReminderTVC.m in Sources */,
 				CDE362D5204ED33400BD0865 /* HMReminder.m in Sources */,
+				CDA71D01205121AC00020F8F /* HeartRateDetailVC.m in Sources */,
 				CD94414B204F8E7B005BCC03 /* ReminderEditVC.m in Sources */,
 				CDCC7275204C31D800553F25 /* BaseDefines.m in Sources */,
 				CDA527B01FECD20E009C39EC /* main.m in Sources */,
@@ -648,6 +757,7 @@
 				CD964CBD204AFD4100A9ECBC /* BaseNavController.m in Sources */,
 				CDD5BBEC204AD257005D2FC5 /* HKCaptureSession.m in Sources */,
 				CDA527A21FECD20E009C39EC /* AppDelegate.m in Sources */,
+				CDA71D1B20513A4400020F8F /* HeartRateDetailPreviewCell.m in Sources */,
 				CD964CAC204AD88900A9ECBC /* HKRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

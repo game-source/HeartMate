@@ -8,6 +8,7 @@
 
 #import "HeartRateTableView.h"
 #import "HeartRateTableViewCell.h"
+#import "HeartRateDetailVC.h"
 
 @interface HeartRateTableView() <UITableViewDataSource, UITableViewDelegate>
 
@@ -108,6 +109,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    HeartRateDetailVC *vc = [[HeartRateDetailVC alloc] init];
+    vc.model = self.results[indexPath.section][indexPath.row];
+    [self.controller.navigationController pushViewController:vc animated:YES];
 }
 
 
