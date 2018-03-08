@@ -404,6 +404,7 @@
 				CD964CCE204AFDDF00A9ECBC /* MeVC.m */,
 				CDF4E739204E5E0A00DDD285 /* MeTV.h */,
 				CDF4E73A204E5E0A00DDD285 /* MeTV.m */,
+				CDA71D2820515AB100020F8F /* EditUserInfo */,
 				CD88452D204E669F001F7AF1 /* Views */,
 			);
 			path = Me;
@@ -511,6 +512,13 @@
 				CDA71D25205149EF00020F8F /* AddNewCell.m */,
 			);
 			path = AddNew;
+			sourceTree = "<group>";
+		};
+		CDA71D2820515AB100020F8F /* EditUserInfo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EditUserInfo;
 			sourceTree = "<group>";
 		};
 		CDCC728B204D066800553F25 /* RLMDataModels */ = {

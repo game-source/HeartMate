@@ -13,6 +13,8 @@
 #import "HMHeightPicker.h"
 #import "HMWeightPicker.h"
 #import <AXKit/StatusKit.h>
+#import "EditTextVC.h"
+
 
 static HMUser *user;
 
@@ -118,54 +120,25 @@ static HMUser *user;
 - (void)ax_tableView:(AXTableViewType *)tableView didSelectedRowAtIndexPath:(NSIndexPath *)indexPath model:(AXTableRowModelType *)model{
     NSString *title = [NSString stringWithFormat:NSLocalizedString(@"Edit %@", @"修改"), model.title];
     if ([model.cmd containsString:@"user.input."]) {
-        [BaseAlertController ax_showAlertWithTitle:title message:[NSString stringWithFormat:@"please input a new %@:", model.title.lowercaseString] actions:^(UIAlertController * _Nonnull alert) {
-            __block UITextField *tf;
-            [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-                tf = textField;
-                tf.returnKeyType = UIReturnKeyDone;
-                if ([model.cmd isEqualToString:@"user.input.phone"]) {
-                    textField.keyboardType = UIKeyboardTypePhonePad;
-                }
-                textField.placeholder = model.detail;
-                [textField ax_addEditingEndOnExitHandler:^(__kindof UITextField * _Nonnull sender) {
-                    
-                }];
-            }];
-            [alert ax_addDefaultActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
-                if (tf) {
-                    [tf endEditing:YES];
-                    if ([model.cmd isEqualToString:@"user.input.name"]) {
-                        [user transactionWithBlock:^{
-                            user.lastName = tf.text;
-                        }];
-                    } else if ([model.cmd isEqualToString:@"user.input.email"]) {
-                        if ([BaseUtilities validatedEmail:tf.text]) {
-                            [user transactionWithBlock:^{
-                                user.email = tf.text;
-                            }];
-                        } else {
-                            NSString *msg = [NSString stringWithFormat:NSLocalizedString(@"Please input a valid %@.", @"请输入一个有效的%@。"), model.title.lowercaseString];
-                            [BaseAlertController ax_showAlertWithTitle:NSLocalizedString(@"Error", @"错误") message:msg actions:nil];
-                        }
-                    } else if ([model.cmd isEqualToString:@"user.input.phone"]) {
-                        [user transactionWithBlock:^{
-                            user.phone = tf.text;
-                        }];
-//                        if ([BaseUtilities validatedPhoneNumber:tf.text]) {
-//                            [user transactionWithBlock:^{
-//                                user.phone = tf.text;
-//                            }];
-//                        } else {
-//                            NSString *msg = [NSString stringWithFormat:NSLocalizedString(@"Please input a valid %@.", @"请输入一个有效的%@。"), model.title.lowercaseString];
-//                            [BaseAlertController ax_showAlertWithTitle:NSLocalizedString(@"Error", @"错误") message:msg actions:nil];
-//                        }
-                    }
-                    
-                    [self reloadRowAtIndexPath:indexPath];
+        EditTextVC *vc = [[EditTextVC alloc] init];
+        vc.editTitle = model.title;
+        vc.defaultText = model.detail;
+        if ([model.cmd isEqualToString:@"user.input.phone"]) {
+            vc.tf_input.keyboardType = UIKeyboardTypePhonePad;
+        }
+        vc.block_completion = ^(NSString *newText) {
+            [user transactionWithBlock:^{
+                if ([model.cmd isEqualToString:@"user.input.name"]) {
+                    user.lastName = newText;
+                } else if ([model.cmd isEqualToString:@"user.input.email"]) {
+                    user.email = newText;
+                } else if ([model.cmd isEqualToString:@"user.input.phone"]) {
+                    user.phone = newText;
                 }
             }];
-            [alert ax_addCancelAction];
-        }];
+            [self reloadRowAtIndexPath:indexPath];
+        };
+        [self.controller.navigationController pushViewController:vc animated:YES];
     } else if ([model.cmd isEqualToString:@"user.gender"]) {
         [BaseAlertController ax_showActionSheetWithTitle:title message:@"\n\n\n\n\n" actions:^(UIAlertController * _Nonnull alert) {
             HMGenderPicker *picker = [[HMGenderPicker alloc] initWithFrame:CGRectMake(8, kNavBarHeight, kScreenW - 10 * 2 - 8 * 2, 100)];

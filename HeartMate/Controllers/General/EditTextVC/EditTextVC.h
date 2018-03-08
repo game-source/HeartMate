@@ -20,6 +20,8 @@
 
 @property (copy, nonatomic) NSString *defaultText;
 
+@property (weak, nonatomic) IBOutlet BaseTextField *tf_input;
+
 /**
  completion
  */
