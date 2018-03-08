@@ -62,10 +62,10 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = [UIColor clearColor];
     
-    UILabel *lb = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, kScreenW - 16*2, 40)];
+    UILabel *lb = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, kScreenW - 16*2, 40)];
     self.lb_hr = lb;
     [self addSubview:lb];
-    lb.font = [UIFont fontWithName:axThemeManager.font.name size:54];
+    lb.font = [UIFont fontWithName:axThemeManager.font.name size:60];
     lb.text = @"68";
     lb.textColor = axThemeManager.color.theme;
     

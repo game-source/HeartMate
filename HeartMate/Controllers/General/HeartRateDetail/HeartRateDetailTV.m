@@ -61,26 +61,18 @@ static NSString *originalTitle;
     //        }];
     //    }];
     
-    if (self.model.tags.count) {
-        [model addSection:^(AXTableSectionModel *section) {
-            section.headerTitle = @"Tags";
-            for (int i = 0; i < self.model.tags.count; i++) {
-                [section addRow:^(AXTableRowModel *row) {
-                    row.title = self.model.tags[i];
-                    row.cmd = @"tags";
-                }];
-            }
+    [model addSection:^(AXTableSectionModel *section) {
+        section.headerTitle = @"Tags";
+        for (int i = 0; i < self.model.tags.count; i++) {
             [section addRow:^(AXTableRowModel *row) {
-                row.cmd = @"add.tags";
+                row.title = self.model.tags[i];
+                row.cmd = @"tags";
             }];
+        }
+        [section addRow:^(AXTableRowModel *row) {
+            row.cmd = @"add.tags";
         }];
-    } else {
-        [model addSection:^(AXTableSectionModel *section) {
-            [section addRow:^(AXTableRowModel *row) {
-                row.cmd = @"add.tags";
-            }];
-        }];
-    }
+    }];
     
     dataSource(model);
 }
@@ -111,11 +103,14 @@ static NSString *originalTitle;
         __weak typeof(self) weakSelf = self;
         cell.block_tapped = ^{
             EditTextVC *vc = [[EditTextVC alloc] init];
-            vc.editTitle = NSLocalizedString(@"tag", @"标签");
+            vc.editTitle = NSLocalizedString(@"Tag", @"标签");
             vc.block_completion = ^(NSString *newText) {
                 [weakSelf.model transactionWithBlock:^{
                     [weakSelf.model.tags addObject:newText];
                 }];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [tableView scrollToBottom];
+                });
             };
             [weakSelf.vc.navigationController pushViewController:vc animated:YES];
         };
@@ -142,7 +137,7 @@ static NSString *originalTitle;
 - (void)ax_tableView:(AXTableViewType *)tableView didSelectedRowAtIndexPath:(NSIndexPath *)indexPath model:(AXTableRowModelType *)model{
     if ([model.cmd isEqualToString:@"tags"]) {
         EditTextVC *vc = [[EditTextVC alloc] init];
-        vc.editTitle = NSLocalizedString(@"tag", @"标签");
+        vc.editTitle = NSLocalizedString(@"Tag", @"标签");
         vc.defaultText = self.model.tags[indexPath.row];
         __weak typeof(self) weakSelf = self;
         vc.block_completion = ^(NSString *newText) {
@@ -156,7 +151,9 @@ static NSString *originalTitle;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
+        return 68;
+    } else if (indexPath.section == 1) {
         return 200;
     } else {
         return kTableViewCellHeight;
@@ -164,8 +161,10 @@ static NSString *originalTitle;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0 || section == 1) {
+    if (section == 0) {
         return 8;
+    } else if (section == 1) {
+        return 4;
     } else {
         return -1;
     }
@@ -173,9 +172,22 @@ static NSString *originalTitle;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     if (section == 0) {
-        return 1;
+        return 4;
     } else {
         return -1;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView setEditing:NO animated:YES];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self.model transactionWithBlock:^{
+            [self.model.tags removeObjectAtIndex:indexPath.row];
+        }];
+        [self reloadDataSource];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
     }
 }
 

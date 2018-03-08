@@ -28,18 +28,26 @@
     // Dispose of any resources that can be recreated.
 }
 - (void)ax_initNavigationBar{
-    self.navigationItem.title = NSLocalizedString(@"Edit", @"编辑");
+    if (self.editTitle.length) {
+        self.navigationItem.title = self.editTitle;
+    }
+    if (!self.navigationItem.title.length) {
+        self.navigationItem.title = NSLocalizedString(@"Edit", @"编辑");
+    }
     __weak typeof(self) weakSelf = self;
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_save" action:^(UIBarButtonItem * _Nonnull sender) {
         [weakSelf editDidDone];
     }];
 }
 - (void)ax_initSubview{
+    // label
+    if (self.editTitle.length) {
+        self.lb_title.text = [NSString stringWithFormat:NSLocalizedString(@"Please input a new %@:", @"请输入新的%@："), self.editTitle.lowercaseString];
+    }
+    // input
     self.tf_input.returnKeyType = UIReturnKeyDone;
     self.tf_input.text = self.defaultText;
-    if (self.editTitle.length) {
-        self.lb_title.text = [NSString stringWithFormat:NSLocalizedString(@"Please input a new %@:", @"请输入新的%@："), self.editTitle];
-    }
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{

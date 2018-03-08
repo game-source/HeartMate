@@ -115,7 +115,13 @@
         }];
     }
 }
-
+- (void)reloadDataSource{
+    if ([self respondsToSelector:@selector(ax_tableView:dataSource:)]) {
+        [self ax_tableView:self dataSource:^(AXTableModelType *dataSource) {
+            _dataList = dataSource;
+        }];
+    }
+}
 - (AXTableSectionModelType *)modelForSection:(NSInteger)section{
     return self.dataList.sections[section];
 }

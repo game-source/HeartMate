@@ -45,7 +45,7 @@
     
     __weak typeof(self) weakSelf = self;
     [self ax_addEditingBeginHandler:^(__kindof UITextField * _Nonnull sender) {
-        [weakSelf.layer ax_borderWidth:1 color:axThemeManager.color.theme];
+        [weakSelf.layer ax_borderWidth:2 color:axThemeManager.color.theme];
     }];
     [self ax_addEditingEndHandler:^(__kindof UITextField * _Nonnull sender) {
         [weakSelf.layer ax_borderWidth:1 color:[UIColor clearColor]];

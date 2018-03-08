@@ -39,7 +39,7 @@
     __weak typeof(self) weakSelf = self;
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem ax_itemWithImageName:@"icon_delete" action:^(UIBarButtonItem * _Nonnull sender) {
         NSString *title = NSLocalizedString(@"Notice", @"注意");
-        NSString *msg = NSLocalizedString(@"Do you really want to delete the reminder?", @"你真的要删除提醒吗？");
+        NSString *msg = NSLocalizedString(@"Do you really want to delete the heart rate record?", @"你真的要删除这条心率记录吗？");
         [BaseAlertController ax_showAlertWithTitle:title message:msg actions:^(UIAlertController * _Nonnull alert) {
             [alert ax_addDestructiveActionWithTitle:nil handler:^(UIAlertAction * _Nonnull sender) {
                 [[RLMRealm defaultRealm] transactionWithBlock:^{
@@ -58,6 +58,7 @@
     tv.backgroundColor = axThemeManager.color.background;
     tv.separatorColor = axThemeManager.color.background;
     tv.model = self.model;
+    tv.sectionFooterHeight = 0;
     [self.view addSubview:tv];
     self.tableView = tv;
     

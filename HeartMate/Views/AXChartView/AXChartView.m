@@ -150,17 +150,17 @@ static CGFloat popViewWeight = 50;
         [bgLayer addSublayer:gradientLayer];
     }
     
-    CGFloat halfWidth = 0.5 * self.chartWidth;
+//    CGFloat halfWidth = 0.5 * self.chartWidth;
     
     
     // @xaoxuu: 顶部标签
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(margin, margin/2, halfWidth, topLabelHeight)];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(margin, margin/2, 0.7*self.chartWidth, topLabelHeight)];
     title.text = self.title;
     title.font = axThemeManager.font.customNormal;
     title.textColor = self.textColor;
     [self addSubview:title];
     
-    UILabel *sumValue = [[UILabel alloc] initWithFrame:CGRectMake(margin + halfWidth, margin/2, halfWidth, topLabelHeight)];
+    UILabel *sumValue = [[UILabel alloc] initWithFrame:CGRectMake(margin + 0.7*self.chartWidth, margin/2, 0.3*self.chartWidth, topLabelHeight)];
     sumValue.textAlignment = NSTextAlignmentRight;
     sumValue.font = axThemeManager.font.customBoldLarge;
     sumValue.textColor = self.textColor;

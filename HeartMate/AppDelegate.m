@@ -48,7 +48,8 @@
     [UINavigationBar appearance].translucent = NO;
     [UINavigationBar appearance].opaque = YES;
     [UINavigationBar appearance].barTintColor = axThemeManager.color.background;
-    [UINavigationBar appearance].tintColor = axThemeManager.color.theme;
+//    [UINavigationBar appearance].tintColor = axThemeManager.color.theme;
+    [UINavigationBar appearance].tintColor = [UIColor darkGrayColor];
     [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:axThemeManager.color.theme, NSFontAttributeName:[UIFont fontWithName:axThemeManager.font.name size:20]};
     if (@available(iOS 11.0, *)) {
         // on newer versions

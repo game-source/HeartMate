@@ -8,7 +8,7 @@
 
 #import "HeartRateDetailChartCell.h"
 
-static CGFloat margin = 8.0;
+static CGFloat margin = 16.0;
 
 @implementation HeartRateDetailChartCell
 
@@ -44,7 +44,7 @@ static CGFloat margin = 8.0;
 
 - (void)setFrame:(CGRect)frame{
     [super setFrame:frame];
-    self.chartView.frame = CGRectMake(margin, margin, frame.size.width - margin * 2, frame.size.height - margin * 2);
+    self.chartView.frame = CGRectMake(margin, margin/2, frame.size.width - margin * 2, frame.size.height - margin);
 }
 
 

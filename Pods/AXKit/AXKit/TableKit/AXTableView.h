@@ -100,7 +100,7 @@ typedef UITableView<AXTableView> AXTableViewType;
  重新获取数据源并刷新tableView
  */
 - (void)reloadDataSourceAndRefreshTableView;
-
+- (void)reloadDataSource;
 /**
  根据索引获取组模型
  
