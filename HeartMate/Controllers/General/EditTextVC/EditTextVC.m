@@ -7,12 +7,13 @@
 //
 
 #import "EditTextVC.h"
+#import "InputTableView.h"
+
 
 @interface EditTextVC ()
 
 
-@property (weak, nonatomic) IBOutlet UILabel *lb_title;
-
+@property (strong, nonatomic) InputTableView *tableView;
 
 @end
 
@@ -39,34 +40,37 @@
         [weakSelf editDidDone];
     }];
 }
-- (void)ax_initSubview{
-    // label
-    if (self.editTitle.length) {
-        self.lb_title.text = [NSString stringWithFormat:NSLocalizedString(@"Please input a new %@:", @"请输入新的%@："), self.editTitle.lowercaseString];
-    }
-    // input
-    self.tf_input.returnKeyType = UIReturnKeyDone;
-    self.tf_input.text = self.defaultText;
+
+
+- (void)ax_initTableView{
+    InputTableView *tv = [[InputTableView alloc] initWithFrame:self.view.bounds];
+    tv.title = [NSString stringWithFormat:NSLocalizedString(@"Please input a new %@:", @"请输入新的%@："), self.editTitle.lowercaseString];
+    tv.text = self.defaultText;
+    __weak typeof(self) weakSelf = self;
+    tv.block_completion = ^(NSString *text) {
+        [weakSelf editDidDone];
+    };
+    [self.view addSubview:tv];
+    self.tableView = tv;
     
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.tf_input becomeFirstResponder];
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [super touchesBegan:touches withEvent:event];
-    [self.tf_input resignFirstResponder];
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.tableView startEditing:YES];
 }
+
+
+
 - (void)editDidDone{
     if (self.block_completion) {
-        self.block_completion(self.tf_input.text);
+        self.block_completion(self.tableView.text);
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)didEndOnExit:(UITextField *)sender {
-    [self editDidDone];
-}
 
 @end

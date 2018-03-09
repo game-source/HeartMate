@@ -124,7 +124,7 @@ static HMUser *user;
         vc.editTitle = model.title;
         vc.defaultText = model.detail;
         if ([model.cmd isEqualToString:@"user.input.phone"]) {
-            vc.tf_input.keyboardType = UIKeyboardTypePhonePad;
+//            vc.tf_input.keyboardType = UIKeyboardTypePhonePad;
         }
         vc.block_completion = ^(NSString *newText) {
             [user transactionWithBlock:^{

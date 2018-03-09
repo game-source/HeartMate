@@ -23,6 +23,8 @@
 		CD91B7DA2052663800A87676 /* ReminderGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD91B7D92052663800A87676 /* ReminderGuideView.m */; };
 		CD91B7DC2052664000A87676 /* ReminderGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD91B7DB2052664000A87676 /* ReminderGuideView.xib */; };
 		CD91B7DF20526C0400A87676 /* LocalizedStringUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD91B7DE20526C0400A87676 /* LocalizedStringUtilities.m */; };
+		CD935E45205295BA00EEB2AF /* InputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD935E44205295BA00EEB2AF /* InputTableViewCell.m */; };
+		CD935E482052984100EEB2AF /* InputTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD935E472052984100EEB2AF /* InputTableView.m */; };
 		CD944143204F7D98005BCC03 /* RecordStartButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944142204F7D98005BCC03 /* RecordStartButton.m */; };
 		CD94414B204F8E7B005BCC03 /* ReminderEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944149204F8E7B005BCC03 /* ReminderEditVC.m */; };
 		CD94414C204F8E7B005BCC03 /* ReminderEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD94414A204F8E7B005BCC03 /* ReminderEditVC.xib */; };
@@ -56,7 +58,6 @@
 		CDA71D0D2051289D00020F8F /* HeartRateDetailChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D0B2051289D00020F8F /* HeartRateDetailChartCell.m */; };
 		CDA71D1B20513A4400020F8F /* HeartRateDetailPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D1920513A4400020F8F /* HeartRateDetailPreviewCell.m */; };
 		CDA71D222051430E00020F8F /* EditTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D202051430E00020F8F /* EditTextVC.m */; };
-		CDA71D232051430E00020F8F /* EditTextVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA71D212051430E00020F8F /* EditTextVC.xib */; };
 		CDA71D26205149EF00020F8F /* AddNewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D25205149EF00020F8F /* AddNewCell.m */; };
 		CDA71D2D2052299A00020F8F /* NormalTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D2C2052299A00020F8F /* NormalTableHeader.m */; };
 		CDCC7275204C31D800553F25 /* BaseDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC7274204C31D800553F25 /* BaseDefines.m */; };
@@ -111,6 +112,10 @@
 		CD91B7DB2052664000A87676 /* ReminderGuideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderGuideView.xib; sourceTree = "<group>"; };
 		CD91B7DD20526C0400A87676 /* LocalizedStringUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizedStringUtilities.h; sourceTree = "<group>"; };
 		CD91B7DE20526C0400A87676 /* LocalizedStringUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalizedStringUtilities.m; sourceTree = "<group>"; };
+		CD935E43205295BA00EEB2AF /* InputTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputTableViewCell.h; sourceTree = "<group>"; };
+		CD935E44205295BA00EEB2AF /* InputTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputTableViewCell.m; sourceTree = "<group>"; };
+		CD935E462052984100EEB2AF /* InputTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputTableView.h; sourceTree = "<group>"; };
+		CD935E472052984100EEB2AF /* InputTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputTableView.m; sourceTree = "<group>"; };
 		CD944141204F7D98005BCC03 /* RecordStartButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordStartButton.h; sourceTree = "<group>"; };
 		CD944142204F7D98005BCC03 /* RecordStartButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordStartButton.m; sourceTree = "<group>"; };
 		CD944148204F8E7B005BCC03 /* ReminderEditVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReminderEditVC.h; sourceTree = "<group>"; };
@@ -173,7 +178,6 @@
 		CDA71D1920513A4400020F8F /* HeartRateDetailPreviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartRateDetailPreviewCell.m; sourceTree = "<group>"; };
 		CDA71D1F2051430E00020F8F /* EditTextVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTextVC.h; sourceTree = "<group>"; };
 		CDA71D202051430E00020F8F /* EditTextVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTextVC.m; sourceTree = "<group>"; };
-		CDA71D212051430E00020F8F /* EditTextVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTextVC.xib; sourceTree = "<group>"; };
 		CDA71D24205149EF00020F8F /* AddNewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewCell.h; sourceTree = "<group>"; };
 		CDA71D25205149EF00020F8F /* AddNewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddNewCell.m; sourceTree = "<group>"; };
 		CDA71D2B2052299A00020F8F /* NormalTableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalTableHeader.h; sourceTree = "<group>"; };
@@ -327,6 +331,17 @@
 				CD884541204E7399001F7AF1 /* HMWeightPicker.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CD935E42205295A400EEB2AF /* InputCell */ = {
+			isa = PBXGroup;
+			children = (
+				CD935E462052984100EEB2AF /* InputTableView.h */,
+				CD935E472052984100EEB2AF /* InputTableView.m */,
+				CD935E43205295BA00EEB2AF /* InputTableViewCell.h */,
+				CD935E44205295BA00EEB2AF /* InputTableViewCell.m */,
+			);
+			path = InputCell;
 			sourceTree = "<group>";
 		};
 		CD944147204F8DEC005BCC03 /* ReminderEdit */ = {
@@ -516,7 +531,6 @@
 			children = (
 				CDA71D1F2051430E00020F8F /* EditTextVC.h */,
 				CDA71D202051430E00020F8F /* EditTextVC.m */,
-				CDA71D212051430E00020F8F /* EditTextVC.xib */,
 			);
 			path = EditTextVC;
 			sourceTree = "<group>";
@@ -564,6 +578,7 @@
 		CDCC728C204D069300553F25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CD935E42205295A400EEB2AF /* InputCell */,
 				CDA71D2A2052297400020F8F /* NormalTableHeader */,
 				CDA71D03205126FF00020F8F /* AXChartView */,
 				CDA71CF4205112AA00020F8F /* Guide */,
@@ -664,7 +679,6 @@
 				CDA527AD1FECD20E009C39EC /* LaunchScreen.storyboard in Resources */,
 				CD91B7DC2052664000A87676 /* ReminderGuideView.xib in Resources */,
 				CDCC7291204D075B00553F25 /* HeartRateTableViewCell.xib in Resources */,
-				CDA71D232051430E00020F8F /* EditTextVC.xib in Resources */,
 				CDE362DD204EDA5800BD0865 /* ReminderTVC.xib in Resources */,
 				CDA527AA1FECD20E009C39EC /* Assets.xcassets in Resources */,
 				CDA527A81FECD20E009C39EC /* Main.storyboard in Resources */,
@@ -751,6 +765,7 @@
 				CDA71CFC20511EAB00020F8F /* BaseAnimationThread.m in Sources */,
 				CDA71D092051272D00020F8F /* HeartRateDetailTV.m in Sources */,
 				CD884539204E70FA001F7AF1 /* HMBirthdayPicker.m in Sources */,
+				CD935E482052984100EEB2AF /* InputTableView.m in Sources */,
 				CD517D41204BAC28001A6992 /* HMData.m in Sources */,
 				CDA71D062051270000020F8F /* AXChartView.m in Sources */,
 				CD964CCC204AFDCF00A9ECBC /* ReminderVC.m in Sources */,
@@ -772,6 +787,7 @@
 				CD964CBF204AFD4100A9ECBC /* RootViewController.m in Sources */,
 				CD517D53204BCF7B001A6992 /* HMUser.m in Sources */,
 				CDA527A51FECD20E009C39EC /* ViewController.m in Sources */,
+				CD935E45205295BA00EEB2AF /* InputTableViewCell.m in Sources */,
 				CDD5BBF2204AD287005D2FC5 /* HKOutputView.m in Sources */,
 				CD43DA15204D5D210005C077 /* UIFontHelper+HMFont.m in Sources */,
 				CD944158204FB4FC005BCC03 /* NKManager.m in Sources */,

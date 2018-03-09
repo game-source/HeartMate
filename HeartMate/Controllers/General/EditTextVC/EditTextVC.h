@@ -20,12 +20,10 @@
 
 @property (copy, nonatomic) NSString *defaultText;
 
-@property (weak, nonatomic) IBOutlet BaseTextField *tf_input;
-
 /**
  completion
  */
-@property (copy, nonatomic) void (^block_completion)(NSString *newText);
+@property (copy, nonatomic) void (^block_completion)(NSString *text);
 
 
 @end

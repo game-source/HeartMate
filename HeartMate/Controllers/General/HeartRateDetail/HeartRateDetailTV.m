@@ -80,10 +80,7 @@ static NSString *originalTitle;
     if (!originalTitle) {
         originalTitle = self.controller.navigationItem.title;
     }
-//    ax_dispatch_cooldown(0, 0.3, self, dispatch_get_main_queue(), ^{
-//        [self setupHeader];
-//    }, nil);
-    
+
     AXTableModel *model = [[AXTableModel alloc] init];
     [model addSection:^(AXTableSectionModel *section) {
         section.headerTitle = NSLocalizedString(@"Tags", @"标签").capitalizedString;
