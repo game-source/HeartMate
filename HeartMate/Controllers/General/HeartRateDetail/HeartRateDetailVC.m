@@ -45,7 +45,7 @@
                 [[RLMRealm defaultRealm] transactionWithBlock:^{
                     [[RLMRealm defaultRealm] deleteObject:self.model];
                 }];
-                [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_HR_UPDATE object:@(-1)];
+//                [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_HR_UPDATE object:@(-1)];
                 [weakSelf.navigationController popViewControllerAnimated:YES];
             }];
             [alert ax_addCancelAction];

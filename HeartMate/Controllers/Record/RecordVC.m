@@ -167,7 +167,7 @@ static BOOL prepared = NO;
             [realm transactionWithBlock:^{
                 [realm addObject:avgHR];
             }];
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_HR_UPDATE object:@1];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_HR_UPDATE object:@1];
             
             HeartRateDetailVC *vc = [[HeartRateDetailVC alloc] init];
             vc.model = avgHR;

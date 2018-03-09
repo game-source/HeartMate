@@ -69,7 +69,7 @@ static CGFloat minHeightOfCalendar = 320;
     [self.view addSubview:self.tableView];
     [self setupCalendar];
     self.tableView.tableHeaderView = self.calendar;
-    [self reloadTableData];
+    
 }
 
 - (void)setupCalendar{
@@ -90,7 +90,10 @@ static CGFloat minHeightOfCalendar = 320;
     calendar.titleColors[@(MDCalendarCellStateWeekend)] = [UIColor md_green];
 }
 
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self reloadTableData];
+}
 #pragma mark - func
 
 - (void)reloadTableData{

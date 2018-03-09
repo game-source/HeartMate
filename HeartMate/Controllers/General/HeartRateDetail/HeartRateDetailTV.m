@@ -57,7 +57,7 @@ static NSString *originalTitle;
     }];
     [model addSection:^(AXTableSectionModel *section) {
         section.headerHeight = 4;
-        section.footerHeight = 8;
+        section.footerHeight = 16;
         [section addRow:^(AXTableRowModel *row) {
             row.cmd = @"chart.hr";
             row.rowHeight = 200;

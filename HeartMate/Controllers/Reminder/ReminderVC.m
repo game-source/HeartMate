@@ -61,7 +61,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(ReminderTVC.class) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:NSStringFromClass(ReminderTVC.class)];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.estimatedRowHeight = 132;
+    self.tableView.estimatedRowHeight = 151;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.backgroundColor = axThemeManager.color.background;
     self.tableView.separatorColor = self.tableView.backgroundColor;
