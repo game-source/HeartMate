@@ -17,27 +17,34 @@
  @return 描述
  */
 + (NSString *)stringForDate:(NSDate *)date{
-    NSDate *today = [NSDate date];
-    if (date.integerValue == today.integerValue) {
-        return NSLocalizedString(@"Today", @"今天");
-    } else if (date.addDays(1).integerValue == today.integerValue) {
-        return NSLocalizedString(@"Yesterday", @"昨天");
+    if (date) {
+        NSDate *today = [NSDate date];
+        if (date.integerValue == today.integerValue) {
+            return NSLocalizedString(@"Today", @"今天");
+        } else if (date.addDays(1).integerValue == today.integerValue) {
+            return NSLocalizedString(@"Yesterday", @"昨天");
+        } else {
+            return date.stringValue(@"yyyy-MM-dd EEEE");
+        }
     } else {
-        return date.stringValue(@"yyyy-MM-dd EEEE");
+        return @"";
     }
 }
 
 
 + (NSString *)stringForTime:(NSDate *)time{
-    NSDate *today = [NSDate date];
-    if (time.integerValue == today.integerValue) {
-        return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Today", @"今天"), time.stringValue(@"HH:mm:ss")];
-    } else if (time.addDays(1).integerValue == today.integerValue) {
-        return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Yesterday", @"昨天"), time.stringValue(@"HH:mm:ss")];
+    if (time) {
+        NSDate *today = [NSDate date];
+        if (time.integerValue == today.integerValue) {
+            return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Today", @"今天"), time.stringValue(@"HH:mm:ss")];
+        } else if (time.addDays(1).integerValue == today.integerValue) {
+            return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Yesterday", @"昨天"), time.stringValue(@"HH:mm:ss")];
+        } else {
+            return [NSString stringWithFormat:@"%@", time.stringValue(@"MM-dd HH:mm:ss")];
+        }
     } else {
-        return [NSString stringWithFormat:@"%@", time.stringValue(@"MM-dd HH:mm:ss")];
+        return @"";
     }
-    
 }
 
 + (NSString *)stringForAppVersion{

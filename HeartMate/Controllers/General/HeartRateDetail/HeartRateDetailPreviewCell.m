@@ -46,17 +46,18 @@
     self.lb_hr.text = NSStringFromNSInteger(heartRate);
     
     
-    CGSize selfSize = self.bounds.size;
-    
-    
-    [self.lb_hr sizeToFit];
-    self.lb_hr.height = selfSize.height;
-    self.lb_bpm.left = self.lb_hr.right + 8;
-    self.lb_bpm.bottom = self.lb_hr.bottom - 4;
-    
+    [self setFrame:self.frame];
     
 }
 
+- (void)setFrame:(CGRect)frame{
+    [super setFrame:frame];
+    
+    [self.lb_hr sizeToFit];
+    self.lb_hr.height = self.height;
+    self.lb_bpm.left = self.lb_hr.right + 8;
+    self.lb_bpm.bottom = self.lb_hr.bottom - 4;
+}
 
 - (void)_init{
     self.selectionStyle = UITableViewCellSelectionStyleNone;

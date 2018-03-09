@@ -11,7 +11,7 @@
 #import "AXChartView.h"
 #import "HMWideButton.h"
 
-@interface HeartRateDetailVC () <AXChartViewDataSource, AXChartViewDelegate>
+@interface HeartRateDetailVC ()
 
 @property (strong, nonatomic) HeartRateDetailTV *tableView;
 
@@ -81,49 +81,49 @@
     self.navigationController.navigationBarHidden = NO;
     [self.tableView reloadDataSourceAndRefreshTableView];
 }
-
-#pragma mark - chart
-
-/**
- 总列数
- 
- @return 总列数
- */
-- (NSInteger)chartViewItemsCount:(AXChartView *)chartView{
-    return self.model.detail.count;
-}
-
-
-/**
- 第index列的值
- 
- @param index 列索引
- @return 第index列的值
- */
-- (NSNumber *)chartView:(AXChartView *)chartView valueForIndex:(NSInteger)index{
-    return self.model.detail[index];
-}
-
-
-/**
- 第index列的标题
- 
- @param index 列索引
- @return 第index列的标题
- */
-- (NSString *)chartView:(AXChartView *)chartView titleForIndex:(NSInteger)index{
-    return NSStringFromNSInteger(index);
-}
-
-- (NSString *)chartView:(AXChartView *)chartView summaryText:(UILabel *)label{
-    chartView.title = [LocalizedStringUtilities stringForTime:self.model.time];
-//    return [NSString stringWithFormat:@"%d bpm", (int)self.model.heartRate];
-    return @"";
-}
-
-- (NSNumber *)chartViewMaxValue:(AXChartView *)chartView{
-    return @200;
-}
+//
+//#pragma mark - chart
+//
+///**
+// 总列数
+//
+// @return 总列数
+// */
+//- (NSInteger)chartViewItemsCount:(AXChartView *)chartView{
+//    return self.model.detail.count;
+//}
+//
+//
+///**
+// 第index列的值
+//
+// @param index 列索引
+// @return 第index列的值
+// */
+//- (NSNumber *)chartView:(AXChartView *)chartView valueForIndex:(NSInteger)index{
+//    return self.model.detail[index];
+//}
+//
+//
+///**
+// 第index列的标题
+//
+// @param index 列索引
+// @return 第index列的标题
+// */
+//- (NSString *)chartView:(AXChartView *)chartView titleForIndex:(NSInteger)index{
+//    return NSStringFromNSInteger(index);
+//}
+//
+//- (NSString *)chartView:(AXChartView *)chartView summaryText:(UILabel *)label{
+//    chartView.title = [LocalizedStringUtilities stringForTime:self.model.time];
+////    return [NSString stringWithFormat:@"%d bpm", (int)self.model.heartRate];
+//    return @"";
+//}
+//
+//- (NSNumber *)chartViewMaxValue:(AXChartView *)chartView{
+//    return @200;
+//}
 
 
 @end
