@@ -11,10 +11,17 @@
 #import "HeartRateDetailVC.h"
 #import "NormalTableHeader.h"
 
+static NSString *originalTitle;
+
+static CGFloat cellHeight = 107;
 
 @interface HeartRateTableView() <UITableViewDataSource, UITableViewDelegate>
 
 @property (copy, nonatomic) NSString *where;
+
+@property (strong, nonatomic) NSMutableArray<NSNumber *> *sectionTop;
+
+@property (strong, nonatomic) NSMutableArray<NSString *> *sectionTitle;
 
 @end
 
@@ -25,7 +32,7 @@
         [self registerNib:[UINib nibWithNibName:NSStringFromClass(HeartRateTableViewCell.class) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:NSStringFromClass(HeartRateTableViewCell.class)];
         self.dataSource = self;
         self.delegate = self;
-        self.estimatedRowHeight = 107;
+        self.estimatedRowHeight = cellHeight;
         self.tableHeaderView = UIViewWithHeight(20);
         self.backgroundColor = [UIColor clearColor];
         self.separatorColor = axThemeManager.color.background;
@@ -73,11 +80,32 @@
                 [_results addObject:group];
             }
         }
-        
+        if (!originalTitle) {
+            originalTitle = self.controller.navigationItem.title;
+        }
     }
     return _results;
 }
 
+- (NSMutableArray<NSNumber *> *)sectionTop{
+    if (!_sectionTop.count) {
+        _sectionTop = [NSMutableArray arrayWithCapacity:self.results.count];
+        for (int i = 0; i < self.results.count; i++) {
+            [_sectionTop addObject:@0];
+        }
+    }
+    return _sectionTop;
+}
+
+- (NSMutableArray<NSString *> *)sectionTitle{
+    if (!_sectionTitle.count) {
+        _sectionTitle = [NSMutableArray arrayWithCapacity:self.results.count];
+        for (int i = 0; i < self.results.count; i++) {
+            [_sectionTitle addObject:@""];
+        }
+    }
+    return _sectionTitle;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.results.count;
@@ -94,7 +122,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 107;
+    return cellHeight;
 }
 
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -120,6 +148,7 @@
     } else {
         header.title = @"";
     }
+    self.sectionTitle[section] = header.title;
     return header;
 }
 
@@ -128,6 +157,42 @@
     HeartRateDetailVC *vc = [[HeartRateDetailVC alloc] init];
     vc.model = self.results[indexPath.section][indexPath.row];
     [self.controller.navigationController pushViewController:vc animated:YES];
+}
+
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (!self.showSectionHeader) {
+        return;
+    }
+    
+    for (int i = 0; i < self.results.count; i++) {
+        if (self.results[i].count) {
+            UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
+            CGFloat top = cell.top - [NormalTableHeader headerHeight];
+            if (top > 0) {
+                self.sectionTop[i] = @(top);
+            }
+            
+        }
+    }
+    
+    CGPoint offset = scrollView.contentOffset;
+    if (self.sectionTop.count) {
+        for (int i = (int)self.sectionTop.count-1; i >= 0; i--) {
+            CGFloat top = self.sectionTop[i].doubleValue;
+            if (top <= 0) {
+                continue;
+            }
+            if (offset.y > top) {
+                self.controller.navigationItem.title = self.sectionTitle[i];
+                return;
+            }
+        }
+        self.controller.navigationItem.title = originalTitle;
+    } else {
+        self.controller.navigationItem.title = originalTitle;
+    }
 }
 
 

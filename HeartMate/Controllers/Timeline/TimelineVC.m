@@ -64,27 +64,34 @@ static NSDate *today;
     [super viewWillAppear:animated];
     [self.tableView reloadDataWhere:nil ascending:NO];
     
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
+    static NSString *welcomeTitle;
+    if (!welcomeTitle.length) {
+        welcomeTitle = NSLocalizedString(@"Welcome", @"欢迎");
+    }
     if (!self.tableView.results.count) {
         self.guideView.hidden = NO;
         [BaseAnimationThread resumeAnimation];
-        self.navigationItem.title = NSLocalizedString(@"Welcome", @"欢迎");
+        self.navigationItem.title = welcomeTitle;
         if (@available(iOS 11.0, *)) {
             // on newer versions
             self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAlways;
         }
     } else {
         self.guideView.hidden = YES;
-        self.navigationItem.title = NSLocalizedString(@"Timeline", @"时间线");
+        if ([self.navigationItem.title isEqualToString:welcomeTitle]) {
+            self.navigationItem.title = NSLocalizedString(@"Timeline", @"时间线");
+        }
         if (@available(iOS 11.0, *)) {
             // on newer versions
             self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
         }
     }
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
