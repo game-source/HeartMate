@@ -20,6 +20,9 @@
 		CD884542204E7399001F7AF1 /* HMWeightPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884541204E7399001F7AF1 /* HMWeightPicker.m */; };
 		CD884548204E7AA0001F7AF1 /* BaseUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD884547204E7AA0001F7AF1 /* BaseUtilities.m */; };
 		CD88454B204E8D7F001F7AF1 /* HMTableFootnoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */; };
+		CD91B7DA2052663800A87676 /* ReminderGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD91B7D92052663800A87676 /* ReminderGuideView.m */; };
+		CD91B7DC2052664000A87676 /* ReminderGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD91B7DB2052664000A87676 /* ReminderGuideView.xib */; };
+		CD91B7DF20526C0400A87676 /* LocalizedStringUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD91B7DE20526C0400A87676 /* LocalizedStringUtilities.m */; };
 		CD944143204F7D98005BCC03 /* RecordStartButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944142204F7D98005BCC03 /* RecordStartButton.m */; };
 		CD94414B204F8E7B005BCC03 /* ReminderEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD944149204F8E7B005BCC03 /* ReminderEditVC.m */; };
 		CD94414C204F8E7B005BCC03 /* ReminderEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD94414A204F8E7B005BCC03 /* ReminderEditVC.xib */; };
@@ -44,8 +47,8 @@
 		CDA527AA1FECD20E009C39EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA527A91FECD20E009C39EC /* Assets.xcassets */; };
 		CDA527AD1FECD20E009C39EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA527AB1FECD20E009C39EC /* LaunchScreen.storyboard */; };
 		CDA527B01FECD20E009C39EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA527AF1FECD20E009C39EC /* main.m */; };
-		CDA71CF7205112BD00020F8F /* GuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71CF6205112BD00020F8F /* GuideView.m */; };
-		CDA71CF9205112D300020F8F /* GuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA71CF8205112D300020F8F /* GuideView.xib */; };
+		CDA71CF7205112BD00020F8F /* TimelineGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71CF6205112BD00020F8F /* TimelineGuideView.m */; };
+		CDA71CF9205112D300020F8F /* TimelineGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA71CF8205112D300020F8F /* TimelineGuideView.xib */; };
 		CDA71CFC20511EAB00020F8F /* BaseAnimationThread.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71CFB20511EAB00020F8F /* BaseAnimationThread.m */; };
 		CDA71D01205121AC00020F8F /* HeartRateDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71CFF205121AC00020F8F /* HeartRateDetailVC.m */; };
 		CDA71D062051270000020F8F /* AXChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D04205126FF00020F8F /* AXChartView.m */; };
@@ -103,6 +106,11 @@
 		CD884547204E7AA0001F7AF1 /* BaseUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseUtilities.m; sourceTree = "<group>"; };
 		CD884549204E8D7F001F7AF1 /* HMTableFootnoteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMTableFootnoteView.h; sourceTree = "<group>"; };
 		CD88454A204E8D7F001F7AF1 /* HMTableFootnoteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMTableFootnoteView.m; sourceTree = "<group>"; };
+		CD91B7D82052663800A87676 /* ReminderGuideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReminderGuideView.h; sourceTree = "<group>"; };
+		CD91B7D92052663800A87676 /* ReminderGuideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReminderGuideView.m; sourceTree = "<group>"; };
+		CD91B7DB2052664000A87676 /* ReminderGuideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderGuideView.xib; sourceTree = "<group>"; };
+		CD91B7DD20526C0400A87676 /* LocalizedStringUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizedStringUtilities.h; sourceTree = "<group>"; };
+		CD91B7DE20526C0400A87676 /* LocalizedStringUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalizedStringUtilities.m; sourceTree = "<group>"; };
 		CD944141204F7D98005BCC03 /* RecordStartButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordStartButton.h; sourceTree = "<group>"; };
 		CD944142204F7D98005BCC03 /* RecordStartButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordStartButton.m; sourceTree = "<group>"; };
 		CD944148204F8E7B005BCC03 /* ReminderEditVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReminderEditVC.h; sourceTree = "<group>"; };
@@ -148,9 +156,9 @@
 		CDA527AE1FECD20E009C39EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA527AF1FECD20E009C39EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDA527B61FECE6F1009C39EC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		CDA71CF5205112BD00020F8F /* GuideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideView.h; sourceTree = "<group>"; };
-		CDA71CF6205112BD00020F8F /* GuideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideView.m; sourceTree = "<group>"; };
-		CDA71CF8205112D300020F8F /* GuideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideView.xib; sourceTree = "<group>"; };
+		CDA71CF5205112BD00020F8F /* TimelineGuideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineGuideView.h; sourceTree = "<group>"; };
+		CDA71CF6205112BD00020F8F /* TimelineGuideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineGuideView.m; sourceTree = "<group>"; };
+		CDA71CF8205112D300020F8F /* TimelineGuideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineGuideView.xib; sourceTree = "<group>"; };
 		CDA71CFA20511EAB00020F8F /* BaseAnimationThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseAnimationThread.h; sourceTree = "<group>"; };
 		CDA71CFB20511EAB00020F8F /* BaseAnimationThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseAnimationThread.m; sourceTree = "<group>"; };
 		CDA71CFE205121AC00020F8F /* HeartRateDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateDetailVC.h; sourceTree = "<group>"; };
@@ -240,6 +248,8 @@
 			children = (
 				CD884546204E7AA0001F7AF1 /* BaseUtilities.h */,
 				CD884547204E7AA0001F7AF1 /* BaseUtilities.m */,
+				CD91B7DD20526C0400A87676 /* LocalizedStringUtilities.h */,
+				CD91B7DE20526C0400A87676 /* LocalizedStringUtilities.m */,
 				CDA71CFA20511EAB00020F8F /* BaseAnimationThread.h */,
 				CDA71CFB20511EAB00020F8F /* BaseAnimationThread.m */,
 				CD43DA13204D5D210005C077 /* UIFontHelper+HMFont.h */,
@@ -458,9 +468,12 @@
 		CDA71CF4205112AA00020F8F /* Guide */ = {
 			isa = PBXGroup;
 			children = (
-				CDA71CF5205112BD00020F8F /* GuideView.h */,
-				CDA71CF6205112BD00020F8F /* GuideView.m */,
-				CDA71CF8205112D300020F8F /* GuideView.xib */,
+				CDA71CF5205112BD00020F8F /* TimelineGuideView.h */,
+				CDA71CF6205112BD00020F8F /* TimelineGuideView.m */,
+				CDA71CF8205112D300020F8F /* TimelineGuideView.xib */,
+				CD91B7D82052663800A87676 /* ReminderGuideView.h */,
+				CD91B7D92052663800A87676 /* ReminderGuideView.m */,
+				CD91B7DB2052664000A87676 /* ReminderGuideView.xib */,
 			);
 			path = Guide;
 			sourceTree = "<group>";
@@ -649,12 +662,13 @@
 				CD94414C204F8E7B005BCC03 /* ReminderEditVC.xib in Resources */,
 				CD964CB1204AFC1B00A9ECBC /* BaseTabBarController.json in Resources */,
 				CDA527AD1FECD20E009C39EC /* LaunchScreen.storyboard in Resources */,
+				CD91B7DC2052664000A87676 /* ReminderGuideView.xib in Resources */,
 				CDCC7291204D075B00553F25 /* HeartRateTableViewCell.xib in Resources */,
 				CDA71D232051430E00020F8F /* EditTextVC.xib in Resources */,
 				CDE362DD204EDA5800BD0865 /* ReminderTVC.xib in Resources */,
 				CDA527AA1FECD20E009C39EC /* Assets.xcassets in Resources */,
 				CDA527A81FECD20E009C39EC /* Main.storyboard in Resources */,
-				CDA71CF9205112D300020F8F /* GuideView.xib in Resources */,
+				CDA71CF9205112D300020F8F /* TimelineGuideView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,10 +760,12 @@
 				CD964CC9204AFDC200A9ECBC /* CalendarVC.m in Sources */,
 				CDF4E73B204E5E0A00DDD285 /* MeTV.m in Sources */,
 				CD884536204E684A001F7AF1 /* BaseAlertController.m in Sources */,
+				CD91B7DF20526C0400A87676 /* LocalizedStringUtilities.m in Sources */,
 				CD88454B204E8D7F001F7AF1 /* HMTableFootnoteView.m in Sources */,
 				CD944164204FEBA8005BCC03 /* HeartRateTableView.m in Sources */,
-				CDA71CF7205112BD00020F8F /* GuideView.m in Sources */,
+				CDA71CF7205112BD00020F8F /* TimelineGuideView.m in Sources */,
 				CDA71D26205149EF00020F8F /* AddNewCell.m in Sources */,
+				CD91B7DA2052663800A87676 /* ReminderGuideView.m in Sources */,
 				CD944152204F9816005BCC03 /* BaseTextField.m in Sources */,
 				CD964CCF204AFDDF00A9ECBC /* MeVC.m in Sources */,
 				CDCC7294204D0C4500553F25 /* HMTagButton.m in Sources */,

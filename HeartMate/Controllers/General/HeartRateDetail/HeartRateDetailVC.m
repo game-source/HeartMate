@@ -116,7 +116,7 @@
 }
 
 - (NSString *)chartView:(AXChartView *)chartView summaryText:(UILabel *)label{
-    chartView.title = [BaseUtilities descriptionForTime:self.model.time];
+    chartView.title = [LocalizedStringUtilities stringForTime:self.model.time];
 //    return [NSString stringWithFormat:@"%d bpm", (int)self.model.heartRate];
     return @"";
 }

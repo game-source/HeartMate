@@ -10,13 +10,15 @@
 #import "HMReminder.h"
 #import "ReminderEditVC.h"
 #import "ReminderTVC.h"
-
+#import "ReminderGuideView.h"
 
 @interface ReminderVC () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray<HMReminder *> *results;
+
+@property (strong, nonatomic) ReminderGuideView *reminderGuideView;
 
 @end
 
@@ -25,6 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    ReminderGuideView *view = UIViewFromNibNamed(@"ReminderGuideView");
+    view.frame = self.view.bounds;
+    [self.view addSubview:view];
+    self.reminderGuideView = view;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,6 +72,22 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self reloadData];
+    
+    if (!self.results.count) {
+        self.reminderGuideView.hidden = NO;
+        [self.reminderGuideView startAnimation];
+        if (@available(iOS 11.0, *)) {
+            // on newer versions
+            self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
+        }
+    } else {
+        self.reminderGuideView.hidden = YES;
+        if (@available(iOS 11.0, *)) {
+            // on newer versions
+            self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
+        }
+    }
+    
 }
 
 #pragma mark - func

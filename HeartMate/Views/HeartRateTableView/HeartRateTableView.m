@@ -128,7 +128,7 @@ static CGFloat cellHeight = 107;
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
 //    if (self.showSectionHeader) {
 //        HMHeartRate *hr = self.results[section][0];
-//        return [BaseUtilities descriptionForDate:hr.time];
+//        return [BaseUtilities stringForDate:hr.time];
 //    } else {
 //        return nil;
 //    }
@@ -144,7 +144,7 @@ static CGFloat cellHeight = 107;
     }
     if (self.showSectionHeader) {
         HMHeartRate *hr = self.results[section].firstObject;
-        header.title = [BaseUtilities descriptionForDate:hr.time];
+        header.title = [LocalizedStringUtilities stringForDate:hr.time];
     } else {
         header.title = @"";
     }

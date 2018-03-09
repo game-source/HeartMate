@@ -62,7 +62,7 @@ static HMUser *user;
         [section addRow:^(AXTableRowModel *row) {
             row.title = NSLocalizedString(@"App Version", @"");
             row.cmd = @"about.version";
-            row.detail = [BaseUtilities descriptionForAppVersion];
+            row.detail = [LocalizedStringUtilities stringForAppVersion];
         }];
         [section addRow:^(AXTableRowModel *row) {
             row.title = NSLocalizedString(@"Developer", @"");

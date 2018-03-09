@@ -9,14 +9,14 @@
 #import "TimelineVC.h"
 #import "HMHeartRate.h"
 #import "HeartRateTableView.h"
-#import "GuideView.h"
+#import "TimelineGuideView.h"
 
 static NSDate *today;
 
 @interface TimelineVC ()
 
 @property (strong, nonatomic) HeartRateTableView *tableView;
-@property (strong, nonatomic) GuideView *guideView;
+@property (strong, nonatomic) TimelineGuideView *timelineGuideView;
 @end
 
 @implementation TimelineVC
@@ -24,13 +24,10 @@ static NSDate *today;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    GuideView *view = UIViewFromNibNamed(@"GuideView");
+    TimelineGuideView *view = UIViewFromNibNamed(@"TimelineGuideView");
     view.frame = self.view.bounds;
     [self.view addSubview:view];
-    self.guideView = view;
-    
-    
+    self.timelineGuideView = view;
     
 }
 
@@ -69,15 +66,15 @@ static NSDate *today;
         welcomeTitle = NSLocalizedString(@"Welcome", @"欢迎");
     }
     if (!self.tableView.results.count) {
-        self.guideView.hidden = NO;
-        [BaseAnimationThread resumeAnimation];
+        self.timelineGuideView.hidden = NO;
+        [self.timelineGuideView startAnimation];
         self.navigationItem.title = welcomeTitle;
         if (@available(iOS 11.0, *)) {
             // on newer versions
             self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAlways;
         }
     } else {
-        self.guideView.hidden = YES;
+        self.timelineGuideView.hidden = YES;
         if ([self.navigationItem.title isEqualToString:welcomeTitle]) {
             self.navigationItem.title = NSLocalizedString(@"Timeline", @"时间线");
         }
@@ -96,7 +93,7 @@ static NSDate *today;
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [super touchesBegan:touches withEvent:event];
-//    [self.guideView stopAnimation];
+//    [self.timelineGuideView stopAnimation];
 }
 
 

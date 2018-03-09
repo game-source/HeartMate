@@ -161,8 +161,8 @@ static BOOL prepared = NO;
             avgHR.time = [NSDate date];
             [avgHR.detail addObjects:detail];
             avgHR.heartRate = heartRate;
-            [avgHR.tags addObject:[BaseUtilities descriptionForCurrentWeekday]];
-            [avgHR.tags addObject:[BaseUtilities descriptionForCurrentTimeInDay]];
+            [avgHR.tags addObject:[LocalizedStringUtilities stringForCurrentWeekday]];
+            [avgHR.tags addObject:[LocalizedStringUtilities stringForCurrentTimeInDay]];
             RLMRealm *realm = [RLMRealm defaultRealm];
             [realm transactionWithBlock:^{
                 [realm addObject:avgHR];

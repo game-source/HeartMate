@@ -1,29 +1,32 @@
 //
-//  GuideView.m
+//  ReminderGuideView.m
 //  HeartMate
 //
-//  Created by xaoxuu on 08/03/2018.
+//  Created by xaoxuu on 09/03/2018.
 //  Copyright © 2018 xaoxuu. All rights reserved.
 //
 
-#import "GuideView.h"
+#import "ReminderGuideView.h"
 
 
-@interface GuideView ()
+@interface ReminderGuideView ()
 @property (weak, nonatomic) IBOutlet UILabel *lb_tip;
 @property (weak, nonatomic) IBOutlet UIImageView *icon_arrow1;
 @property (weak, nonatomic) IBOutlet UIImageView *icon_arrow2;
+@property (weak, nonatomic) IBOutlet UIView *iconView;
 
 @end
 
 
-@implementation GuideView
+@implementation ReminderGuideView
+
 
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+    self.iconView.transform = CGAffineTransformMakeRotation(5*M_PI_4);
     self.tintColor = axThemeManager.color.theme;
-    self.lb_tip.text = NSLocalizedString(@"Touch the Record button to start measuring heart rate.", @"轻触“Record”按钮开始测量心率。");
+    self.lb_tip.text = [LocalizedStringUtilities stringForGuideWithButtonDescription:NSLocalizedString(@"Plus", @"“+”") actionDescription:NSLocalizedString(@"add a reminder", @"添加一个提醒")];
     [self startAnimation];
 }
 

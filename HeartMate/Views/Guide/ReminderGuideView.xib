@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ChalkboardSE.ttc">
+            <string>ChalkboardSE-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ReminderGuideView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch the Record button to start measuring heart rate." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k7-Li-kkC">
+                    <rect key="frame" x="16" y="72" width="343" height="68"/>
+                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWp-bc-i0W">
+                    <rect key="frame" x="279" y="16" width="24" height="36"/>
+                    <subviews>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="icon_down" translatesAutoresizingMaskIntoConstraints="NO" id="6PW-C4-T4d">
+                            <rect key="frame" x="0.0" y="12" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="pfU-qD-roY"/>
+                            </constraints>
+                        </imageView>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="icon_down" translatesAutoresizingMaskIntoConstraints="NO" id="AGz-s3-sDH">
+                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="9c0-qE-al7"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="3as-5K-6Ty"/>
+                        <constraint firstAttribute="trailing" secondItem="AGz-s3-sDH" secondAttribute="trailing" id="5FT-7B-neF"/>
+                        <constraint firstItem="6PW-C4-T4d" firstAttribute="leading" secondItem="cWp-bc-i0W" secondAttribute="leading" id="Cnr-oF-aF0"/>
+                        <constraint firstItem="6PW-C4-T4d" firstAttribute="top" secondItem="AGz-s3-sDH" secondAttribute="bottom" constant="-12" id="Hmf-A9-Y03"/>
+                        <constraint firstAttribute="trailing" secondItem="6PW-C4-T4d" secondAttribute="trailing" id="Mak-g8-lMa"/>
+                        <constraint firstItem="AGz-s3-sDH" firstAttribute="top" secondItem="cWp-bc-i0W" secondAttribute="top" id="Qn9-0b-2pH"/>
+                        <constraint firstItem="AGz-s3-sDH" firstAttribute="leading" secondItem="cWp-bc-i0W" secondAttribute="leading" id="UFb-GU-8L5"/>
+                        <constraint firstAttribute="height" constant="36" id="Z2L-hP-qxb"/>
+                        <constraint firstAttribute="bottom" secondItem="6PW-C4-T4d" secondAttribute="bottom" id="vJJ-El-un5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="cWp-bc-i0W" secondAttribute="trailing" constant="72" id="H3N-yj-aeV"/>
+                <constraint firstAttribute="trailing" secondItem="1k7-Li-kkC" secondAttribute="trailing" constant="16" id="OXl-jf-6nH"/>
+                <constraint firstItem="1k7-Li-kkC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="QNE-kx-aDU"/>
+                <constraint firstItem="cWp-bc-i0W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="tlp-md-ftf"/>
+                <constraint firstItem="1k7-Li-kkC" firstAttribute="top" secondItem="cWp-bc-i0W" secondAttribute="bottom" constant="20" id="uUz-MC-zFc"/>
+            </constraints>
+            <connections>
+                <outlet property="iconView" destination="cWp-bc-i0W" id="yOz-fu-YYN"/>
+                <outlet property="icon_arrow1" destination="6PW-C4-T4d" id="xEb-Cb-fsK"/>
+                <outlet property="icon_arrow2" destination="AGz-s3-sDH" id="Yy0-Lf-sVK"/>
+                <outlet property="lb_tip" destination="1k7-Li-kkC" id="bcV-06-YnS"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_down" width="24" height="24"/>
+    </resources>
+</document>

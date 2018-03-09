@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LocalizedStringUtilities.h"
 
 @interface BaseUtilities : NSObject
 
@@ -27,20 +28,6 @@
 + (BOOL)validatedPhoneNumber:(NSString *)phoneNumber;
 
 /**
- 日期描述（今天、昨天、2018-03-07 星期三）
- 
- @param date 日期
- @return 描述
- */
-+ (NSString *)descriptionForDate:(NSDate *)date;
-+ (NSString *)descriptionForTime:(NSDate *)time;
-+ (NSString *)descriptionForAppVersion;
-
-
-+ (NSString *)descriptionForCurrentWeekday;
-+ (NSString *)descriptionForCurrentTimeInDay;
-
-/**
  体脂率
 
  @param height 身高（米）
@@ -54,3 +41,4 @@
 + (NSURL *)developerURL;
 
 @end
+
