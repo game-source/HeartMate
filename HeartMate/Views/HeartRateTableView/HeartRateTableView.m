@@ -9,6 +9,8 @@
 #import "HeartRateTableView.h"
 #import "HeartRateTableViewCell.h"
 #import "HeartRateDetailVC.h"
+#import "NormalTableHeader.h"
+
 
 @interface HeartRateTableView() <UITableViewDataSource, UITableViewDelegate>
 
@@ -24,10 +26,10 @@
         self.dataSource = self;
         self.delegate = self;
         self.estimatedRowHeight = 107;
+        self.tableHeaderView = UIViewWithHeight(20);
         self.backgroundColor = [UIColor clearColor];
         self.separatorColor = axThemeManager.color.background;
         self.showSectionHeader = YES;
-        
     }
     return self;
 }
@@ -91,21 +93,35 @@
     return cell;
 }
 
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if (self.showSectionHeader) {
-        HMHeartRate *hr = self.results[section][0];
-        return [BaseUtilities descriptionForDate:hr.time];
-    } else {
-        return nil;
-    }
-}
-
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 107;
 }
 
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    if (self.showSectionHeader) {
+//        HMHeartRate *hr = self.results[section][0];
+//        return [BaseUtilities descriptionForDate:hr.time];
+//    } else {
+//        return nil;
+//    }
+//}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return NormalTableHeader.headerHeight * self.showSectionHeader;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    NormalTableHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(NormalTableHeader.class)];
+    if (!header) {
+        header = [[NormalTableHeader alloc] initWithReuseIdentifier:NSStringFromClass(NormalTableHeader.class)];
+    }
+    if (self.showSectionHeader) {
+        HMHeartRate *hr = self.results[section].firstObject;
+        header.title = [BaseUtilities descriptionForDate:hr.time];
+    } else {
+        header.title = @"";
+    }
+    return header;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

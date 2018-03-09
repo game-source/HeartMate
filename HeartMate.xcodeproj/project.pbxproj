@@ -55,6 +55,7 @@
 		CDA71D222051430E00020F8F /* EditTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D202051430E00020F8F /* EditTextVC.m */; };
 		CDA71D232051430E00020F8F /* EditTextVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA71D212051430E00020F8F /* EditTextVC.xib */; };
 		CDA71D26205149EF00020F8F /* AddNewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D25205149EF00020F8F /* AddNewCell.m */; };
+		CDA71D2D2052299A00020F8F /* NormalTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA71D2C2052299A00020F8F /* NormalTableHeader.m */; };
 		CDCC7275204C31D800553F25 /* BaseDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC7274204C31D800553F25 /* BaseDefines.m */; };
 		CDCC7290204D075B00553F25 /* HeartRateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC728E204D075B00553F25 /* HeartRateTableViewCell.m */; };
 		CDCC7291204D075B00553F25 /* HeartRateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCC728F204D075B00553F25 /* HeartRateTableViewCell.xib */; };
@@ -167,6 +168,8 @@
 		CDA71D212051430E00020F8F /* EditTextVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTextVC.xib; sourceTree = "<group>"; };
 		CDA71D24205149EF00020F8F /* AddNewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewCell.h; sourceTree = "<group>"; };
 		CDA71D25205149EF00020F8F /* AddNewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddNewCell.m; sourceTree = "<group>"; };
+		CDA71D2B2052299A00020F8F /* NormalTableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalTableHeader.h; sourceTree = "<group>"; };
+		CDA71D2C2052299A00020F8F /* NormalTableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NormalTableHeader.m; sourceTree = "<group>"; };
 		CDCC7273204C31D800553F25 /* BaseDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseDefines.h; sourceTree = "<group>"; };
 		CDCC7274204C31D800553F25 /* BaseDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseDefines.m; sourceTree = "<group>"; };
 		CDCC728D204D075B00553F25 /* HeartRateTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateTableViewCell.h; sourceTree = "<group>"; };
@@ -211,7 +214,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		CD0CD70F2050315C006CBB4C /* HeartRate */ = {
+		CD0CD70F2050315C006CBB4C /* HeartRateTableView */ = {
 			isa = PBXGroup;
 			children = (
 				CD944162204FEBA8005BCC03 /* HeartRateTableView.h */,
@@ -220,7 +223,7 @@
 				CDCC728E204D075B00553F25 /* HeartRateTableViewCell.m */,
 				CDCC728F204D075B00553F25 /* HeartRateTableViewCell.xib */,
 			);
-			path = HeartRate;
+			path = HeartRateTableView;
 			sourceTree = "<group>";
 		};
 		CD0CD710205035BE006CBB4C /* Defines */ = {
@@ -521,6 +524,15 @@
 			path = EditUserInfo;
 			sourceTree = "<group>";
 		};
+		CDA71D2A2052297400020F8F /* NormalTableHeader */ = {
+			isa = PBXGroup;
+			children = (
+				CDA71D2B2052299A00020F8F /* NormalTableHeader.h */,
+				CDA71D2C2052299A00020F8F /* NormalTableHeader.m */,
+			);
+			path = NormalTableHeader;
+			sourceTree = "<group>";
+		};
 		CDCC728B204D066800553F25 /* RLMDataModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,9 +551,10 @@
 		CDCC728C204D069300553F25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CDA71D2A2052297400020F8F /* NormalTableHeader */,
 				CDA71D03205126FF00020F8F /* AXChartView */,
 				CDA71CF4205112AA00020F8F /* Guide */,
-				CD0CD70F2050315C006CBB4C /* HeartRate */,
+				CD0CD70F2050315C006CBB4C /* HeartRateTableView */,
 				CD0CD71320503628006CBB4C /* Controls */,
 				CDA71D27205149F300020F8F /* AddNew */,
 			);
@@ -767,6 +780,7 @@
 				CDA527A21FECD20E009C39EC /* AppDelegate.m in Sources */,
 				CDA71D1B20513A4400020F8F /* HeartRateDetailPreviewCell.m in Sources */,
 				CD964CAC204AD88900A9ECBC /* HKRecord.m in Sources */,
+				CDA71D2D2052299A00020F8F /* NormalTableHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

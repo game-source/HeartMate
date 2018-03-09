@@ -14,6 +14,7 @@
 #import "HMUser.h"
 #import "EditTextVC.h"
 #import "AddNewCell.h"
+#import "NormalTableHeader.h"
 
 static NSString *chartReuseIdentifier = @"HeartRateDetailChartCell";
 static NSString *previewReuseIdentifier = @"HeartRateDetailPreviewCell";
@@ -30,6 +31,13 @@ static NSString *originalTitle;
 @implementation HeartRateDetailTV
 
 
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
+    if (self = [super initWithFrame:frame style:style]) {
+        self.sectionHeaderHeight = [NormalTableHeader headerHeight];
+    }
+    return self;
+}
+
 - (HeartRateDetailVC *)vc{
     return (HeartRateDetailVC<AXChartViewDataSource, AXChartViewDelegate> *)self.controller;
 }
@@ -40,26 +48,21 @@ static NSString *originalTitle;
     }
     AXTableModel *model = [[AXTableModel alloc] init];
     [model addSection:^(AXTableSectionModel *section) {
+        section.headerHeight = 12;
+        section.footerHeight = 4;
         [section addRow:^(AXTableRowModel *row) {
             row.cmd = @"hr.preview";
+            row.rowHeight = 68;
         }];
     }];
     [model addSection:^(AXTableSectionModel *section) {
-        section.headerHeight = 8;
+        section.headerHeight = 4;
+        section.footerHeight = 8;
         [section addRow:^(AXTableRowModel *row) {
             row.cmd = @"chart.hr";
+            row.rowHeight = 200;
         }];
     }];
-    //    [model addSection:^(AXTableSectionModel *section) {
-    //        [section addRow:^(AXTableRowModel *row) {
-    //            row.title = @"my age";
-    //            row.cmd = @"user.age";
-    //        }];
-    //        [section addRow:^(AXTableRowModel *row) {
-    //            row.title = @"my BMI";
-    //            row.cmd = @"user.bmi";
-    //        }];
-    //    }];
     
     [model addSection:^(AXTableSectionModel *section) {
         section.headerTitle = @"Tags";
@@ -67,10 +70,12 @@ static NSString *originalTitle;
             [section addRow:^(AXTableRowModel *row) {
                 row.title = self.model.tags[i];
                 row.cmd = @"tags";
+                row.rowHeight = kTableViewCellHeight;
             }];
         }
         [section addRow:^(AXTableRowModel *row) {
             row.cmd = @"add.tags";
+            row.rowHeight = kTableViewCellHeight;
         }];
     }];
     
@@ -150,32 +155,42 @@ static NSString *originalTitle;
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        return 68;
-    } else if (indexPath.section == 1) {
-        return 200;
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (indexPath.section == 0) {
+//        return 68;
+//    } else if (indexPath.section == 1) {
+//        return 200;
+//    } else {
+//        return kTableViewCellHeight;
+//    }
+//}
+//
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    AXTableSectionModel *model = (AXTableSectionModel *)[self modelForSection:section];
+    return model.headerHeight;
+}
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return nil;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    AXTableSectionModel *model = (AXTableSectionModel *)[self modelForSection:section];
+    if (model.headerTitle.length) {
+        NormalTableHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(NormalTableHeader.class)];
+        if (!header) {
+            header = [[NormalTableHeader alloc] initWithReuseIdentifier:NSStringFromClass(NormalTableHeader.class)];
+        }
+        header.title = model.headerTitle;
+        return header;
     } else {
-        return kTableViewCellHeight;
+        return nil;
     }
+    
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return 8;
-    } else if (section == 1) {
-        return 4;
-    } else {
-        return -1;
-    }
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if (section == 0) {
-        return 4;
-    } else {
-        return -1;
-    }
+    AXTableSectionModel *model = (AXTableSectionModel *)[self modelForSection:section];
+    return model.footerHeight;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{

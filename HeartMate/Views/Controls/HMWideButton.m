@@ -25,7 +25,8 @@
 
 - (void)_init{
     [self.layer ax_cornerRadius:8 shadow:LayerShadowNone];
-    self.tintColor = axThemeManager.color.background;
+//    self.tintColor = axThemeManager.color.background;
+    self.tintColor = [UIColor whiteColor];
     self.backgroundColor = axThemeManager.color.theme;
     self.titleLabel.font = axThemeManager.font.customNormal;
 }
