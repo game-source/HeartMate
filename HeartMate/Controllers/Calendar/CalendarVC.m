@@ -12,6 +12,7 @@
 
 
 static CGFloat minHeightOfCalendar = 320;
+static CGFloat marginX = 4;
 
 @interface CalendarVC () <MDCalendarDelegate>
 
@@ -68,6 +69,7 @@ static CGFloat minHeightOfCalendar = 320;
     self.tableView.showSectionHeader = NO;
     [self.view addSubview:self.tableView];
     [self setupCalendar];
+    
     self.tableView.tableHeaderView = self.calendar;
     
 }
@@ -75,7 +77,7 @@ static CGFloat minHeightOfCalendar = 320;
 - (void)setupCalendar{
     self.selectedDate = [NSDate date];
     UIColor *tintColor = self.view.tintColor;
-    MDCalendar *calendar = [[MDCalendar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, minHeightOfCalendar)];
+    MDCalendar *calendar = [[MDCalendar alloc] initWithFrame:CGRectMake(marginX, 0, self.view.width - marginX*2, minHeightOfCalendar)];
     self.calendar = calendar;
     calendar.delegate = self;
     calendar.theme = MDCalendarThemeLight;

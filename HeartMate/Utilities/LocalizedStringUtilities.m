@@ -74,7 +74,7 @@
 }
 
 + (NSString *)stringForGuideWithButtonDescription:(NSString *)buttonDescription actionDescription:(NSString *)actionDescription{
-    return [NSString stringWithFormat:NSLocalizedString(@"Touch the %@ button to %@.", @"轻触“%@”按钮%@。"), buttonDescription.capitalizedString, actionDescription.lowercaseString];
+    return [NSString stringWithFormat:NSLocalizedString(@"Touch the \"%@\" button to %@.", @"轻触“%@”按钮%@。"), buttonDescription.capitalizedString, actionDescription.lowercaseString];
 }
 
 @end

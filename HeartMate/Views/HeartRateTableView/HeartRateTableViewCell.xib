@@ -26,13 +26,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4K-5g-4dF">
-                        <rect key="frame" x="20" y="11" width="46" height="57"/>
+                        <rect key="frame" x="16" y="11" width="46" height="57"/>
                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bpm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93Q-kO-WxH">
-                        <rect key="frame" x="70" y="35.5" width="36.5" height="28.5"/>
+                        <rect key="frame" x="66" y="35.5" width="36.5" height="28.5"/>
                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -44,7 +44,7 @@
                         </constraints>
                     </imageView>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aB-Kl-Np5">
-                        <rect key="frame" x="20" y="68" width="284" height="28"/>
+                        <rect key="frame" x="16" y="68" width="288" height="28"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xgx-zo-jYc">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="28"/>
@@ -72,7 +72,7 @@
                     <constraint firstItem="8aB-Kl-Np5" firstAttribute="trailing" secondItem="lXr-5L-pYN" secondAttribute="trailing" id="Peb-kc-SyB"/>
                     <constraint firstItem="lXr-5L-pYN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="UZf-pR-tlN"/>
                     <constraint firstItem="8aB-Kl-Np5" firstAttribute="top" secondItem="93Q-kO-WxH" secondAttribute="bottom" constant="4" id="ZMK-6z-OFy"/>
-                    <constraint firstItem="A4K-5g-4dF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="ee1-rD-DGf"/>
+                    <constraint firstItem="A4K-5g-4dF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ee1-rD-DGf"/>
                     <constraint firstItem="lXr-5L-pYN" firstAttribute="bottom" secondItem="A4K-5g-4dF" secondAttribute="bottom" id="lJs-Su-eSn"/>
                     <constraint firstItem="93Q-kO-WxH" firstAttribute="bottom" secondItem="A4K-5g-4dF" secondAttribute="bottom" constant="-4" id="o7L-0C-GyF"/>
                 </constraints>
